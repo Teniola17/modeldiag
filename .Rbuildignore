@@ -11,3 +11,4 @@
 ^appveyor\.yml$
 ^\.gitignore$
 ^\.git$
+^CRAN-SUBMISSION$
