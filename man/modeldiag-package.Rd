@@ -11,13 +11,13 @@ Provides a unified framework for diagnosing common issues in statistical models 
 \seealso{
 Useful links:
 \itemize{
-  \item \url{https://github.com/yourusername/modeldiag}
-  \item Report bugs at \url{https://github.com/yourusername/modeldiag/issues}
+  \item \url{https://github.com/Teniola17/modeldiag}
+  \item Report bugs at \url{https://github.com/Teniola17/modeldiag/issues}
 }
 
 }
 \author{
-\strong{Maintainer}: Your Name \email{your.email@example.com}
+\strong{Maintainer}: Emmanuel Adewuyi \email{emmanuel.adewuyi@lshtm.ac.uk}
 
 }
 \keyword{internal}
