@@ -1,0 +1,137 @@
+---
+title: "Introduction to modeldiag"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{Introduction to modeldiag}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+```{r, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>"
+)
+```
+
+```{r setup}
+library(modeldiag)
+```
+
+## Overview
+
+The `modeldiag` package provides a unified framework for diagnosing statistical models. It supports linear models, generalized linear models (logistic and Poisson regression), and Cox proportional hazards models.
+
+## Linear Models
+
+For linear models, the package tests for:
+
+- Multicollinearity (VIF)
+- Heteroscedasticity (Breusch-Pagan test)
+- Autocorrelation (Durbin-Watson test)
+- Normality of residuals (Shapiro-Wilk test)
+- Influential observations (Cook's distance)
+
+### Example
+
+```{r linear-example}
+# Fit a linear model
+model_lm <- lm(mpg ~ wt + hp + disp, data = mtcars)
+
+# Run diagnostics
+diag_lm <- diagnose_model(model_lm)
+
+# View summary
+summary(diag_lm)
+```
+
+## Logistic Regression
+
+For logistic regression models, the package tests for:
+
+- Multicollinearity (VIF)
+- Linearity of logit (Box-Tidwell test)
+- Goodness of fit (Hosmer-Lemeshow test)
+- Complete/quasi-complete separation
+- Influential observations
+
+### Example
+
+```{r logistic-example}
+# Fit a logistic regression model
+model_glm <- glm(am ~ wt + hp, data = mtcars, family = binomial)
+
+# Run diagnostics
+diag_glm <- diagnose_model(model_glm)
+
+# View summary
+summary(diag_glm)
+```
+
+## Poisson Regression
+
+For Poisson regression models, the package tests for:
+
+- Multicollinearity (VIF)
+- Overdispersion
+- Zero-inflation
+- Residual analysis
+- Influential observations
+
+### Example
+
+```{r poisson-example}
+# Fit a Poisson regression model
+model_pois <- glm(carb ~ wt + hp, data = mtcars, family = poisson)
+
+# Run diagnostics
+diag_pois <- diagnose_model(model_pois)
+
+# View summary
+summary(diag_pois)
+```
+
+## Survival Models
+
+For Cox proportional hazards models, the package tests for:
+
+- Multicollinearity (VIF with warnings)
+- Proportional hazards assumption (Schoenfeld residuals)
+- Influential observations (dfbetas)
+- Functional form
+
+### Example
+
+```{r survival-example}
+library(survival)
+data(lung)
+
+# Fit a Cox model
+model_cox <- coxph(Surv(time, status) ~ age + sex + ph.ecog, data = lung)
+
+# Run diagnostics
+diag_cox <- diagnose_model(model_cox)
+
+# View summary
+summary(diag_cox)
+```
+
+## Visualization
+
+The package provides comprehensive plotting capabilities:
+
+```{r plotting, fig.height=8, fig.width=8}
+# Plot diagnostics for linear model
+par(mfrow = c(2, 2))
+plot(diag_lm)
+```
+
+## Interpreting Results
+
+The `summary()` function provides detailed interpretations of each diagnostic test:
+
+- **PASS**: The assumption is satisfied
+- **WARNING**: Potential issues detected that warrant investigation
+- **FAIL**: Clear violation of assumptions requiring action
+
+Each test result includes specific guidance on interpretation and potential remedies.
