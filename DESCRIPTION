@@ -13,8 +13,8 @@ Description: Provides a unified framework for diagnosing common issues in
 License: MIT + file LICENSE
 Encoding: UTF-8
 LazyData: true
-URL: https://github.com/yourusername/modeldiag
-BugReports: https://github.com/yourusername/modeldiag/issues
+URL: https://github.com/Teniola17/modeldiag
+BugReports: https://github.com/Teniola17/modeldiag/issues
 Depends: 
     R (>= 3.5.0)
 Imports:
