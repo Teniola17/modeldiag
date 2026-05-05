@@ -1,0 +1,264 @@
+---
+title: "Introduction to modeldiag"
+output: rmarkdown::html_vignette
+vignette: >
+    %\VignetteIndexEntry{Introduction to modeldiag}
+    %\VignetteEngine{knitr::rmarkdown}
+    %\VignetteEncoding{UTF-8}
+---
+
+```{r, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>"
+)
+```
+
+```{r setup}
+library(modeldiag)
+```
+
+# Overview
+
+Statistical models rely on assumptions for valid inference. Violations of these assumptions can lead to biased estimates, incorrect standard errors, and misleading conclusions.
+
+The `modeldiag` package provides a unified framework for diagnosing these assumptions across multiple model classes, including:
+
+* Linear models
+* Logistic regression
+* Count models (Poisson)
+* Survival models (Cox proportional hazards)
+
+This vignette introduces both the **statistical intuition** behind common diagnostics and how to implement them using `modeldiag`.
+
+---
+
+# Linear Models
+
+Consider the classical linear regression model:
+
+
+$$Y = X\beta + \varepsilon, \quad \varepsilon \sim N(0, \sigma^2 I)$$
+
+
+Valid inference depends on several assumptions about the error term $\varepsilon$.
+
+## Multicollinearity
+
+Multicollinearity occurs when predictors are highly correlated. This inflates the variance of coefficient estimates.
+
+The Variance Inflation Factor (VIF) is defined as:
+
+
+$$\text{VIF}_j = \frac{1}{1 - R_j^2}$$
+
+where $R_j^2$ is obtained by regressing predictor $X_j$ on all other predictors.
+
+Large VIF values indicate unstable estimates.
+
+## Heteroscedasticity
+
+Heteroscedasticity occurs when:
+
+$$
+\text{Var}(\varepsilon_i) \neq \sigma^2
+$$
+
+The Breusch–Pagan test evaluates whether residual variance depends on predictors.
+
+## Autocorrelation
+
+Autocorrelation arises when:
+
+$$\text{Cov}(\varepsilon_i, \varepsilon_j) \neq 0$$
+
+The Durbin–Watson statistic tests for first-order autocorrelation.
+
+## Normality of Errors
+
+Many inferential procedures assume:
+
+$$
+\varepsilon \sim N(0, \sigma^2)
+$$
+
+The Shapiro–Wilk test evaluates this assumption.
+
+## Influential Observations
+
+Influential points disproportionately affect model estimates. Cook’s distance measures this influence:
+
+$$
+D_i = \frac{( \hat{\beta} - \hat{\beta}*{(i)} )^T X^T X (\hat{\beta} - \hat{\beta}*{(i)})}{p \hat{\sigma}^2}
+$$
+
+---
+
+## Example
+
+```{r linear-example}
+model_lm <- lm(mpg ~ wt + hp + disp, data = mtcars)
+diag_lm <- diagnose_model(model_lm)
+summary(diag_lm)
+```
+
+---
+
+# Logistic Regression
+
+Logistic regression models the probability:
+
+$$
+\text{logit}(P(Y=1)) = X\beta
+$$
+
+## Key Diagnostics
+
+### Linearity of the Logit
+
+The model assumes a linear relationship between predictors and the log-odds:
+
+$$
+\log\left(\frac{p}{1-p}\right)
+$$
+
+The Box–Tidwell test evaluates this assumption.
+
+### Goodness of Fit
+
+The Hosmer–Lemeshow test compares observed and expected counts across groups.
+
+### Separation
+
+Complete or quasi-complete separation occurs when predictors perfectly classify outcomes, leading to unstable or infinite estimates.
+
+---
+
+## Example
+
+```{r logistic-example}
+model_glm <- glm(am ~ wt + hp, data = mtcars, family = binomial)
+diag_glm <- diagnose_model(model_glm)
+summary(diag_glm)
+```
+
+---
+
+# Poisson Regression
+
+Poisson regression assumes:
+
+$$
+Y \sim \text{Poisson}(\lambda), \quad \log(\lambda) = X\beta
+$$
+
+## Overdispersion
+
+A key assumption is:
+
+$$
+\text{Var}(Y) = \mathbb{E}(Y)
+$$
+
+Overdispersion occurs when:
+
+$$
+\text{Var}(Y) > \mathbb{E}(Y)
+$$
+
+This leads to underestimated standard errors.
+
+## Zero Inflation
+
+Excess zeros beyond what the Poisson model predicts may indicate a zero-inflated process.
+
+---
+
+## Example
+
+```{r poisson-example}
+model_pois <- glm(carb ~ wt + hp, data = mtcars, family = poisson)
+diag_pois <- diagnose_model(model_pois)
+summary(diag_pois)
+```
+
+---
+
+# Survival Models
+
+The Cox proportional hazards model assumes:
+
+$$
+h(t | X) = h_0(t) \exp(X\beta)
+$$
+
+## Proportional Hazards
+
+The key assumption is that hazard ratios are constant over time.
+
+Schoenfeld residuals are used to test:
+
+$$
+\frac{\partial \beta(t)}{\partial t} = 0
+$$
+
+---
+
+## Example
+
+```{r survival-example}
+library(survival)
+data(lung)
+
+model_cox <- coxph(Surv(time, status) ~ age + sex + ph.ecog, data = lung)
+diag_cox <- diagnose_model(model_cox)
+summary(diag_cox)
+```
+
+---
+
+# Visualization
+
+Diagnostic plots help identify violations visually.
+
+```{r plotting, fig.height=6, fig.width=6}
+par(mfrow = c(2, 2))
+plot(diag_lm)
+```
+
+---
+
+# Interpreting Results
+
+The `summary()` output categorizes diagnostics as:
+
+* **PASS**: Assumption appears satisfied
+* **WARNING**: Potential issue detected
+* **FAIL**: Clear violation of assumptions
+
+These diagnostics should guide model refinement, transformation, or alternative model selection.
+
+---
+
+# Conclusion
+
+The `modeldiag` package provides a unified and extensible framework for model diagnostics, combining statistical rigor with practical usability.
+
+By integrating multiple diagnostic tools into a consistent interface, it simplifies the process of validating model assumptions across diverse modeling frameworks.
+
+
+# References
+
+Cook, R. D., & Weisberg, S. (1982). *Residuals and Influence in Regression*. Chapman & Hall.
+
+Breusch, T. S., & Pagan, A. R. (1979). *A Simple Test for Heteroscedasticity and Random Coefficient Variation*. Econometrica.
+
+Durbin, J., & Watson, G. S. (1950, 1951). *Testing for Serial Correlation in Least Squares Regression*. Biometrika.
+
+Shapiro, S. S., & Wilk, M. B. (1965). *An Analysis of Variance Test for Normality*. Biometrika.
+
+Hosmer, D. W., Lemeshow, S., & Sturdivant, R. X. (2013). *Applied Logistic Regression*. Wiley.
+
+Cox, D. R. (1972). *Regression Models and Life-Tables*. JRSS.
+
+Cameron, A. C., & Trivedi, P. K. (2013). *Regression Analysis of Count Data*. Cambridge University Press.
