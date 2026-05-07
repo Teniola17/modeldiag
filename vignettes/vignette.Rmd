@@ -222,8 +222,10 @@ summary(diag_cox)
 Diagnostic plots help identify violations visually.
 
 ```{r plotting, fig.height=6, fig.width=6}
+
 par(mfrow = c(2, 2))
 plot(diag_lm)
+
 ```
 
 ---

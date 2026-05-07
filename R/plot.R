@@ -9,23 +9,8 @@
 #' @export
 plot.model_diagnostics <- function(x, ...) {
   model <- x$model
-  # We need to pass the model or store it.
-
-  # Perhaps modify the structure to include the model.
-
-  # For now, assume the user has the model.
-
-  # But to make it work, perhaps plot.model_diagnostics takes model as argument.
-
-  # Wait, better: since diagnose_model returns the object, and plot(x) where x is diagnostics, but we need the model.
-
-  # So, perhaps store the model in the diagnostics object.
-
-  # Yes, let's modify the diagnose_model functions to include model = model
-
-  # Then, in plot, use x$model
-
-  # Yes.
+  old_par <- par(no.readonly = TRUE)
+  on.exit(par(old_par), add = TRUE)
 
   if (x$model_type == "lm") {
     if (inherits(model, "glm")) {
