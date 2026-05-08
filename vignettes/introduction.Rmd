@@ -1,6 +1,6 @@
 ---
 title: "Introduction to modeldiag"
-output: rmarkdown::html_vignette
+output: rmarkdown::htmal_vignette
 vignette: >
     %\VignetteIndexEntry{Introduction to modeldiag}
     %\VignetteEngine{knitr::rmarkdown}
@@ -228,18 +228,6 @@ par(mfrow = c(2, 2))
 plot(diag_lm)
 
 ```
-
----
-
-# Interpreting Results
-
-The `summary()` output categorizes diagnostics as:
-
-* **PASS**: Assumption appears satisfied
-* **WARNING**: Potential issue detected
-* **FAIL**: Clear violation of assumptions
-
-These diagnostics should guide model refinement, transformation, or alternative model selection.
 
 ---
 
