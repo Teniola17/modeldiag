@@ -228,7 +228,7 @@ detaching 'package:survival'
 
 > options(digits = 7L)
 > base::cat("Time elapsed: ", proc.time() - base::get("ptime", pos = 'CheckExEnv'),"\n")
-Time elapsed:  0.92 0.25 1.19 NA NA 
+Time elapsed:  1 0.17 1.22 NA NA 
 > grDevices::dev.off()
 null device 
           1 
