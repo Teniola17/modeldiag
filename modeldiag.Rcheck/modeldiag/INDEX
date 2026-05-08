@@ -1,0 +1,10 @@
+check_heteroskedasticity
+                        Check Heteroskedasticity
+check_vif               Check Variance Inflation Factors
+diagnose_model.glm      Diagnose Statistical Models
+plot.model_diagnostics
+                        Plot Model Diagnostics
+print.model_diagnostics
+                        Print Model Diagnostics
+summary.model_diagnostics
+                        Summarize Model Diagnostics
