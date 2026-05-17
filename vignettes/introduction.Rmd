@@ -1,6 +1,6 @@
 ---
 title: "Introduction to modeldiag"
-output: rmarkdown::htmal_vignette
+output: rmarkdown::html_vignette
 vignette: >
     %\VignetteIndexEntry{Introduction to modeldiag}
     %\VignetteEngine{knitr::rmarkdown}
@@ -222,7 +222,9 @@ summary(diag_cox)
 Diagnostic plots help identify violations visually.
 
 ```{r plotting, fig.height=6, fig.width=6}
+oldpar <- par(no.readonly = TRUE)
 plot(diag_lm)
+par(oldpar)
 ```
 
 ---
