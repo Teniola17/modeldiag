@@ -93,8 +93,8 @@ test_that("diagnose_model works for glm poisson", {
 
 test_that("diagnose_model works for coxph", {
   library(survival)
-  data(lung)
-
+  #data(lung, package = "survival")
+  lung <- survival::lung
   model <- coxph(Surv(time, status) ~ age + sex + ph.ecog, data = lung)
   diag <- diagnose_model(model)
 
