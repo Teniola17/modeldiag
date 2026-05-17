@@ -36,7 +36,7 @@ base::assign(".ptime", proc.time(), pos = "CheckExEnv")
 model_lm <- lm(mpg ~ wt + hp, data = mtcars)
 diag_lm <- diagnose_model(model_lm)
 summary(diag_lm)
-#plot(diag_lm)
+plot(diag_lm)
 
 # Logistic regression diagnostics
 model_glm <- glm(am ~ wt + hp, data = mtcars, family = binomial)
