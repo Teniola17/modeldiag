@@ -222,11 +222,7 @@ summary(diag_cox)
 Diagnostic plots help identify violations visually.
 
 ```{r plotting, fig.height=6, fig.width=6}
-old_par <- par(no.readonly = TRUE)
-on.exit(par(old_par), add = TRUE)
-par(mfrow = c(2, 2))
 plot(diag_lm)
-
 ```
 
 ---
