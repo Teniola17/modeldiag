@@ -46,8 +46,12 @@ check_vif <- function(model) {
 #' @param model A fitted lm object.
 #' @return An htest object or NA if computation fails.
 check_heteroskedasticity <- function(model) {
+  if (!inherits(model, "lm")) return(NA)
+
   tryCatch({
-    lmtest::bptest(model)
+    suppressWarnings(lmtest::bptest(model))
+  }, warning = function(e) {
+    NA
   }, error = function(e) {
     NA
   })
