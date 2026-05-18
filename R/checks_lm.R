@@ -95,7 +95,6 @@ check_outliers <- function(model, cutoff = 4 / length(residuals(model))) {
 }
 check_box_tidwell <- function(model) {
   tryCatch({
-    # Assuming car package for boxTidwell
     car::boxTidwell(model$formula, data = model$data)
   }, error = function(e) {
     NA
@@ -109,8 +108,7 @@ check_hosmer_lemeshow <- function(model) {
 
   tryCatch({
     n <- length(model$y)
-    g <- min(10, floor(n / 5))  # ensure enough observations per bin
-
+    g <- min(10, floor(n / 5)) 
     suppressWarnings(
       ResourceSelection::hoslem.test(model$y, fitted(model), g = g)
     )
@@ -148,13 +146,11 @@ check_separation <- function(model) {
   "No separation issues detected."
 }
 
-# Count data checks
 check_overdispersion <- function(model) {
   if (model$family$family != "poisson") {
     return(NA)
   }
   tryCatch({
-    # For Poisson, check if residual deviance / df > 1
     dev <- deviance(model)
     df <- df.residual(model)
     ratio <- dev / df
@@ -207,7 +203,7 @@ check_residual_analysis <- function(model) {
   })
 }
 
-# Survival model checks
+
 check_proportional_hazards <- function(model) {
   tryCatch({
     survival::cox.zph(model)
@@ -219,7 +215,6 @@ check_proportional_hazards <- function(model) {
 check_influential_coxph <- function(model) {
   tryCatch({
     dfb <- residuals(model, type = "dfbetas")
-    # Influential if any |dfbeta| > 0.2 for any coefficient
     influential <- which(apply(abs(dfb), 1, max) > 0.2)
     list(
       dfbetas = dfb,
@@ -231,13 +226,8 @@ check_influential_coxph <- function(model) {
 }
 
 check_functional_form_coxph <- function(model) {
-  # For functional form, we can check for nonlinearity in continuous predictors
-  # Using martingale residuals
   tryCatch({
     mart <- residuals(model, type = "martingale")
-    # For simplicity, assume linearity if no strong evidence otherwise
-    # In practice, this would require plotting or more tests
-    # Here, perhaps a placeholder or simple test
     "Functional form check: Review plots of martingale residuals vs predictors for nonlinearity."
   }, error = function(e) {
     NA
