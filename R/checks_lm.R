@@ -5,7 +5,6 @@
 #' @param model A fitted model object.
 #' @return A numeric vector of VIF values or NA if computation fails.
 check_vif <- function(model) {
-  # Skip Cox models (no intercept → VIF not meaningful)
   if (inherits(model, "coxph")) {
     return(list(
       success = FALSE,
