@@ -5,22 +5,34 @@
 #' @param model A fitted model object.
 #' @return A numeric vector of VIF values or NA if computation fails.
 check_vif <- function(model) {
+  # Skip Cox models (no intercept → VIF not meaningful)
+  if (inherits(model, "coxph")) {
+    return(list(
+      success = FALSE,
+      message = "VIF not applicable to Cox models (no intercept)."
+    ))
+  }
+
   tryCatch({
-    result <- car::vif(model)
+    result <- suppressWarnings(car::vif(model))
 
     list(
       success = TRUE,
       vif = result
     )
 
-  }, error = function(e) {
-
+  }, warning = function(w) {
     list(
       success = FALSE,
-      message = "VIF could not be computed (possible perfect multicollinearity)",
-      error = e$message
+      message = conditionMessage(w)
     )
 
+  }, error = function(e) {
+    list(
+      success = FALSE,
+      message = "VIF could not be computed",
+      error = e$message
+    )
   })
 }
 
