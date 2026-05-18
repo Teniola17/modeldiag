@@ -5,6 +5,7 @@
 #' @param model A fitted model object.
 #' @return A numeric vector of VIF values or NA if computation fails.
 check_vif <- function(model) {
+
   if (inherits(model, "coxph")) {
     return(list(
       success = FALSE,
@@ -54,8 +55,12 @@ check_heteroskedasticity <- function(model) {
 
 
 check_autocorrelation <- function(model) {
+  if (!inherits(model, "lm")) return(NA)
+
   tryCatch({
-    lmtest::dwtest(model)
+    suppressWarnings(lmtest::dwtest(model))
+  }, warning = function(e) {
+    NA
   }, error = function(e) {
     NA
   })
