@@ -103,9 +103,20 @@ check_box_tidwell <- function(model) {
 }
 
 check_hosmer_lemeshow <- function(model) {
+  if (!inherits(model, "glm") || model$family$family != "binomial") {
+    return(NA)
+  }
+
   tryCatch({
-    # Assuming ResourceSelection package
-    ResourceSelection::hoslem.test(model$y, fitted(model))
+    n <- length(model$y)
+    g <- min(10, floor(n / 5))  # ensure enough observations per bin
+
+    suppressWarnings(
+      ResourceSelection::hoslem.test(model$y, fitted(model), g = g)
+    )
+
+  }, warning = function(e) {
+    NA
   }, error = function(e) {
     NA
   })
