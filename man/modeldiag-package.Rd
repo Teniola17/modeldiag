@@ -19,5 +19,15 @@ Useful links:
 \author{
 \strong{Maintainer}: Emmanuel Adewuyi \email{emmanuel.adewuyi@lshtm.ac.uk}
 
+Authors:
+\itemize{
+  \item Adewale Lukman
+}
+
+Other contributors:
+\itemize{
+  \item Abiola Owolabi [contributor]
+}
+
 }
 \keyword{internal}
