@@ -133,11 +133,18 @@ check_influential_glm <- function(model) {
 }
 
 check_separation <- function(model) {
-  # Simple check for separation: if any coefficient is infinite
+  if (!inherits(model, "glm")) return(NA)
+
   coefs <- coef(model)
-  if (any(is.infinite(coefs))) {
-    return("Separation detected: some coefficients are infinite.")
+
+  if (any(is.infinite(coefs)) || any(is.na(coefs))) {
+    return("Separation detected: coefficients are infinite or NA.")
   }
+
+  if (!isTRUE(model$converged)) {
+    return("Model did not converge (possible separation).")
+  }
+
   "No separation issues detected."
 }
 
