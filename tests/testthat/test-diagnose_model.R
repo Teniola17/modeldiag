@@ -55,11 +55,11 @@
 # })
 
 # Helper to suppress plotting in tests
-suppress_plot <- function(expr) {
-  grDevices::pdf(NULL)
-  on.exit(grDevices::dev.off(), add = TRUE)
-  force(expr)
-}
+# suppress_plot <- function(expr) {
+#   grDevices::pdf(NULL)
+#   on.exit(grDevices::dev.off(), add = TRUE)
+#   force(expr)
+# }
 
 test_that("diagnose_model works for lm", {
   model <- lm(mpg ~ wt + hp, data = mtcars)
