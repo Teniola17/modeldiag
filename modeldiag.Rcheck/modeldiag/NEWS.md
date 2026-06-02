@@ -1,3 +1,19 @@
+# modeldiag 0.1.1
+
+* Improved multicollinearity reporting in `summary()` for linear model diagnostics.
+* Fixed `Authors@R` metadata so package builds derive `Author` and `Maintainer` correctly.
+
+# modeldiag 0.1.2
+
+* Added VIF severity levels and per-predictor reporting:
+  - Severity mapping: < 2 = Negligible; 2–5 = Moderate; 5–10 = High; >= 10 = Severe.
+  - `check_vif()` now returns `severities` and `collinear_predictors` (predictors with VIF >= 10).
+  - `summary()` prints per-predictor severities and a severity legend.
+  - Tests updated to cover severity labels and collinear predictor listing.
+* Added linearity diagnostics for linear models using `lmtest::resettest()`.
+  - `diagnose_model.lm()` now includes `linearity` in its test suite.
+  - The summary output interprets whether there is evidence against linearity.
+
 # modeldiag 0.1.0
 
 * Initial CRAN submission.

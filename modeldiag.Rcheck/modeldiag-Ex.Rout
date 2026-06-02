@@ -38,6 +38,724 @@ Type 'q()' to quit R.
 > base::assign(".oldSearch", base::search(), pos = 'CheckExEnv')
 > base::assign(".old_wd", base::getwd(), pos = 'CheckExEnv')
 > cleanEx()
+> nameEx("check_autocorrelation")
+> ### * check_autocorrelation
+> 
+> flush(stderr()); flush(stdout())
+> 
+> base::assign(".ptime", proc.time(), pos = "CheckExEnv")
+> ### Name: check_autocorrelation
+> ### Title: Check Autocorrelation
+> ### Aliases: check_autocorrelation
+> 
+> ### ** Examples
+> 
+> model <- lm(mpg ~ wt + hp, data = mtcars)
+> check_autocorrelation(model)
+
+	Durbin-Watson test
+
+data:  model
+DW = 1.3624, p-value = 0.02061
+alternative hypothesis: true autocorrelation is greater than 0
+
+> 
+> 
+> 
+> base::assign(".dptime", (proc.time() - get(".ptime", pos = "CheckExEnv")), pos = "CheckExEnv")
+> base::cat("check_autocorrelation", base::get(".format_ptime", pos = 'CheckExEnv')(get(".dptime", pos = "CheckExEnv")), "\n", file=base::get(".ExTimings", pos = 'CheckExEnv'), append=TRUE, sep="\t")
+> cleanEx()
+> nameEx("check_box_tidwell")
+> ### * check_box_tidwell
+> 
+> flush(stderr()); flush(stdout())
+> 
+> base::assign(".ptime", proc.time(), pos = "CheckExEnv")
+> ### Name: check_box_tidwell
+> ### Title: Check Logistic Linearity with Box-Tidwell Test
+> ### Aliases: check_box_tidwell
+> 
+> ### ** Examples
+> 
+> model <- glm(am ~ wt + hp, data = mtcars, family = binomial)
+> check_box_tidwell(model)
+   MLE of lambda Score Statistic (t) Pr(>|t|)  
+wt     -0.088743              2.2318  0.03412 *
+hp      3.205811              0.8980  0.37711  
+---
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+
+iterations =  13 
+
+Score test for null hypothesis that all lambdas = 1:
+F = 3.6654, df = 2 and 27, Pr(>F) = 0.03905
+
+> 
+> 
+> 
+> base::assign(".dptime", (proc.time() - get(".ptime", pos = "CheckExEnv")), pos = "CheckExEnv")
+> base::cat("check_box_tidwell", base::get(".format_ptime", pos = 'CheckExEnv')(get(".dptime", pos = "CheckExEnv")), "\n", file=base::get(".ExTimings", pos = 'CheckExEnv'), append=TRUE, sep="\t")
+> cleanEx()
+> nameEx("check_functional_form_coxph")
+> ### * check_functional_form_coxph
+> 
+> flush(stderr()); flush(stdout())
+> 
+> base::assign(".ptime", proc.time(), pos = "CheckExEnv")
+> ### Name: check_functional_form_coxph
+> ### Title: Check Cox Model Functional Form
+> ### Aliases: check_functional_form_coxph
+> 
+> ### ** Examples
+> 
+> if (requireNamespace("survival", quietly = TRUE)) {
++   model <- survival::coxph(
++     survival::Surv(time, status) ~ age + sex,
++     data = survival::lung
++   )
++   check_functional_form_coxph(model)
++ }
+[1] "Functional form check: Review plots of martingale residuals vs predictors for nonlinearity."
+> 
+> 
+> 
+> base::assign(".dptime", (proc.time() - get(".ptime", pos = "CheckExEnv")), pos = "CheckExEnv")
+> base::cat("check_functional_form_coxph", base::get(".format_ptime", pos = 'CheckExEnv')(get(".dptime", pos = "CheckExEnv")), "\n", file=base::get(".ExTimings", pos = 'CheckExEnv'), append=TRUE, sep="\t")
+> cleanEx()
+> nameEx("check_heteroskedasticity")
+> ### * check_heteroskedasticity
+> 
+> flush(stderr()); flush(stdout())
+> 
+> base::assign(".ptime", proc.time(), pos = "CheckExEnv")
+> ### Name: check_heteroskedasticity
+> ### Title: Check Heteroskedasticity
+> ### Aliases: check_heteroskedasticity
+> 
+> ### ** Examples
+> 
+> model <- lm(mpg ~ wt + hp, data = mtcars)
+> check_heteroskedasticity(model)
+
+	studentized Breusch-Pagan test
+
+data:  model
+BP = 0.88072, df = 2, p-value = 0.6438
+
+> 
+> 
+> 
+> base::assign(".dptime", (proc.time() - get(".ptime", pos = "CheckExEnv")), pos = "CheckExEnv")
+> base::cat("check_heteroskedasticity", base::get(".format_ptime", pos = 'CheckExEnv')(get(".dptime", pos = "CheckExEnv")), "\n", file=base::get(".ExTimings", pos = 'CheckExEnv'), append=TRUE, sep="\t")
+> cleanEx()
+> nameEx("check_hosmer_lemeshow")
+> ### * check_hosmer_lemeshow
+> 
+> flush(stderr()); flush(stdout())
+> 
+> base::assign(".ptime", proc.time(), pos = "CheckExEnv")
+> ### Name: check_hosmer_lemeshow
+> ### Title: Check Logistic Goodness of Fit
+> ### Aliases: check_hosmer_lemeshow
+> 
+> ### ** Examples
+> 
+> model <- glm(am ~ wt + hp, data = mtcars, family = binomial)
+> check_hosmer_lemeshow(model)
+
+	Hosmer and Lemeshow goodness of fit (GOF) test
+
+data:  model$y, fitted(model)
+X-squared = 2.3502, df = 4, p-value = 0.6717
+
+> 
+> 
+> 
+> base::assign(".dptime", (proc.time() - get(".ptime", pos = "CheckExEnv")), pos = "CheckExEnv")
+> base::cat("check_hosmer_lemeshow", base::get(".format_ptime", pos = 'CheckExEnv')(get(".dptime", pos = "CheckExEnv")), "\n", file=base::get(".ExTimings", pos = 'CheckExEnv'), append=TRUE, sep="\t")
+> cleanEx()
+> nameEx("check_influential_coxph")
+> ### * check_influential_coxph
+> 
+> flush(stderr()); flush(stdout())
+> 
+> base::assign(".ptime", proc.time(), pos = "CheckExEnv")
+> ### Name: check_influential_coxph
+> ### Title: Check Influential Observations in Cox Models
+> ### Aliases: check_influential_coxph
+> 
+> ### ** Examples
+> 
+> if (requireNamespace("survival", quietly = TRUE)) {
++   model <- survival::coxph(
++     survival::Surv(time, status) ~ age + sex,
++     data = survival::lung
++   )
++   check_influential_coxph(model)
++ }
+$dfbetas
+             [,1]          [,2]
+1   -0.0008754998 -0.0077651404
+2   -0.0151046439  0.0242742997
+3    0.2078949655  0.1732024564
+4   -0.0346412598 -0.0311084236
+5    0.0543934746  0.1475295779
+6   -0.4236479842  0.1964847244
+7    0.0221347686  0.0438486782
+8    0.0201398176  0.0301915723
+9   -0.0569125512 -0.0332052811
+10  -0.0168065299 -0.0372340687
+11  -0.0426464984 -0.0383575546
+12  -0.0070125230 -0.0529235238
+13  -0.0294205055 -0.0876930314
+14  -0.0287422461 -0.0451399252
+15   0.0458170903  0.0414576645
+16   0.0218757754 -0.0363075735
+17  -0.0613047200  0.0631424180
+18   0.0126231059  0.0882121998
+19  -0.0572434618  0.1083248487
+20  -0.0531826928 -0.0454885749
+21   0.0038924687 -0.0135035319
+22  -0.1172420880  0.1039767851
+23   0.0871639368  0.0352083758
+24   0.0026696385 -0.0003581999
+25  -0.0341488276  0.0188287655
+26   0.0025904567 -0.0124974490
+27   0.0305741704  0.0455735649
+28   0.0458901871 -0.0355215625
+29  -0.0048864127 -0.0004496996
+30   0.0881479491 -0.0397473631
+31   0.0053289360 -0.0058501011
+32   0.0787949966 -0.0402426019
+33   0.0490756318  0.0168873127
+34  -0.0213757787  0.1038869884
+35  -0.0231239762 -0.0465617666
+36  -0.0035420687  0.1014661306
+37  -0.0562483986  0.1446645338
+38  -0.0778348926 -0.2603686458
+39   0.0760309572 -0.0355622608
+40   0.0015236892 -0.0734401574
+41  -0.0335215415  0.0252644955
+42   0.0752520921  0.0963465566
+43  -0.0105606588  0.0260958646
+44  -0.0211574956  0.0966057379
+45  -0.0383891861  0.0565234522
+46   0.1072637889  0.1081041474
+47   0.0028861218 -0.0086328996
+48   0.0102082978  0.0254481581
+49  -0.1426620100  0.0772371950
+50   0.0617790072 -0.0218076075
+51  -0.0761360563 -0.1061119379
+52  -0.0026454020 -0.0327516363
+53   0.0369630485 -0.0428684349
+54  -0.0242226523 -0.0266166921
+55   0.0647327020  0.0722862282
+56  -0.0126082894 -0.0440404834
+57   0.0152878873  0.1218387907
+58  -0.0475680850 -0.0422570972
+59   0.0280197537 -0.0342195480
+60   0.0030892056  0.0413722679
+61   0.0046786671 -0.0024822675
+62  -0.0845715864 -0.0379162745
+63   0.0489690886 -0.0282634211
+64   0.0213172387  0.1121493509
+65   0.0317508182 -0.0325677722
+66   0.0361576264 -0.0407867839
+67   0.0247186298  0.0768667711
+68  -0.0353599893 -0.2265218052
+69  -0.0129704999  0.0154074299
+70   0.0089829924 -0.0237044079
+71   0.0019670364  0.1745609500
+72  -0.0856831888  0.0582510728
+73   0.0880847754 -0.0397517929
+74  -0.1827465355 -0.0522966979
+75  -0.0668689168  0.0741342904
+76   0.0117563168  0.0152674469
+77   0.0346899918 -0.0262419585
+78  -0.0275297573  0.0452928887
+79   0.1510647350 -0.0361730441
+80   0.0487517363 -0.0278160416
+81   0.0781106213  0.1364837700
+82  -0.0678228477 -0.0459975892
+83   0.0628545878  0.0192092591
+84  -0.1467882358  0.0896084110
+85   0.3921987054  0.1440528960
+86   0.0147445311 -0.0132969469
+87   0.0078758793 -0.0282218166
+88  -0.0185256480 -0.0383810018
+89   0.2060800446 -0.1246778172
+90   0.0484446744 -0.0307562833
+91   0.0216373033  0.0698383796
+92   0.0173446204 -0.0211843129
+93   0.0183009078 -0.0404895300
+94  -0.0368599648  0.0710465542
+95  -0.0733208814 -0.1429867706
+96   0.0702265896 -0.0407620199
+97   0.0284626773 -0.0298076395
+98   0.0026366945 -0.0097100865
+99   0.0039153477  0.0224372411
+100  0.0524440440  0.0915770885
+101  0.0416266024 -0.1043686938
+102  0.0091197846  0.0071053976
+103 -0.0002144263 -0.0042683852
+104 -0.0043449834 -0.0400599953
+105 -0.0277286166 -0.0366397189
+106  0.0145084738 -0.0344214171
+107  0.0674770333 -0.0892881962
+108  0.0247900563 -0.0433356937
+109  0.0090853326  0.0017870414
+110  0.0296280933  0.0288047744
+111  0.0441554016 -0.0423248386
+112 -0.1287962601 -0.0460274484
+113  0.0121562280 -0.0066241970
+114  0.0712343152  0.0751236145
+115 -0.0059296724  0.0144794322
+116  0.1055738446 -0.0387108442
+117 -0.0812020635 -0.0360590331
+118 -0.0220902173  0.0372133809
+119  0.0044364150 -0.0158667738
+120 -0.0624876384  0.0170349434
+121 -0.0628657297  0.0258872252
+122 -0.0209148429  0.0792022706
+123 -0.0075953776 -0.0171817410
+124  0.0701207813 -0.0407427681
+125 -0.0508454193  0.0558326324
+126  0.0079486774 -0.0259770909
+127 -0.1102796391 -0.0494295559
+128  0.0038703106 -0.0448267017
+129 -0.1711727266 -0.1533142065
+130  0.1050191649 -0.0800326572
+131 -0.0199492884  0.0580345731
+132 -0.0592058465 -0.0361227397
+133 -0.0363781034 -0.0177939016
+134  0.0562256417 -0.0840139674
+135  0.0064006974 -0.0191310064
+136 -0.1118366617 -0.1265911358
+137 -0.0159148002  0.0405422838
+138 -0.0007616745  0.0025732465
+139  0.0244845675  0.0085313245
+140 -0.0147029968 -0.0194709386
+141  0.0603792235  0.0758959683
+142 -0.1343185438  0.0706692732
+143  0.0331409584 -0.0175423604
+144  0.0210104986  0.1115434034
+145  0.0800080998  0.0746026619
+146  0.0465566919 -0.0553224510
+147 -0.0106924396  0.0046573417
+148 -0.0656695895 -0.0417699356
+149  0.1540563399 -0.0355514560
+150 -0.0184466524  0.0454481806
+151  0.0174858876 -0.0215642090
+152  0.0448033069  0.0718811551
+153  0.0037887626 -0.0570561145
+154 -0.0718797724  0.0843511434
+155 -0.0596694240 -0.0411105015
+156  0.0009023619 -0.0087256980
+157 -0.0338639937 -0.0817752271
+158 -0.0039905397 -0.0190594228
+159 -0.0037524162 -0.0336198801
+160  0.0377005381 -0.0652928187
+161  0.0050439724 -0.0743470177
+162 -0.1274910512  0.0723516881
+163 -0.0400484672  0.0415242380
+164 -0.0049335619 -0.0386742437
+165 -0.0017265776  0.0657403914
+166  0.0180692274 -0.0380182806
+167 -0.0195850070  0.0810408535
+168 -0.0554017868 -0.0288295369
+169 -0.0154350622 -0.0348840403
+170  0.0033265544 -0.0180212226
+171  0.0196371111  0.0407421528
+172 -0.0227381043  0.0462939524
+173 -0.0444951727 -0.0368918958
+174  0.0877513735 -0.0491446847
+175  0.0670122254  0.0389951378
+176  0.0151203494 -0.0484428754
+177 -0.0457361284 -0.0381564726
+178 -0.0550243777  0.0829329268
+179 -0.0774037004  0.0955363217
+180 -0.0490446149 -0.0575013477
+181  0.0256982049  0.0396621551
+182  0.1054331475  0.0296822205
+183  0.0095735842  0.0393008492
+184 -0.0083499398 -0.0482534636
+185  0.0401727103 -0.0400825826
+186  0.0640902578 -0.0407626992
+187  0.0430825977  0.0557402466
+188  0.0307088341  0.0312717419
+189  0.0029886091 -0.0389437240
+190 -0.0372148068 -0.0262726895
+191  0.0147785308 -0.0133100357
+192 -0.0946840146 -0.0487042017
+193 -0.1014422048 -0.0463880512
+194 -0.0011749737  0.0286557913
+195  0.0128367448 -0.0150137935
+196 -0.0358670054  0.0298369374
+197 -0.0006935948 -0.0418443066
+198 -0.0011450116  0.0351710877
+199  0.0331572785 -0.0364671133
+200 -0.0260696459 -0.0404507988
+201  0.0122766924  0.1090808574
+202  0.0783352171 -0.0402117402
+203 -0.0006935948 -0.0418443066
+204  0.0276916069 -0.0258747675
+205 -0.0006853915 -0.0404931644
+206 -0.0123964622 -0.0413747825
+207  0.0207581037 -0.0324451520
+208 -0.0853313363  0.0722277057
+209 -0.0310899565  0.0313906156
+210  0.0066960722 -0.0225382574
+211  0.0091757150 -0.0405552410
+212 -0.0171069308  0.0281933985
+213 -0.0228432841  0.0222138072
+214 -0.0010589968 -0.0114163055
+215  0.0084963758 -0.0443938471
+216 -0.0063899987  0.0283235419
+217  0.0363039606 -0.0191654419
+218  0.0518846353 -0.0242752926
+219 -0.0233159119 -0.0418493952
+220  0.0101534822 -0.0220336137
+221 -0.0147379976  0.0237885782
+222 -0.0256393297 -0.0406065859
+223  0.0850556896 -0.0321191505
+224 -0.0671666817  0.0237540471
+225  0.0667138241  0.0183357585
+226 -0.0150012447 -0.0166388944
+227 -0.0076796615  0.0176549749
+228  0.0088773525 -0.0234292606
+
+$influential_points
+ 3  6 38 68 85 89 
+ 3  6 38 68 85 89 
+
+> 
+> 
+> 
+> base::assign(".dptime", (proc.time() - get(".ptime", pos = "CheckExEnv")), pos = "CheckExEnv")
+> base::cat("check_influential_coxph", base::get(".format_ptime", pos = 'CheckExEnv')(get(".dptime", pos = "CheckExEnv")), "\n", file=base::get(".ExTimings", pos = 'CheckExEnv'), append=TRUE, sep="\t")
+> cleanEx()
+> nameEx("check_influential_glm")
+> ### * check_influential_glm
+> 
+> flush(stderr()); flush(stdout())
+> 
+> base::assign(".ptime", proc.time(), pos = "CheckExEnv")
+> ### Name: check_influential_glm
+> ### Title: Check Influential Observations in GLMs
+> ### Aliases: check_influential_glm
+> 
+> ### ** Examples
+> 
+> model <- glm(am ~ wt + hp, data = mtcars, family = binomial)
+> check_influential_glm(model)
+$cooks_distance
+          Mazda RX4       Mazda RX4 Wag          Datsun 710      Hornet 4 Drive 
+       1.725110e-02        2.034041e-01        1.054039e-03        1.686756e-03 
+  Hornet Sportabout             Valiant          Duster 360           Merc 240D 
+       3.512351e-03        4.413520e-05        9.441132e-02        1.553660e-04 
+           Merc 230            Merc 280           Merc 280C          Merc 450SE 
+       1.805692e-03        1.692468e-04        1.692468e-04        9.043823e-07 
+         Merc 450SL         Merc 450SLC  Cadillac Fleetwood Lincoln Continental 
+       1.047495e-04        5.277112e-05        1.234078e-13        1.734386e-14 
+  Chrysler Imperial            Fiat 128         Honda Civic      Toyota Corolla 
+       1.619112e-13        1.309867e-03        7.429752e-07        7.402953e-06 
+      Toyota Corona    Dodge Challenger         AMC Javelin          Camaro Z28 
+       7.917908e-01        2.834875e-04        8.715763e-04        1.812379e-03 
+   Pontiac Firebird           Fiat X1-9       Porsche 914-2        Lotus Europa 
+       1.563880e-05        2.899997e-05        9.799693e-05        2.790544e-09 
+     Ford Pantera L        Ferrari Dino       Maserati Bora          Volvo 142E 
+       5.218144e-03        2.458477e-03        8.109529e-02        1.007256e-01 
+
+$influential_points
+Mazda RX4 Wag Toyota Corona 
+            2            21 
+
+> 
+> 
+> 
+> base::assign(".dptime", (proc.time() - get(".ptime", pos = "CheckExEnv")), pos = "CheckExEnv")
+> base::cat("check_influential_glm", base::get(".format_ptime", pos = 'CheckExEnv')(get(".dptime", pos = "CheckExEnv")), "\n", file=base::get(".ExTimings", pos = 'CheckExEnv'), append=TRUE, sep="\t")
+> cleanEx()
+> nameEx("check_linearity")
+> ### * check_linearity
+> 
+> flush(stderr()); flush(stdout())
+> 
+> base::assign(".ptime", proc.time(), pos = "CheckExEnv")
+> ### Name: check_linearity
+> ### Title: Check Linearity
+> ### Aliases: check_linearity
+> 
+> ### ** Examples
+> 
+> model <- lm(mpg ~ wt + hp, data = mtcars)
+> check_linearity(model)
+
+	RESET test
+
+data:  model
+RESET = 14.416, df1 = 1, df2 = 28, p-value = 0.0007226
+
+> 
+> 
+> 
+> base::assign(".dptime", (proc.time() - get(".ptime", pos = "CheckExEnv")), pos = "CheckExEnv")
+> base::cat("check_linearity", base::get(".format_ptime", pos = 'CheckExEnv')(get(".dptime", pos = "CheckExEnv")), "\n", file=base::get(".ExTimings", pos = 'CheckExEnv'), append=TRUE, sep="\t")
+> cleanEx()
+> nameEx("check_normality")
+> ### * check_normality
+> 
+> flush(stderr()); flush(stdout())
+> 
+> base::assign(".ptime", proc.time(), pos = "CheckExEnv")
+> ### Name: check_normality
+> ### Title: Check Normality of Residuals
+> ### Aliases: check_normality
+> 
+> ### ** Examples
+> 
+> model <- lm(mpg ~ wt + hp, data = mtcars)
+> check_normality(model)
+
+	Shapiro-Wilk normality test
+
+data:  res
+W = 0.92792, p-value = 0.03427
+
+> 
+> 
+> 
+> base::assign(".dptime", (proc.time() - get(".ptime", pos = "CheckExEnv")), pos = "CheckExEnv")
+> base::cat("check_normality", base::get(".format_ptime", pos = 'CheckExEnv')(get(".dptime", pos = "CheckExEnv")), "\n", file=base::get(".ExTimings", pos = 'CheckExEnv'), append=TRUE, sep="\t")
+> cleanEx()
+> nameEx("check_outliers")
+> ### * check_outliers
+> 
+> flush(stderr()); flush(stdout())
+> 
+> base::assign(".ptime", proc.time(), pos = "CheckExEnv")
+> ### Name: check_outliers
+> ### Title: Check Influential Observations
+> ### Aliases: check_outliers
+> 
+> ### ** Examples
+> 
+> model <- lm(mpg ~ wt + hp, data = mtcars)
+> check_outliers(model)
+$cooks_distance
+          Mazda RX4       Mazda RX4 Wag          Datsun 710      Hornet 4 Drive 
+       1.589652e-02        5.464779e-03        2.070651e-02        4.724822e-05 
+  Hornet Sportabout             Valiant          Duster 360           Merc 240D 
+       2.736184e-04        2.155064e-02        1.255218e-02        1.677650e-02 
+           Merc 230            Merc 280           Merc 280C          Merc 450SE 
+       2.188702e-03        1.554996e-03        1.215737e-02        1.423008e-03 
+         Merc 450SL         Merc 450SLC  Cadillac Fleetwood Lincoln Continental 
+       1.458960e-04        6.266049e-03        2.786686e-05        1.780910e-02 
+  Chrysler Imperial            Fiat 128         Honda Civic      Toyota Corolla 
+       4.236109e-01        1.574263e-01        9.371446e-03        2.083933e-01 
+      Toyota Corona    Dodge Challenger         AMC Javelin          Camaro Z28 
+       2.791982e-02        2.087419e-02        2.751510e-02        9.943527e-03 
+   Pontiac Firebird           Fiat X1-9       Porsche 914-2        Lotus Europa 
+       1.443199e-02        5.920440e-04        5.674986e-06        7.353985e-02 
+     Ford Pantera L        Ferrari Dino       Maserati Bora          Volvo 142E 
+       8.919701e-03        5.732672e-03        2.720397e-01        5.600804e-03 
+
+$influential_points
+Chrysler Imperial          Fiat 128    Toyota Corolla     Maserati Bora 
+               17                18                20                31 
+
+> 
+> 
+> 
+> base::assign(".dptime", (proc.time() - get(".ptime", pos = "CheckExEnv")), pos = "CheckExEnv")
+> base::cat("check_outliers", base::get(".format_ptime", pos = 'CheckExEnv')(get(".dptime", pos = "CheckExEnv")), "\n", file=base::get(".ExTimings", pos = 'CheckExEnv'), append=TRUE, sep="\t")
+> cleanEx()
+> nameEx("check_overdispersion")
+> ### * check_overdispersion
+> 
+> flush(stderr()); flush(stdout())
+> 
+> base::assign(".ptime", proc.time(), pos = "CheckExEnv")
+> ### Name: check_overdispersion
+> ### Title: Check Overdispersion
+> ### Aliases: check_overdispersion
+> 
+> ### ** Examples
+> 
+> model <- glm(carb ~ wt + hp, data = mtcars, family = poisson)
+> check_overdispersion(model)
+$residual_deviance
+[1] 12.27804
+
+$df
+[1] 29
+
+$ratio
+[1] 0.4233806
+
+$overdispersed
+[1] FALSE
+
+> 
+> 
+> 
+> base::assign(".dptime", (proc.time() - get(".ptime", pos = "CheckExEnv")), pos = "CheckExEnv")
+> base::cat("check_overdispersion", base::get(".format_ptime", pos = 'CheckExEnv')(get(".dptime", pos = "CheckExEnv")), "\n", file=base::get(".ExTimings", pos = 'CheckExEnv'), append=TRUE, sep="\t")
+> cleanEx()
+> nameEx("check_proportional_hazards")
+> ### * check_proportional_hazards
+> 
+> flush(stderr()); flush(stdout())
+> 
+> base::assign(".ptime", proc.time(), pos = "CheckExEnv")
+> ### Name: check_proportional_hazards
+> ### Title: Check Proportional Hazards
+> ### Aliases: check_proportional_hazards
+> 
+> ### ** Examples
+> 
+> if (requireNamespace("survival", quietly = TRUE)) {
++   model <- survival::coxph(
++     survival::Surv(time, status) ~ age + sex,
++     data = survival::lung
++   )
++   check_proportional_hazards(model)
++ }
+       chisq df    p
+age    0.209  1 0.65
+sex    2.608  1 0.11
+GLOBAL 2.771  2 0.25
+> 
+> 
+> 
+> base::assign(".dptime", (proc.time() - get(".ptime", pos = "CheckExEnv")), pos = "CheckExEnv")
+> base::cat("check_proportional_hazards", base::get(".format_ptime", pos = 'CheckExEnv')(get(".dptime", pos = "CheckExEnv")), "\n", file=base::get(".ExTimings", pos = 'CheckExEnv'), append=TRUE, sep="\t")
+> cleanEx()
+> nameEx("check_residual_analysis")
+> ### * check_residual_analysis
+> 
+> flush(stderr()); flush(stdout())
+> 
+> base::assign(".ptime", proc.time(), pos = "CheckExEnv")
+> ### Name: check_residual_analysis
+> ### Title: Check Residual Summary
+> ### Aliases: check_residual_analysis
+> 
+> ### ** Examples
+> 
+> model <- glm(carb ~ wt + hp, data = mtcars, family = poisson)
+> check_residual_analysis(model)
+$mean_residual
+[1] -0.04200633
+
+$sd_residual
+[1] 0.6278888
+
+$min_residual
+[1] -0.8656074
+
+$max_residual
+[1] 1.497036
+
+> 
+> 
+> 
+> base::assign(".dptime", (proc.time() - get(".ptime", pos = "CheckExEnv")), pos = "CheckExEnv")
+> base::cat("check_residual_analysis", base::get(".format_ptime", pos = 'CheckExEnv')(get(".dptime", pos = "CheckExEnv")), "\n", file=base::get(".ExTimings", pos = 'CheckExEnv'), append=TRUE, sep="\t")
+> cleanEx()
+> nameEx("check_separation")
+> ### * check_separation
+> 
+> flush(stderr()); flush(stdout())
+> 
+> base::assign(".ptime", proc.time(), pos = "CheckExEnv")
+> ### Name: check_separation
+> ### Title: Check Separation in GLMs
+> ### Aliases: check_separation
+> 
+> ### ** Examples
+> 
+> model <- glm(am ~ wt + hp, data = mtcars, family = binomial)
+> check_separation(model)
+[1] "No separation issues detected."
+> 
+> 
+> 
+> base::assign(".dptime", (proc.time() - get(".ptime", pos = "CheckExEnv")), pos = "CheckExEnv")
+> base::cat("check_separation", base::get(".format_ptime", pos = 'CheckExEnv')(get(".dptime", pos = "CheckExEnv")), "\n", file=base::get(".ExTimings", pos = 'CheckExEnv'), append=TRUE, sep="\t")
+> cleanEx()
+> nameEx("check_vif")
+> ### * check_vif
+> 
+> flush(stderr()); flush(stdout())
+> 
+> base::assign(".ptime", proc.time(), pos = "CheckExEnv")
+> ### Name: check_vif
+> ### Title: Check Variance Inflation Factors
+> ### Aliases: check_vif
+> 
+> ### ** Examples
+> 
+> model <- lm(mpg ~ wt + hp + disp, data = mtcars)
+> check_vif(model)
+$success
+[1] TRUE
+
+$vif
+      wt       hp     disp 
+4.844618 2.736633 7.324517 
+
+$note
+[1] "VIF severity by predictor: wt (Moderate), hp (Moderate), disp (High)"
+
+$collinear_predictors
+character(0)
+
+$severities
+        wt         hp       disp 
+"Moderate" "Moderate"     "High" 
+
+> 
+> 
+> 
+> base::assign(".dptime", (proc.time() - get(".ptime", pos = "CheckExEnv")), pos = "CheckExEnv")
+> base::cat("check_vif", base::get(".format_ptime", pos = 'CheckExEnv')(get(".dptime", pos = "CheckExEnv")), "\n", file=base::get(".ExTimings", pos = 'CheckExEnv'), append=TRUE, sep="\t")
+> cleanEx()
+> nameEx("check_zero_inflation")
+> ### * check_zero_inflation
+> 
+> flush(stderr()); flush(stdout())
+> 
+> base::assign(".ptime", proc.time(), pos = "CheckExEnv")
+> ### Name: check_zero_inflation
+> ### Title: Check Zero Inflation
+> ### Aliases: check_zero_inflation
+> 
+> ### ** Examples
+> 
+> model <- glm(carb ~ wt + hp, data = mtcars, family = poisson)
+> check_zero_inflation(model)
+$observed_zeros
+[1] 0
+
+$expected_zeros
+[1] 2.978489
+
+$prop_observed
+[1] 0
+
+$prop_expected
+[1] 0.09307777
+
+$zero_inflated
+[1] FALSE
+
+> 
+> 
+> 
+> base::assign(".dptime", (proc.time() - get(".ptime", pos = "CheckExEnv")), pos = "CheckExEnv")
+> base::cat("check_zero_inflation", base::get(".format_ptime", pos = 'CheckExEnv')(get(".dptime", pos = "CheckExEnv")), "\n", file=base::get(".ExTimings", pos = 'CheckExEnv'), append=TRUE, sep="\t")
+> cleanEx()
 > nameEx("diagnose_model")
 > ### * diagnose_model
 > 
@@ -55,33 +773,48 @@ Type 'q()' to quit R.
 > model_lm <- lm(mpg ~ wt + hp, data = mtcars)
 > diag_lm <- diagnose_model(model_lm)
 > summary(diag_lm)
-Model Diagnostics Summary
-=========================
+-- Model Diagnostics Summary ---------------------------------------------------
 
----- multicollinearity ----
-$success
-[1] TRUE
+--  multicollinearity  --
 
-$vif
+-- Variance inflation factors 
+
       wt       hp 
 1.766625 1.766625 
+-- VIF severity by predictor: 
 
+          wt           hp 
+"Negligible" "Negligible" 
+-- Severity legend: 
+* < 2 : Negligible
+* 2 - 5 : Moderate
+* 5 - 10 : High
+* >= 10 : Severe
 
----- heteroskedasticity ----
-p-value: 0.6438038 
+--  heteroskedasticity  --
+
+p-value:  0.6438038 
 Residual variance appears approximately constant. 
 
----- autocorrelation ----
-p-value: 0.02061255 
+--  autocorrelation  --
+
+p-value:  0.02061255 
 Residuals appear autocorrelated; consider time-series adjustments. 
 
----- normality ----
-p-value: 0.03427476 
+--  linearity  --
+
+p-value:  0.0007226153 
+Evidence against linearity in the model; consider adding nonlinear terms or transformations. 
+
+--  normality  --
+
+p-value:  0.03427476 
 Residuals deviate from normality; check model assumptions. 
 
----- outliers ----
-Number of influential points: 4 
-Influential observations: Chrysler Imperial, Fiat 128, Toyota Corolla, Maserati Bora 
+--  outliers  --
+
+Number of influential points:  4 
+Influential observations:  Chrysler Imperial, Fiat 128, Toyota Corolla, Maserati Bora 
 Cook's distances for influential observations:
 Chrysler Imperial          Fiat 128    Toyota Corolla     Maserati Bora 
         0.4236109         0.1574263         0.2083933         0.2720397 
@@ -93,19 +826,26 @@ Chrysler Imperial          Fiat 128    Toyota Corolla     Maserati Bora
 > model_glm <- glm(am ~ wt + hp, data = mtcars, family = binomial)
 > diag_glm <- diagnose_model(model_glm)
 > summary(diag_glm)
-Model Diagnostics Summary
-=========================
+-- Model Diagnostics Summary ---------------------------------------------------
 
----- multicollinearity ----
-$success
-[1] TRUE
+--  multicollinearity  --
 
-$vif
+-- Variance inflation factors 
+
       wt       hp 
 2.444297 2.444297 
+-- VIF severity by predictor: 
 
+        wt         hp 
+"Moderate" "Moderate" 
+-- Severity legend: 
+* < 2 : Negligible
+* 2 - 5 : Moderate
+* 5 - 10 : High
+* >= 10 : Severe
 
----- linearity_logit ----
+--  linearity_logit  --
+
    MLE of lambda Score Statistic (t) Pr(>|t|)  
 wt     -0.088743              2.2318  0.03412 *
 hp      3.205811              0.8980  0.37711  
@@ -118,19 +858,22 @@ Score test for null hypothesis that all lambdas = 1:
 F = 3.6654, df = 2 and 27, Pr(>F) = 0.03905
 
 
----- goodness_of_fit ----
-p-value: 0.7627213 
+--  goodness_of_fit  --
+
+p-value:  0.6716511 
 Model fit appears adequate. 
 
----- influential_observations ----
-Number of influential points: 2 
-Influential observations: Mazda RX4 Wag, Toyota Corona 
+--  influential_observations  --
+
+Number of influential points:  2 
+Influential observations:  Mazda RX4 Wag, Toyota Corona 
 Cook's distances for influential observations:
 Mazda RX4 Wag Toyota Corona 
     0.2034041     0.7917908 
 2 influential observation(s) detected. Influential observations have Cook's distance above 4/n. Review these cases for leverage, data entry issues, or model fit problems. 
 
----- separation_issues ----
+--  separation_issues  --
+
 No separation issues detected. 
 
 > 
@@ -138,39 +881,49 @@ No separation issues detected.
 > model_pois <- glm(carb ~ wt + hp, data = mtcars, family = poisson)
 > diag_pois <- diagnose_model(model_pois)
 > summary(diag_pois)
-Model Diagnostics Summary
-=========================
+-- Model Diagnostics Summary ---------------------------------------------------
 
----- multicollinearity ----
-$success
-[1] TRUE
+--  multicollinearity  --
 
-$vif
+-- Variance inflation factors 
+
       wt       hp 
 1.401553 1.401553 
+-- VIF severity by predictor: 
 
+          wt           hp 
+"Negligible" "Negligible" 
+-- Severity legend: 
+* < 2 : Negligible
+* 2 - 5 : Moderate
+* 5 - 10 : High
+* >= 10 : Severe
 
----- overdispersion ----
-Residual deviance: 12.27804 
-Degrees of freedom: 29 
-Ratio: 0.4233806 
-No evidence of overdispersion.
+--  overdispersion  --
 
----- zero_inflation ----
-Observed zeros: 0 ( 0 %)
-Expected zeros: 3 ( 9.3 %)
-No evidence of zero-inflation.
+Residual deviance:  12.27804 
+Degrees of freedom:  29 
+Ratio:  0.4233806 
+[OK] No evidence of overdispersion.
 
----- influential_observations ----
-Number of influential points: 0 
+--  zero_inflation  --
+
+Observed zeros:  0  ( 0 %)
+Expected zeros:  3  ( 9.3 %)
+[OK] No evidence of zero-inflation.
+
+--  influential_observations  --
+
+Number of influential points:  0 
 No observations exceed the influence threshold.
 No influential observations detected. Influential observations have Cook's distance above 4/n. Review these cases for leverage, data entry issues, or model fit problems. 
 
----- residual_analysis ----
-Mean residual: -0.04200633 
-SD residual: 0.6278888 
-Min residual: -0.8656074 
-Max residual: 1.497036 
+--  residual_analysis  --
+
+Mean residual:  -0.04200633 
+SD residual:  0.6278888 
+Min residual:  -0.8656074 
+Max residual:  1.497036 
 
 > 
 > # Cox proportional hazards diagnostics
@@ -179,22 +932,16 @@ Max residual: 1.497036
 Warning in data(lung) : data set 'lung' not found
 > model_cox <- coxph(Surv(time, status) ~ age + sex + ph.ecog, data = lung)
 > diag_cox <- diagnose_model(model_cox)
-Warning in vif.default(model) : No intercept: vifs may not be sensible.
 > summary(diag_cox)
-Model Diagnostics Summary
-=========================
+-- Model Diagnostics Summary ---------------------------------------------------
 
----- multicollinearity ----
-$success
-[1] TRUE
+--  multicollinearity  --
 
-$vif
-     age      sex  ph.ecog 
-1.030914 1.002422 1.033369 
+VIF not applicable to Cox models (no intercept). 
 
+--  proportional_hazards  --
 
----- proportional_hazards ----
-Global test p-value: 0.2155549 
+Global test p-value:  0.2155549 
             chisq df         p
 age     0.1879877  1 0.6645968
 sex     2.3054372  1 0.1289220
@@ -202,9 +949,10 @@ ph.ecog 2.0542488  1 0.1517821
 GLOBAL  4.4636576  3 0.2155549
 Proportional hazards assumption appears reasonable. 
 
----- influential_observations ----
-Number of influential points: 10 
-Influential observations: 3, 6, 17, 32, 36, 37, 70, 84, 88, 128 
+--  influential_observations  --
+
+Number of influential points:  10 
+Influential observations:  3, 6, 17, 32, 36, 37, 70, 84, 88, 128 
 Max |dfbeta| for influential observations:
         3         6        18        33        37        38        71        85 
 0.2103167 0.4334764 0.3724475 0.2236608 0.5149764 0.2628997 0.2410623 0.4614677 
@@ -212,7 +960,8 @@ Max |dfbeta| for influential observations:
 0.2431150 0.2057780 
 Influential observations have |dfbeta| > 0.2 for at least one coefficient. Review these cases.
 
----- functional_form ----
+--  functional_form  --
+
 Functional form check: Review plots of martingale residuals vs predictors for nonlinearity. 
 
 > 
@@ -228,7 +977,7 @@ detaching 'package:survival'
 
 > options(digits = 7L)
 > base::cat("Time elapsed: ", proc.time() - base::get("ptime", pos = 'CheckExEnv'),"\n")
-Time elapsed:  1 0.17 1.22 NA NA 
+Time elapsed:  2.36 0.23 2.69 NA NA 
 > grDevices::dev.off()
 null device 
           1 

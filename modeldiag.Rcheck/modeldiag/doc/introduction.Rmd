@@ -102,6 +102,17 @@ diag_lm <- diagnose_model(model_lm)
 summary(diag_lm)
 ```
 
+You can also run individual checks when you only need one diagnostic.
+
+```{r linear-individual-checks}
+check_vif(model_lm)
+check_heteroskedasticity(model_lm)
+check_autocorrelation(model_lm)
+check_linearity(model_lm)
+check_normality(model_lm)
+check_outliers(model_lm)
+```
+
 ---
 
 # Logistic Regression
@@ -140,6 +151,15 @@ Complete or quasi-complete separation occurs when predictors perfectly classify 
 model_glm <- glm(am ~ wt + hp, data = mtcars, family = binomial)
 diag_glm <- diagnose_model(model_glm)
 summary(diag_glm)
+```
+
+Individual logistic regression diagnostics can be called directly.
+
+```{r logistic-individual-checks}
+check_box_tidwell(model_glm)
+check_hosmer_lemeshow(model_glm)
+check_influential_glm(model_glm)
+check_separation(model_glm)
 ```
 
 ---
@@ -182,6 +202,14 @@ diag_pois <- diagnose_model(model_pois)
 summary(diag_pois)
 ```
 
+Individual Poisson diagnostics are available for targeted checks.
+
+```{r poisson-individual-checks}
+check_overdispersion(model_pois)
+check_zero_inflation(model_pois)
+check_residual_analysis(model_pois)
+```
+
 ---
 
 # Survival Models
@@ -215,6 +243,14 @@ diag_cox <- diagnose_model(model_cox)
 summary(diag_cox)
 ```
 
+Individual Cox model diagnostics can also be run directly.
+
+```{r survival-individual-checks}
+check_proportional_hazards(model_cox)
+check_influential_coxph(model_cox)
+check_functional_form_coxph(model_cox)
+```
+
 ---
 
 # Visualization
@@ -222,21 +258,9 @@ summary(diag_cox)
 Diagnostic plots help identify violations visually.
 
 ```{r plotting, fig.height=6, fig.width=6}
-
 plot(diag_lm)
+
 ```
-
----
-
-# Interpreting Results
-
-The `summary()` output categorizes diagnostics as:
-
-* **PASS**: Assumption appears satisfied
-* **WARNING**: Potential issue detected
-* **FAIL**: Clear violation of assumptions
-
-These diagnostics should guide model refinement, transformation, or alternative model selection.
 
 ---
 

@@ -12,12 +12,19 @@ Provides a unified framework for diagnosing common issues in statistical models 
 Useful links:
 \itemize{
   \item \url{https://github.com/Teniola17/modeldiag}
+  \item \url{https://teniola17.github.io/modeldiag/}
   \item Report bugs at \url{https://github.com/Teniola17/modeldiag/issues}
 }
 
 }
 \author{
-\strong{Maintainer}: Emmanuel Adewuyi \email{emmanuel.adewuyi@lshtm.ac.uk}
+\strong{Maintainer}: Emmanuel Adewuyi \email{emmanuel.adewuyi@lshtm.ac.uk} (\href{https://orcid.org/0000-0002-7920-6866}{ORCID})
+
+Authors:
+\itemize{
+  \item Adewale Lukman \email{adewale.lukman@und.edu} (\href{https://orcid.org/0000-0003-2881-1297}{ORCID})
+  \item Abiola Owolabi \email{abiola.owolabi@lautech.edu.ng} (\href{https://orcid.org/0000-0001-9843-5085}{ORCID})
+}
 
 }
 \keyword{internal}

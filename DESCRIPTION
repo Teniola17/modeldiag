@@ -1,7 +1,8 @@
 Package: modeldiag
 Type: Package
 Title: Comprehensive Diagnostics for Statistical Models
-Version: 0.1.1
+Version: 0.1.2
+Date: 2026-06-02
 Authors@R:
     c(
       person(given = "Emmanuel", family = "Adewuyi",
@@ -16,7 +17,6 @@ Authors@R:
         comment = c(ORCID = "0000-0001-9843-5085"))
     )
 Description: Provides a unified framework for diagnosing common issues in statistical models including linear models, generalized linear models (logistic and Poisson regression), and survival models. Implements tests for multicollinearity, heteroscedasticity, autocorrelation, normality, influential observations, overdispersion, zero-inflation, and proportional hazards assumptions. Includes visualization methods for graphical diagnostics. Methods are based on established approaches including Fox and Monette (1992) <doi:10.1080/01621459.1992.10475190>, Breusch and Pagan (1979) <doi:10.2307/1911963>, and Dean and Lawless (1989) <doi:10.1080/01621459.1989.10478792>.
-Author: Emmanuel Adewuyi [aut, cre], Adewale Lukman [aut], Abiola Owolabi [aut]
 Maintainer: Emmanuel Adewuyi <emmanuel.adewuyi@lshtm.ac.uk>
 License: MIT + file LICENSE
 Encoding: UTF-8

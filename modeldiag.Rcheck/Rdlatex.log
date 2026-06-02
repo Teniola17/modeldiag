@@ -1,5 +1,5 @@
 Hmm ... looks like a package
-Converting parsed Rd's to LaTeX 
+Converting parsed Rd's to LaTeX ..
 Creating pdf output from LaTeX ...
 This is pdfTeX, Version 3.141592653-2.6-1.40.28 (TeX Live 2025) (preloaded format=pdflatex)
  restricted \write18 enabled.
@@ -80,12 +80,19 @@ No file Rd2.toc.
 5/texmf-dist/fonts/enc/dvips/base/8r.enc}{c:/texlive/2025/texmf-dist/fonts/enc/
 dvips/inconsolata/i4-t1-0.enc}]
 (c:/texlive/2025/texmf-dist/tex/latex/psnfss/ts1ptm.fd)
-[2] (c:/texlive/2025/texmf-dist/tex/latex/inconsolata/ts1zi4.fd)
-[3{c:/texlive/2025/texmf-dist/fonts/enc/dvips/inconsolata/i4-ts1.enc}]
+[2]
+[3]
 [4]
+[5]
+[6]
+[7]
+[8]
+[9] (c:/texlive/2025/texmf-dist/tex/latex/inconsolata/ts1zi4.fd)
+[10{c:/texlive/2025/texmf-dist/fonts/enc/dvips/inconsolata/i4-ts1.enc}]
+[11]
 No file Rd2.ind.
 
-[5] (./Rd2.aux)
+[12] (./Rd2.aux)
 
 Package rerunfilecheck Warning: File `Rd2.out' has changed.
 (rerunfilecheck)                Rerun to get outlines right
@@ -96,122 +103,12 @@ fb><c:/texlive/2025/texmf-dist/fonts/type1/urw/times/utmb8a.pfb><c:/texlive/202
 5/texmf-dist/fonts/type1/urw/times/utmr8a.pfb><c:/texlive/2025/texmf-dist/fonts
 /type1/urw/times/utmr8a.pfb><c:/texlive/2025/texmf-dist/fonts/type1/urw/times/u
 tmri8a.pfb>
-Output written on Rd2.pdf (5 pages, 82037 bytes).
+Output written on Rd2.pdf (12 pages, 99431 bytes).
 Transcript written on Rd2.log.
 This is makeindex, version 2.17 [TeX Live 2025] (kpathsea + Thai support).
-Scanning input file Rd2.idx....done (10 entries accepted, 0 rejected).
-Sorting entries....done (33 comparisons).
-Generating output file Rd2.ind....done (32 lines written, 0 warnings).
-Output written in Rd2.ind.
-Transcript written in Rd2.ilg.
-This is pdfTeX, Version 3.141592653-2.6-1.40.28 (TeX Live 2025) (preloaded format=pdflatex)
- restricted \write18 enabled.
-entering extended mode
-(./Rd2.tex
-LaTeX2e <2025-06-01> patch level 1
-L3 programming layer <2025-10-24>
-
-(c:/texlive/2025/texmf-dist/tex/latex/base/book.cls
-Document Class: book 2025/01/22 v1.4n Standard LaTeX document class
-(c:/texlive/2025/texmf-dist/tex/latex/base/bk10.clo))
-(c:/Program Files/R/R-4.6.0/share/texmf/tex/latex/Rd.sty
-(c:/texlive/2025/texmf-dist/tex/latex/base/ifthen.sty)
-(c:/texlive/2025/texmf-dist/tex/generic/iftex/iftex.sty)
-(c:/texlive/2025/texmf-dist/tex/latex/tools/longtable.sty)
-(c:/texlive/2025/texmf-dist/tex/latex/tools/bm.sty)
-(c:/texlive/2025/texmf-dist/tex/latex/base/alltt.sty)
-(c:/texlive/2025/texmf-dist/tex/latex/tools/verbatim.sty)
-(c:/texlive/2025/texmf-dist/tex/latex/url/url.sty)
-(c:/texlive/2025/texmf-dist/tex/latex/base/textcomp.sty)
-(c:/texlive/2025/texmf-dist/tex/latex/amsmath/amsmath.sty
-For additional information on amsmath, use the `?' option.
-(c:/texlive/2025/texmf-dist/tex/latex/amsmath/amstext.sty
-(c:/texlive/2025/texmf-dist/tex/latex/amsmath/amsgen.sty))
-(c:/texlive/2025/texmf-dist/tex/latex/amsmath/amsbsy.sty)
-(c:/texlive/2025/texmf-dist/tex/latex/amsmath/amsopn.sty))
-(c:/texlive/2025/texmf-dist/tex/latex/amsfonts/amsfonts.sty)
-(c:/texlive/2025/texmf-dist/tex/latex/amsfonts/amssymb.sty)
-(c:/texlive/2025/texmf-dist/tex/latex/jknapltx/mathrsfs.sty)
-(c:/texlive/2025/texmf-dist/tex/latex/base/fontenc.sty)
-(c:/texlive/2025/texmf-dist/tex/latex/psnfss/times.sty)
-(c:/texlive/2025/texmf-dist/tex/latex/inconsolata/zi4.sty
-`inconsolata-zi4' v1.12, 2019/05/17 Text macros for Inconsolata (msharpe)
-(c:/texlive/2025/texmf-dist/tex/latex/xkeyval/xkeyval.sty
-(c:/texlive/2025/texmf-dist/tex/generic/xkeyval/xkeyval.tex
-(c:/texlive/2025/texmf-dist/tex/generic/xkeyval/xkvutils.tex
-(c:/texlive/2025/texmf-dist/tex/generic/xkeyval/keyval.tex)))))
-(c:/texlive/2025/texmf-dist/tex/latex/graphics/color.sty
-(c:/texlive/2025/texmf-dist/tex/latex/graphics-cfg/color.cfg)
-(c:/texlive/2025/texmf-dist/tex/latex/graphics-def/pdftex.def)
-(c:/texlive/2025/texmf-dist/tex/latex/graphics/mathcolor.ltx))
-(c:/texlive/2025/texmf-dist/tex/latex/hyperref/hyperref.sty
-(c:/texlive/2025/texmf-dist/tex/latex/kvsetkeys/kvsetkeys.sty)
-(c:/texlive/2025/texmf-dist/tex/generic/kvdefinekeys/kvdefinekeys.sty)
-(c:/texlive/2025/texmf-dist/tex/generic/pdfescape/pdfescape.sty
-(c:/texlive/2025/texmf-dist/tex/generic/ltxcmds/ltxcmds.sty)
-(c:/texlive/2025/texmf-dist/tex/generic/pdftexcmds/pdftexcmds.sty
-(c:/texlive/2025/texmf-dist/tex/generic/infwarerr/infwarerr.sty)))
-(c:/texlive/2025/texmf-dist/tex/latex/hycolor/hycolor.sty)
-(c:/texlive/2025/texmf-dist/tex/latex/hyperref/nameref.sty
-(c:/texlive/2025/texmf-dist/tex/latex/refcount/refcount.sty)
-(c:/texlive/2025/texmf-dist/tex/generic/gettitlestring/gettitlestring.sty
-(c:/texlive/2025/texmf-dist/tex/latex/kvoptions/kvoptions.sty)))
-(c:/texlive/2025/texmf-dist/tex/latex/etoolbox/etoolbox.sty)
-(c:/texlive/2025/texmf-dist/tex/generic/stringenc/stringenc.sty)
-(c:/texlive/2025/texmf-dist/tex/latex/hyperref/pd1enc.def)
-(c:/texlive/2025/texmf-dist/tex/generic/intcalc/intcalc.sty)
-(c:/texlive/2025/texmf-dist/tex/latex/hyperref/puenc.def)
-(c:/texlive/2025/texmf-dist/tex/generic/bitset/bitset.sty
-(c:/texlive/2025/texmf-dist/tex/generic/bigintcalc/bigintcalc.sty)))
-(c:/texlive/2025/texmf-dist/tex/latex/hyperref/hpdftex.def
-(c:/texlive/2025/texmf-dist/tex/latex/rerunfilecheck/rerunfilecheck.sty
-(c:/texlive/2025/texmf-dist/tex/generic/uniquecounter/uniquecounter.sty))))
-(c:/texlive/2025/texmf-dist/tex/latex/base/makeidx.sty)
-Writing index file Rd2.idx
-(c:/texlive/2025/texmf-dist/tex/latex/psnfss/t1ptm.fd)
-(c:/texlive/2025/texmf-dist/tex/latex/l3backend/l3backend-pdftex.def)
-(./Rd2.aux) (c:/texlive/2025/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
-[Loading MPS to PDF converter (version 2006.09.02).]
-) (./Rd2.out) (./Rd2.out)
-(c:/texlive/2025/texmf-dist/tex/latex/inconsolata/t1zi4.fd)
-(c:/texlive/2025/texmf-dist/tex/latex/amsfonts/umsa.fd)
-(c:/texlive/2025/texmf-dist/tex/latex/amsfonts/umsb.fd)
-(c:/texlive/2025/texmf-dist/tex/latex/jknapltx/ursfs.fd) (./Rd2.toc)
-[1{c:/texlive/2025/texmf-var/fonts/map/pdftex/updmap/pdftex.map}{c:/texlive/202
-5/texmf-dist/fonts/enc/dvips/base/8r.enc}{c:/texlive/2025/texmf-dist/fonts/enc/
-dvips/inconsolata/i4-t1-0.enc}]
-(c:/texlive/2025/texmf-dist/tex/latex/psnfss/ts1ptm.fd)
-[2] (c:/texlive/2025/texmf-dist/tex/latex/inconsolata/ts1zi4.fd)
-[3{c:/texlive/2025/texmf-dist/fonts/enc/dvips/inconsolata/i4-ts1.enc}]
-[4] (./Rd2.ind
-[5]
-
-LaTeX Font Warning: Font shape `T1/zi4/m/it' undefined
-(Font)              using `T1/zi4/m/n' instead on input line 13.
-
-
-
-[6]) (./Rd2.aux)
-
-LaTeX Font Warning: Some font shapes were not available, defaults substituted.
-
-
-Package rerunfilecheck Warning: File `Rd2.out' has changed.
-(rerunfilecheck)                Rerun to get outlines right
-(rerunfilecheck)                or use package `bookmark'.
-
- )<c:/texlive/2025/texmf-dist/fonts/type1/public/inconsolata/Inconsolata-zi4r.p
-fb><c:/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb><c:/te
-xlive/2025/texmf-dist/fonts/type1/urw/times/utmb8a.pfb><c:/texlive/2025/texmf-d
-ist/fonts/type1/urw/times/utmr8a.pfb><c:/texlive/2025/texmf-dist/fonts/type1/ur
-w/times/utmr8a.pfb><c:/texlive/2025/texmf-dist/fonts/type1/urw/times/utmri8a.pf
-b>
-Output written on Rd2.pdf (6 pages, 92291 bytes).
-Transcript written on Rd2.log.
-This is makeindex, version 2.17 [TeX Live 2025] (kpathsea + Thai support).
-Scanning input file Rd2.idx....done (10 entries accepted, 0 rejected).
-Sorting entries....done (33 comparisons).
-Generating output file Rd2.ind....done (32 lines written, 0 warnings).
+Scanning input file Rd2.idx....done (24 entries accepted, 0 rejected).
+Sorting entries....done (122 comparisons).
+Generating output file Rd2.ind....done (46 lines written, 0 warnings).
 Output written in Rd2.ind.
 Transcript written in Rd2.ilg.
 This is pdfTeX, Version 3.141592653-2.6-1.40.28 (TeX Live 2025) (preloaded format=pdflatex)
@@ -291,17 +188,143 @@ Writing index file Rd2.idx
 5/texmf-dist/fonts/enc/dvips/base/8r.enc}{c:/texlive/2025/texmf-dist/fonts/enc/
 dvips/inconsolata/i4-t1-0.enc}])
 (c:/texlive/2025/texmf-dist/tex/latex/psnfss/ts1ptm.fd)
-[2] (c:/texlive/2025/texmf-dist/tex/latex/inconsolata/ts1zi4.fd)
-[3{c:/texlive/2025/texmf-dist/fonts/enc/dvips/inconsolata/i4-ts1.enc}]
-[4] (./Rd2.ind
+[2]
+[3]
+[4]
 [5]
+[6]
+[7]
+[8]
+[9]
+[10] (c:/texlive/2025/texmf-dist/tex/latex/inconsolata/ts1zi4.fd)
+[11{c:/texlive/2025/texmf-dist/fonts/enc/dvips/inconsolata/i4-ts1.enc}]
+[12] (./Rd2.ind
+[13]
 
 LaTeX Font Warning: Font shape `T1/zi4/m/it' undefined
-(Font)              using `T1/zi4/m/n' instead on input line 13.
+(Font)              using `T1/zi4/m/n' instead on input line 27.
 
 
 
-[6]) (./Rd2.aux)
+[14]) (./Rd2.aux)
+
+LaTeX Font Warning: Some font shapes were not available, defaults substituted.
+
+
+Package rerunfilecheck Warning: File `Rd2.out' has changed.
+(rerunfilecheck)                Rerun to get outlines right
+(rerunfilecheck)                or use package `bookmark'.
+
+ )<c:/texlive/2025/texmf-dist/fonts/type1/public/inconsolata/Inconsolata-zi4r.p
+fb><c:/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb><c:/te
+xlive/2025/texmf-dist/fonts/type1/urw/times/utmb8a.pfb><c:/texlive/2025/texmf-d
+ist/fonts/type1/urw/times/utmr8a.pfb><c:/texlive/2025/texmf-dist/fonts/type1/ur
+w/times/utmr8a.pfb><c:/texlive/2025/texmf-dist/fonts/type1/urw/times/utmri8a.pf
+b>
+Output written on Rd2.pdf (14 pages, 112276 bytes).
+Transcript written on Rd2.log.
+This is makeindex, version 2.17 [TeX Live 2025] (kpathsea + Thai support).
+Scanning input file Rd2.idx....done (24 entries accepted, 0 rejected).
+Sorting entries....done (122 comparisons).
+Generating output file Rd2.ind....done (46 lines written, 0 warnings).
+Output written in Rd2.ind.
+Transcript written in Rd2.ilg.
+This is pdfTeX, Version 3.141592653-2.6-1.40.28 (TeX Live 2025) (preloaded format=pdflatex)
+ restricted \write18 enabled.
+entering extended mode
+(./Rd2.tex
+LaTeX2e <2025-06-01> patch level 1
+L3 programming layer <2025-10-24>
+
+(c:/texlive/2025/texmf-dist/tex/latex/base/book.cls
+Document Class: book 2025/01/22 v1.4n Standard LaTeX document class
+(c:/texlive/2025/texmf-dist/tex/latex/base/bk10.clo))
+(c:/Program Files/R/R-4.6.0/share/texmf/tex/latex/Rd.sty
+(c:/texlive/2025/texmf-dist/tex/latex/base/ifthen.sty)
+(c:/texlive/2025/texmf-dist/tex/generic/iftex/iftex.sty)
+(c:/texlive/2025/texmf-dist/tex/latex/tools/longtable.sty)
+(c:/texlive/2025/texmf-dist/tex/latex/tools/bm.sty)
+(c:/texlive/2025/texmf-dist/tex/latex/base/alltt.sty)
+(c:/texlive/2025/texmf-dist/tex/latex/tools/verbatim.sty)
+(c:/texlive/2025/texmf-dist/tex/latex/url/url.sty)
+(c:/texlive/2025/texmf-dist/tex/latex/base/textcomp.sty)
+(c:/texlive/2025/texmf-dist/tex/latex/amsmath/amsmath.sty
+For additional information on amsmath, use the `?' option.
+(c:/texlive/2025/texmf-dist/tex/latex/amsmath/amstext.sty
+(c:/texlive/2025/texmf-dist/tex/latex/amsmath/amsgen.sty))
+(c:/texlive/2025/texmf-dist/tex/latex/amsmath/amsbsy.sty)
+(c:/texlive/2025/texmf-dist/tex/latex/amsmath/amsopn.sty))
+(c:/texlive/2025/texmf-dist/tex/latex/amsfonts/amsfonts.sty)
+(c:/texlive/2025/texmf-dist/tex/latex/amsfonts/amssymb.sty)
+(c:/texlive/2025/texmf-dist/tex/latex/jknapltx/mathrsfs.sty)
+(c:/texlive/2025/texmf-dist/tex/latex/base/fontenc.sty)
+(c:/texlive/2025/texmf-dist/tex/latex/psnfss/times.sty)
+(c:/texlive/2025/texmf-dist/tex/latex/inconsolata/zi4.sty
+`inconsolata-zi4' v1.12, 2019/05/17 Text macros for Inconsolata (msharpe)
+(c:/texlive/2025/texmf-dist/tex/latex/xkeyval/xkeyval.sty
+(c:/texlive/2025/texmf-dist/tex/generic/xkeyval/xkeyval.tex
+(c:/texlive/2025/texmf-dist/tex/generic/xkeyval/xkvutils.tex
+(c:/texlive/2025/texmf-dist/tex/generic/xkeyval/keyval.tex)))))
+(c:/texlive/2025/texmf-dist/tex/latex/graphics/color.sty
+(c:/texlive/2025/texmf-dist/tex/latex/graphics-cfg/color.cfg)
+(c:/texlive/2025/texmf-dist/tex/latex/graphics-def/pdftex.def)
+(c:/texlive/2025/texmf-dist/tex/latex/graphics/mathcolor.ltx))
+(c:/texlive/2025/texmf-dist/tex/latex/hyperref/hyperref.sty
+(c:/texlive/2025/texmf-dist/tex/latex/kvsetkeys/kvsetkeys.sty)
+(c:/texlive/2025/texmf-dist/tex/generic/kvdefinekeys/kvdefinekeys.sty)
+(c:/texlive/2025/texmf-dist/tex/generic/pdfescape/pdfescape.sty
+(c:/texlive/2025/texmf-dist/tex/generic/ltxcmds/ltxcmds.sty)
+(c:/texlive/2025/texmf-dist/tex/generic/pdftexcmds/pdftexcmds.sty
+(c:/texlive/2025/texmf-dist/tex/generic/infwarerr/infwarerr.sty)))
+(c:/texlive/2025/texmf-dist/tex/latex/hycolor/hycolor.sty)
+(c:/texlive/2025/texmf-dist/tex/latex/hyperref/nameref.sty
+(c:/texlive/2025/texmf-dist/tex/latex/refcount/refcount.sty)
+(c:/texlive/2025/texmf-dist/tex/generic/gettitlestring/gettitlestring.sty
+(c:/texlive/2025/texmf-dist/tex/latex/kvoptions/kvoptions.sty)))
+(c:/texlive/2025/texmf-dist/tex/latex/etoolbox/etoolbox.sty)
+(c:/texlive/2025/texmf-dist/tex/generic/stringenc/stringenc.sty)
+(c:/texlive/2025/texmf-dist/tex/latex/hyperref/pd1enc.def)
+(c:/texlive/2025/texmf-dist/tex/generic/intcalc/intcalc.sty)
+(c:/texlive/2025/texmf-dist/tex/latex/hyperref/puenc.def)
+(c:/texlive/2025/texmf-dist/tex/generic/bitset/bitset.sty
+(c:/texlive/2025/texmf-dist/tex/generic/bigintcalc/bigintcalc.sty)))
+(c:/texlive/2025/texmf-dist/tex/latex/hyperref/hpdftex.def
+(c:/texlive/2025/texmf-dist/tex/latex/rerunfilecheck/rerunfilecheck.sty
+(c:/texlive/2025/texmf-dist/tex/generic/uniquecounter/uniquecounter.sty))))
+(c:/texlive/2025/texmf-dist/tex/latex/base/makeidx.sty)
+Writing index file Rd2.idx
+(c:/texlive/2025/texmf-dist/tex/latex/psnfss/t1ptm.fd)
+(c:/texlive/2025/texmf-dist/tex/latex/l3backend/l3backend-pdftex.def)
+(./Rd2.aux) (c:/texlive/2025/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
+[Loading MPS to PDF converter (version 2006.09.02).]
+) (./Rd2.out) (./Rd2.out)
+(c:/texlive/2025/texmf-dist/tex/latex/inconsolata/t1zi4.fd)
+(c:/texlive/2025/texmf-dist/tex/latex/amsfonts/umsa.fd)
+(c:/texlive/2025/texmf-dist/tex/latex/amsfonts/umsb.fd)
+(c:/texlive/2025/texmf-dist/tex/latex/jknapltx/ursfs.fd) (./Rd2.toc
+[1{c:/texlive/2025/texmf-var/fonts/map/pdftex/updmap/pdftex.map}{c:/texlive/202
+5/texmf-dist/fonts/enc/dvips/base/8r.enc}{c:/texlive/2025/texmf-dist/fonts/enc/
+dvips/inconsolata/i4-t1-0.enc}])
+(c:/texlive/2025/texmf-dist/tex/latex/psnfss/ts1ptm.fd)
+[2]
+[3]
+[4]
+[5]
+[6]
+[7]
+[8]
+[9]
+[10] (c:/texlive/2025/texmf-dist/tex/latex/inconsolata/ts1zi4.fd)
+[11{c:/texlive/2025/texmf-dist/fonts/enc/dvips/inconsolata/i4-ts1.enc}]
+[12] (./Rd2.ind
+[13]
+
+LaTeX Font Warning: Font shape `T1/zi4/m/it' undefined
+(Font)              using `T1/zi4/m/n' instead on input line 27.
+
+
+
+[14]) (./Rd2.aux)
 
 LaTeX Font Warning: Some font shapes were not available, defaults substituted.
 
@@ -311,8 +334,8 @@ xlive/2025/texmf-dist/fonts/type1/urw/times/utmb8a.pfb><c:/texlive/2025/texmf-d
 ist/fonts/type1/urw/times/utmr8a.pfb><c:/texlive/2025/texmf-dist/fonts/type1/ur
 w/times/utmr8a.pfb><c:/texlive/2025/texmf-dist/fonts/type1/urw/times/utmri8a.pf
 b>
-Output written on Rd2.pdf (6 pages, 92603 bytes).
+Output written on Rd2.pdf (14 pages, 113022 bytes).
 Transcript written on Rd2.log.
 Saving output to 'modeldiag-manual.pdf' ...
 Done
-You may want to clean up by 'rm -Rf C:/Users/EMMANU~1/AppData/Local/Temp/Rtmpo5l5ee/Rd2pdf24c050ca6708'
+You may want to clean up by 'rm -Rf C:/Users/EMMANU~1/AppData/Local/Temp/Rtmp2VjPYh/Rd2pdf5234a7e35d6'

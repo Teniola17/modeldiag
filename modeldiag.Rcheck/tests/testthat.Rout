@@ -19,10 +19,8 @@ Type 'q()' to quit R.
 > library(modeldiag)
 > 
 > test_check("modeldiag")
-[ FAIL 0 | WARN 5 | SKIP 0 | PASS 26 ]
-
-[ FAIL 0 | WARN 5 | SKIP 0 | PASS 26 ]
+[ FAIL 0 | WARN 0 | SKIP 0 | PASS 39 ]
 > 
 > proc.time()
    user  system elapsed 
-   1.71    0.62    2.31 
+   2.53    1.01    3.71 

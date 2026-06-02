@@ -1,6 +1,24 @@
+check_autocorrelation   Check Autocorrelation
+check_box_tidwell       Check Logistic Linearity with Box-Tidwell Test
+check_functional_form_coxph
+                        Check Cox Model Functional Form
 check_heteroskedasticity
                         Check Heteroskedasticity
+check_hosmer_lemeshow   Check Logistic Goodness of Fit
+check_influential_coxph
+                        Check Influential Observations in Cox Models
+check_influential_glm   Check Influential Observations in GLMs
+check_linearity         Check Linearity
+check_normality         Check Normality of Residuals
+check_outliers          Check Influential Observations
+check_overdispersion    Check Overdispersion
+check_proportional_hazards
+                        Check Proportional Hazards
+check_residual_analysis
+                        Check Residual Summary
+check_separation        Check Separation in GLMs
 check_vif               Check Variance Inflation Factors
+check_zero_inflation    Check Zero Inflation
 diagnose_model.glm      Diagnose Statistical Models
 plot.model_diagnostics
                         Plot Model Diagnostics
