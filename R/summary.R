@@ -31,6 +31,13 @@ interpret_diagnostic <- function(test_name, result) {
     return("Residuals are consistent with normality.")
   }
 
+  if (test_name == "linearity") {
+    if (result <= 0.05) {
+      return("Evidence against linearity in the model; consider adding nonlinear terms or transformations.")
+    }
+    return("No evidence against linearity in the model; the linear functional form appears reasonable.")
+  }
+
   if (test_name == "linearity_logit") {
     if (result <= 0.05) {
       return("Linearity of logit assumption may be violated; consider transformations.")

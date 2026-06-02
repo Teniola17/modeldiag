@@ -6,9 +6,389 @@
     GNU Fortran (GCC) 14.3.0
 * running under: Windows 11 x64 (build 26200)
 * using session charset: UTF-8
-* current time: 2026-06-02 16:38:13 UTC
-* checking for file './DESCRIPTION' ... ERROR
-Required fields missing or empty:
-  'Author' 'Maintainer'
+* current time: 2026-06-02 17:26:59 UTC
+* using options '--no-manual --no-vignettes'
+* checking for file './DESCRIPTION' ... OK
+* checking extension type ... Package
+* this is package 'modeldiag' version '0.1.1'
+* package encoding: UTF-8
+* checking package namespace information ... OK
+* checking package dependencies ... OK
+* checking if this is a source package ... NOTE
+Subdirectory '.' seems to contain an installed version of the package.
+* checking if there is a namespace ... OK
+* checking for executable files ... OK
+* checking for hidden files and directories ... NOTE
+Found the following hidden files and directories:
+  .gitignore
+  modeldiag.Rcheck/modeldiag/doc/.gitignore
+  vignettes/.Rhistory
+  vignettes/.gitignore
+  ..Rcheck
+  ..Rcheck/vign_test/modeldiag/..Rcheck
+  ..Rcheck/vign_test/modeldiag/..Rcheck/vign_test/modeldiag/.git
+  ..Rcheck/vign_test/modeldiag/.git
+  .git
+  .github
+These were most likely included in error. See section 'Package
+structure' in the 'Writing R Extensions' manual.
+* checking for portable file names ... NOTE
+Found the following non-portable file paths:
+  modeldiag/..Rcheck/vign_test/modeldiag/..Rcheck/vign_test/modeldiag/.git/objects/00/99b7b6b3303352bbf645ae9dd8fce165c7f4f1
+  modeldiag/..Rcheck/vign_test/modeldiag/..Rcheck/vign_test/modeldiag/.git/objects/01/b5792caf3e87d1bf239aa16e22dee0ea2b6ed7
+  modeldiag/..Rcheck/vign_test/modeldiag/..Rcheck/vign_test/modeldiag/.git/objects/01/f8db4268eb3338d593ed9b1cf87c5d76bafd08
+  modeldiag/..Rcheck/vign_test/modeldiag/..Rcheck/vign_test/modeldiag/.git/objects/02/7dee4eb9a3bf372fd5391a4bcaa29f343eaf96
+  modeldiag/..Rcheck/vign_test/modeldiag/..Rcheck/vign_test/modeldiag/.git/objects/02/aec850c4611ef214f1a23921015a526ae7fc93
+  modeldiag/..Rcheck/vign_test/modeldiag/..Rcheck/vign_test/modeldiag/.git/objects/02/c369a50a01df28ff8f3b2eb73e8e90d72fe12b
+  modeldiag/..Rcheck/vign_test/modeldiag/..Rcheck/vign_test/modeldiag/.git/objects/02/e2164e50d4099cb02eacaa75b05deed5c89ea4
+  modeldiag/..Rcheck/vign_test/modeldiag/..Rcheck/vign_test/modeldiag/.git/objects/03/6dbdfb5f1fa628c337d8a135cead776f582ced
+  modeldiag/..Rcheck/vign_test/modeldiag/..Rcheck/vign_test/modeldiag/.git/objects/04/912c15423597c3d94a8d511dfd44c766cee098
+  modeldiag/..Rcheck/vign_test/modeldiag/..Rcheck/vign_test/modeldiag/.git/objects/05/24220de7eea98c215cf2e09561abdaabbdf4da
+  modeldiag/..Rcheck/vign_test/modeldiag/..Rcheck/vign_test/modeldiag/.git/objects/05/5af0d739af2389ef192132496644716b0380ba
+  modeldiag/..Rcheck/vign_test/modeldiag/..Rcheck/vign_test/modeldiag/.git/objects/05/d8065a1fdfd1b677d99eb239a8dd28a22f9ddb
+  modeldiag/..Rcheck/vign_test/modeldiag/..Rcheck/vign_test/modeldiag/.git/objects/06/90a371e8e3b511970e408a3c48cbe91a4176ee
+  modeldiag/..Rcheck/vign_test/modeldiag/..Rcheck/vign_test/modeldiag/.git/objects/0a/19c0bf9cc626895948e4d392f09d425ca30330
+  modeldiag/..Rcheck/vign_test/modeldiag/..Rcheck/vign_test/modeldiag/.git/objects/0a/2e0eab165ed104e29e11845fbda0c1a0e43062
+  modeldiag/..Rcheck/vign_test/modeldiag/..Rcheck/vign_test/modeldiag/.git/objects/0a/3b4aff9ab76a10f4631a3c3b2acfa0c47225ab
+  modeldiag/..Rcheck/vign_test/modeldiag/..Rcheck/vign_test/modeldiag/.git/objects/0c/33750430cc05eb5c1a1c3c6071ac535bfa2a2c
+  modeldiag/..Rcheck/vign_test/modeldiag/..Rcheck/vign_test/modeldiag/.git/objects/0d/a79dc9f6458745004f60f5adca762ec85f9e91
+  modeldiag/..Rcheck/vign_test/modeldiag/..Rcheck/vign_test/modeldiag/.git/objects/0d/b04774944d75fc234a80164951a01199318812
+  modeldiag/..Rcheck/vign_test/modeldiag/..Rcheck/vign_test/modeldiag/.git/objects/11/4a0a9b8ee4284f002f805f2c2850a31a077d3b
+  modeldiag/..Rcheck/vign_test/modeldiag/..Rcheck/vign_test/modeldiag/.git/objects/13/669c7b7b058e93caa3a3ce1cde82428f06a1f1
+  modeldiag/..Rcheck/vign_test/modeldiag/..Rcheck/vign_test/modeldiag/.git/objects/14/6e7fb80cc00bbdc6513ef254b8226a9b8c0131
+  modeldiag/..Rcheck/vign_test/modeldiag/..Rcheck/vign_test/modeldiag/.git/objects/14/950129599a55c7424516febbd561ac1840d8c1
+  modeldiag/..Rcheck/vign_test/modeldiag/..Rcheck/vign_test/modeldiag/.git/objects/14/e7d21b1d1f9d226cb0146b116e59942e5f8618
+  modeldiag/..Rcheck/vign_test/modeldiag/..Rcheck/vign_test/modeldiag/.git/objects/15/ac4747c28a82b0710811d818f7f504033b906e
+  modeldiag/..Rcheck/vign_test/modeldiag/..Rcheck/vign_test/modeldiag/.git/objects/16/2fff882b9276b56ea220de2f6bbca667b669f5
+  modeldiag/..Rcheck/vign_test/modeldiag/..Rcheck/vign_test/modeldiag/.git/objects/17/1394e7469907ad473097cc839eda443ebae940
+  modeldiag/..Rcheck/vign_test/modeldiag/..Rcheck/vign_test/modeldiag/.git/objects/17/8388ff15215ee1f07caab2f10d03ed338a7ff3
+  modeldiag/..Rcheck/vign_test/modeldiag/..Rcheck/vign_test/modeldiag/.git/objects/18/c81359d00ebade9d6a5acddfafc5facbb28664
+  modeldiag/..Rcheck/vign_test/modeldiag/..Rcheck/vign_test/modeldiag/.git/objects/18/d81595bafb4a5325648115dd50741c77a670df
+  modeldiag/..Rcheck/vign_test/modeldiag/..Rcheck/vign_test/modeldiag/.git/objects/19/f46ca6c9aa092e4aeb98885727f9214ef79f21
+  modeldiag/..Rcheck/vign_test/modeldiag/..Rcheck/vign_test/modeldiag/.git/objects/1a/108cbad9dc1afa1f48f4da4485997b48f147f8
+  modeldiag/..Rcheck/vign_test/modeldiag/..Rcheck/vign_test/modeldiag/.git/objects/1a/16d17115da5117395470cad4a3b5c891bebb8e
+  modeldiag/..Rcheck/vign_test/modeldiag/..Rcheck/vign_test/modeldiag/.git/objects/1a/2a7d3abab9e16fb94659ec2ac96dbbda040f98
+  modeldiag/..Rcheck/vign_test/modeldiag/..Rcheck/vign_test/modeldiag/.git/objects/1b/003ae76bb2d8a7df88e7fe9acc50aa6dde0c22
+  modeldiag/..Rcheck/vign_test/modeldiag/..Rcheck/vign_test/modeldiag/.git/objects/1b/ca4cc0bc0f34424ec17c9ab8acfb08ccc25a21
+  modeldiag/..Rcheck/vign_test/modeldiag/..Rcheck/vign_test/modeldiag/.git/objects/1d/6771fd0d4799f3d7a8d41aad66fea121114d5e
+  modeldiag/..Rcheck/vign_test/modeldiag/..Rcheck/vign_test/modeldiag/.git/objects/1e/64f60886ad853f5d152f825015ac2611ad0c08
+  modeldiag/..Rcheck/vign_test/modeldiag/..Rcheck/vign_test/modeldiag/.git/objects/1f/1bc5d96209c3f7919acadfe2c20d9f5ff966e3
+  modeldiag/..Rcheck/vign_test/modeldiag/..Rcheck/vign_test/modeldiag/.git/objects/1f/4b71d5ccf4d009e81b993a01cf3c41cf596c53
+  modeldiag/..Rcheck/vign_test/modeldiag/..Rcheck/vign_test/modeldiag/.git/objects/23/d11f2f132cd66fb6ea340ef08f4fd7bcfee39f
+  modeldiag/..Rcheck/vign_test/modeldiag/..Rcheck/vign_test/modeldiag/.git/objects/24/902f4ea9585c36fa02413b50df3a6f3f7e3cbf
+  modeldiag/..Rcheck/vign_test/modeldiag/..Rcheck/vign_test/modeldiag/.git/objects/24/c110ba68b59764dceebb8595ee5fcf94370c62
+  modeldiag/..Rcheck/vign_test/modeldiag/..Rcheck/vign_test/modeldiag/.git/objects/26/ba2c50173d943fb6fd311e484fa74b20c1aab7
+  modeldiag/..Rcheck/vign_test/modeldiag/..Rcheck/vign_test/modeldiag/.git/objects/27/08832919bea67cdcea42eb8c14388376ad2102
+  modeldiag/..Rcheck/vign_test/modeldiag/..Rcheck/vign_test/modeldiag/.git/objects/29/2e8aef99086e4e0d69b8f54ab7263393011a33
+  modeldiag/..Rcheck/vign_test/modeldiag/..Rcheck/vign_test/modeldiag/.git/objects/2a/314aa9a3a5846ec36fd26406dadfbc01cea00f
+  modeldiag/..Rcheck/vign_test/modeldiag/..Rcheck/vign_test/modeldiag/.git/objects/2a/76a178851ed9f4c670c9fdf6d676659665ec03
+  modeldiag/..Rcheck/vign_test/modeldiag/..Rcheck/vign_test/modeldiag/.git/objects/2b/837a611379df6ee0604c1e171fc42d32c53cd8
+  modeldiag/..Rcheck/vign_test/modeldiag/..Rcheck/vign_test/modeldiag/.git/objects/2c/6bf3f232e7b3d49263f1c89a26f252923923bb
+  modeldiag/..Rcheck/vign_test/modeldiag/..Rcheck/vign_test/modeldiag/.git/objects/2c/7187193d9f490e4ff8be3c8a835f45887ccb41
+  modeldiag/..Rcheck/vign_test/modeldiag/..Rcheck/vign_test/modeldiag/.git/objects/2d/2010f100af10252d3646a1b1e5e346a6f284e0
+  modeldiag/..Rcheck/vign_test/modeldiag/..Rcheck/vign_test/modeldiag/.git/objects/2d/7d86c559be191523a37adfbabc44b2f60b3031
+  modeldiag/..Rcheck/vign_test/modeldiag/..Rcheck/vign_test/modeldiag/.git/objects/2f/d70064bfc3e7c543c9a5378654c75be80b42e7
+  modeldiag/..Rcheck/vign_test/modeldiag/..Rcheck/vign_test/modeldiag/.git/objects/30/1666d73bd3409be624f4919b82c00bb06c4c4f
+  modeldiag/..Rcheck/vign_test/modeldiag/..Rcheck/vign_test/modeldiag/.git/objects/31/d8f8550526a49861dc4674ae744937f0a06b27
+  modeldiag/..Rcheck/vign_test/modeldiag/..Rcheck/vign_test/modeldiag/.git/objects/32/420b950a8265bea798a08e0f94cee2f06a5213
+  modeldiag/..Rcheck/vign_test/modeldiag/..Rcheck/vign_test/modeldiag/.git/objects/32/720f77fff31f9cabac0fa82e1c9aa1efa7b060
+  modeldiag/..Rcheck/vign_test/modeldiag/..Rcheck/vign_test/modeldiag/.git/objects/33/a3876e5a79c7fbbc1c32a56bceede09e9c4dbe
+  modeldiag/..Rcheck/vign_test/modeldiag/..Rcheck/vign_test/modeldiag/.git/objects/34/a2bf88931c33faa0948e80c631d463905167b4
+  modeldiag/..Rcheck/vign_test/modeldiag/..Rcheck/vign_test/modeldiag/.git/objects/34/c967f42097db7f18d169a814813777129e3916
+  modeldiag/..Rcheck/vign_test/modeldiag/..Rcheck/vign_test/modeldiag/.git/objects/37/56863653e3fb10f2c06d6ddda6ffbc9618114e
+  modeldiag/..Rcheck/vign_test/modeldiag/..Rcheck/vign_test/modeldiag/.git/objects/38/79c90836ed81f407356f195e5b1429463bd16f
+  modeldiag/..Rcheck/vign_test/modeldiag/..Rcheck/vign_test/modeldiag/.git/objects/38/862011ded26dec51e533accff7845b84c10475
+  modeldiag/..Rcheck/vign_test/modeldiag/..Rcheck/vign_test/modeldiag/.git/objects/39/faba1abac5a4bca71a115c08dcd2ea639b8105
+  modeldiag/..Rcheck/vign_test/modeldiag/..Rcheck/vign_test/modeldiag/.git/objects/3b/fae79b94665521a4c8aa0406fcfa64f22ad91e
+  modeldiag/..Rcheck/vign_test/modeldiag/..Rcheck/vign_test/modeldiag/.git/objects/3c/b51c3709949229adab8abd749bb19e7b3dce94
+  modeldiag/..Rcheck/vign_test/modeldiag/..Rcheck/vign_test/modeldiag/.git/objects/3d/3f5153155df5e433e016faa087a1c76bf79320
+  modeldiag/..Rcheck/vign_test/modeldiag/..Rcheck/vign_test/modeldiag/.git/objects/3e/4c534ee044ff1975766d0c7f5ac66415310a1a
+  modeldiag/..Rcheck/vign_test/modeldiag/..Rcheck/vign_test/modeldiag/.git/objects/3e/78f1a214923f773ba8edfb615ada7939543abf
+  modeldiag/..Rcheck/vign_test/modeldiag/..Rcheck/vign_test/modeldiag/.git/objects/3e/8ea6b7cd271fa2f3c7b25ae63a66a3b16d58d7
+  modeldiag/..Rcheck/vign_test/modeldiag/..Rcheck/vign_test/modeldiag/.git/objects/3f/b4aa00e70c61c49040b2e91612d2bf9eb647b4
+  modeldiag/..Rcheck/vign_test/modeldiag/..Rcheck/vign_test/modeldiag/.git/objects/40/12f952eee5079e9016e8d755c02f787fcf66f2
+  modeldiag/..Rcheck/vign_test/modeldiag/..Rcheck/vign_test/modeldiag/.git/objects/43/2fb1073536a32835dd217d300bc62fa7c11164
+  modeldiag/..Rcheck/vign_test/modeldiag/..Rcheck/vign_test/modeldiag/.git/objects/43/409bd4efcb6c0bc064234dfe1afc1b0f26cb48
+  modeldiag/..Rcheck/vign_test/modeldiag/..Rcheck/vign_test/modeldiag/.git/objects/44/23c470562df8169fbf237ef3794e2b6461884f
+  modeldiag/..Rcheck/vign_test/modeldiag/..Rcheck/vign_test/modeldiag/.git/objects/44/7d8f2601557258935d80247c81afeca76d79b5
+  modeldiag/..Rcheck/vign_test/modeldiag/..Rcheck/vign_test/modeldiag/.git/objects/48/5f1be0b8b58da5b67c4e8a0926df87e8550246
+  modeldiag/..Rcheck/vign_test/modeldiag/..Rcheck/vign_test/modeldiag/.git/objects/49/109cc3ac8557d8f0e24bcb6424600e438734bd
+  modeldiag/..Rcheck/vign_test/modeldiag/..Rcheck/vign_test/modeldiag/.git/objects/49/4da2f7a99f98095338839641cd9453a2f764a8
+  modeldiag/..Rcheck/vign_test/modeldiag/..Rcheck/vign_test/modeldiag/.git/objects/4b/6bedd4634ed9a6fd05c9aff8fad411fb986633
+  modeldiag/..Rcheck/vign_test/modeldiag/..Rcheck/vign_test/modeldiag/.git/objects/4c/19aa01770f57be0606c4002ea54265dad4c284
+  modeldiag/..Rcheck/vign_test/modeldiag/..Rcheck/vign_test/modeldiag/.git/objects/4c/27d9c50cdd100f4f017d810f7c0670a8bc7ff8
+  modeldiag/..Rcheck/vign_test/modeldiag/..Rcheck/vign_test/modeldiag/.git/objects/4c/3e15ed815821d654e903db141e0dd26fd43e73
+  modeldiag/..Rcheck/vign_test/modeldiag/..Rcheck/vign_test/modeldiag/.git/objects/4c/a6e768a861908ea3626d5f98b994a0ebda18bd
+  modeldiag/..Rcheck/vign_test/modeldiag/..Rcheck/vign_test/modeldiag/.git/objects/4d/e20cbe5c9a69a121758ea8afe679a620f988cc
+  modeldiag/..Rcheck/vign_test/modeldiag/..Rcheck/vign_test/modeldiag/.git/objects/4e/3621c191848d03660533061a125f65ec1b64de
+  modeldiag/..Rcheck/vign_test/modeldiag/..Rcheck/vign_test/modeldiag/.git/objects/4f/7906b180f290880177d373ee4ba3403c4d1bb8
+  modeldiag/..Rcheck/vign_test/modeldiag/..Rcheck/vign_test/modeldiag/.git/objects/4f/8dbba8bcd616d5b92340e6f123410b27c6420c
+  modeldiag/..Rcheck/vign_test/modeldiag/..Rcheck/vign_test/modeldiag/.git/objects/50/a68dca85f598ce5ebb946e1e0cb726996ba94a
+  modeldiag/..Rcheck/vign_test/modeldiag/..Rcheck/vign_test/modeldiag/.git/objects/50/a9e6787e2c70847d422a82cd20197ff0d798e4
+  modeldiag/..Rcheck/vign_test/modeldiag/..Rcheck/vign_test/modeldiag/.git/objects/50/ca50e1cae75571743546b355b9a49df485ecdd
+  modeldiag/..Rcheck/vign_test/modeldiag/..Rcheck/vign_test/modeldiag/.git/objects/51/7d6783faa1448716c9667fea8f634d0538be19
+  modeldiag/..Rcheck/vign_test/modeldiag/..Rcheck/vign_test/modeldiag/.git/objects/52/45f01ecb0418510a6f1745c0b022740e8cc22a
+  modeldiag/..Rcheck/vign_test/modeldiag/..Rcheck/vign_test/modeldiag/.git/objects/53/01eb31110cfbfa1dc233cfd74c85178f9ad67c
+  modeldiag/..Rcheck/vign_test/modeldiag/..Rcheck/vign_test/modeldiag/.git/objects/53/d61caf70950daf7243c7569508966bf14ba9df
+  modeldiag/..Rcheck/vign_test/modeldiag/..Rcheck/vign_test/modeldiag/.git/objects/53/da97b5da044eaaf58ac1926e6f3a3d80af27d4
+  modeldiag/..Rcheck/vign_test/modeldiag/..Rcheck/vign_test/modeldiag/.git/objects/54/925dc88277c4157cc9192a4c555004a844a59a
+  modeldiag/..Rcheck/vign_test/modeldiag/..Rcheck/vign_test/modeldiag/.git/objects/54/d0842939903f4cba0c48a108e22ebd7504a835
+  modeldiag/..Rcheck/vign_test/modeldiag/..Rcheck/vign_test/modeldiag/.git/objects/54/eab75a344cf3f8512322a6c436ff4ad1a3308f
+  modeldiag/..Rcheck/vign_test/modeldiag/..Rcheck/vign_test/modeldiag/.git/objects/55/4bad1c506a46b1b908d64803124c1a87ab10f4
+  modeldiag/..Rcheck/vign_test/modeldiag/..Rcheck/vign_test/modeldiag/.git/objects/57/6444b4e8b342e5b977c4f0214c01c7aa9e5cfa
+  modeldiag/..Rcheck/vign_test/modeldiag/..Rcheck/vign_test/modeldiag/.git/objects/58/0d50c8c804b6db4fb14f5402071880738c5529
+  modeldiag/..Rcheck/vign_test/modeldiag/..Rcheck/vign_test/modeldiag/.git/objects/58/4792a71fc25d76db94b7bceb0c2514f3819062
+  modeldiag/..Rcheck/vign_test/modeldiag/..Rcheck/vign_test/modeldiag/.git/objects/58/72417da3710021eb013c4af22aceb8de58a00a
+  modeldiag/..Rcheck/vign_test/modeldiag/..Rcheck/vign_test/modeldiag/.git/objects/58/b82b9608eb566d74532d3e1b5e9d09fd2ade5b
+  modeldiag/..Rcheck/vign_test/modeldiag/..Rcheck/vign_test/modeldiag/.git/objects/59/2b5b75101ca22fb409be966071391c98db554b
+  modeldiag/..Rcheck/vign_test/modeldiag/..Rcheck/vign_test/modeldiag/.git/objects/5a/7d98c878d242dc47ec9e3c32b06d33aa2d76e1
+  modeldiag/..Rcheck/vign_test/modeldiag/..Rcheck/vign_test/modeldiag/.git/objects/5c/60b4d393f2f27fed2a2b0d702079c91dee8359
+  modeldiag/..Rcheck/vign_test/modeldiag/..Rcheck/vign_test/modeldiag/.git/objects/5d/59af805249762ba0043287b9f8cb7c2a8e2204
+  modeldiag/..Rcheck/vign_test/modeldiag/..Rcheck/vign_test/modeldiag/.git/objects/5d/a9adf71f5a79aad813ecd673ca7792a7ab0e2d
+  modeldiag/..Rcheck/vign_test/modeldiag/..Rcheck/vign_test/modeldiag/.git/objects/5e/fe9992034678a26ae13976ab999b854410e1f7
+  modeldiag/..Rcheck/vign_test/modeldiag/..Rcheck/vign_test/modeldiag/.git/objects/60/0e7c6f38c8ff272118ade10a037c2e4af7c2e5
+  modeldiag/..Rcheck/vign_test/modeldiag/..Rcheck/vign_test/modeldiag/.git/objects/62/7b9dfc460a0fe7cbbce08582c85d45a1a2e84c
+  modeldiag/..Rcheck/vign_test/modeldiag/..Rcheck/vign_test/modeldiag/.git/objects/62/b7df08a8127e11dd1ed8634c907844cc087d14
+  modeldiag/..Rcheck/vign_test/modeldiag/..Rcheck/vign_test/modeldiag/.git/objects/63/70dcdb95d81556805d5525c044ed20044c00b6
+  modeldiag/..Rcheck/vign_test/modeldiag/..Rcheck/vign_test/modeldiag/.git/objects/63/ae16973493f7cfdc4df6801cb5cb62a44a2c47
+  modeldiag/..Rcheck/vign_test/modeldiag/..Rcheck/vign_test/modeldiag/.git/objects/64/45b62eb96f335011a4d7a7b93781a992628e1d
+  modeldiag/..Rcheck/vign_test/modeldiag/..Rcheck/vign_test/modeldiag/.git/objects/66/3e286bec33896a0a968049c358690474b0a11d
+  modeldiag/..Rcheck/vign_test/modeldiag/..Rcheck/vign_test/modeldiag/.git/objects/66/86156321de4dbdb52db7e32cd99961007f56e2
+  modeldiag/..Rcheck/vign_test/modeldiag/..Rcheck/vign_test/modeldiag/.git/objects/66/cabeac387e23ad8a6e4c9366e13ad5040df0bc
+  modeldiag/..Rcheck/vign_test/modeldiag/..Rcheck/vign_test/modeldiag/.git/objects/6a/0c9e6accadb45945186209e817f67b8c6a3b6f
+  modeldiag/..Rcheck/vign_test/modeldiag/..Rcheck/vign_test/modeldiag/.git/objects/6a/344ae210278edfba5a8359e7cac745842d8aad
+  modeldiag/..Rcheck/vign_test/modeldiag/..Rcheck/vign_test/modeldiag/.git/objects/6a/52e0046096d28f948356a9e9a9472f830d1eaa
+  modeldiag/..Rcheck/vign_test/modeldiag/..Rcheck/vign_test/modeldiag/.git/objects/6b/120045ec551acf76ae93cf46619ad121c7ab02
+  modeldiag/..Rcheck/vign_test/modeldiag/..Rcheck/vign_test/modeldiag/.git/objects/6b/e123a47a641f701ed24d69ebee1ae80ca7b7b2
+  modeldiag/..Rcheck/vign_test/modeldiag/..Rcheck/vign_test/modeldiag/.git/objects/6d/bdc57559de862b85dfedef741012ceedb41f21
+  modeldiag/..Rcheck/vign_test/modeldiag/..Rcheck/vign_test/modeldiag/.git/objects/6e/1d8bdc149c349c9c0fc22c5182dba5b23ee566
+  modeldiag/..Rcheck/vign_test/modeldiag/..Rcheck/vign_test/modeldiag/.git/objects/6f/91cffd3e5fe9b191de62adafffe3c0f8492a16
+  modeldiag/..Rcheck/vign_test/modeldiag/..Rcheck/vign_test/modeldiag/.git/objects/6f/987d927e9d1d7420bceb0c967c14afe5f96da1
+  modeldiag/..Rcheck/vign_test/modeldiag/..Rcheck/vign_test/modeldiag/.git/objects/70/3b8aaabba505c1fe46825f26f228ba073b1066
+  modeldiag/..Rcheck/vign_test/modeldiag/..Rcheck/vign_test/modeldiag/.git/objects/70/618d79cc9cdf6a11a26098ba29e0136d9710a1
+  modeldiag/..Rcheck/vign_test/modeldiag/..Rcheck/vign_test/modeldiag/.git/objects/71/835a9e448578bd0b900fd56da9f78017e25e9a
+  modeldiag/..Rcheck/vign_test/modeldiag/..Rcheck/vign_test/modeldiag/.git/objects/71/a9b55546b4e98622b3c7f631357b809c53a2d5
+  modeldiag/..Rcheck/vign_test/modeldiag/..Rcheck/vign_test/modeldiag/.git/objects/72/50940bd865b7adfb90ddcc0c113d2ba8cd104b
+  modeldiag/..Rcheck/vign_test/modeldiag/..Rcheck/vign_test/modeldiag/.git/objects/72/a08a7dc1738b9f0eec675b1f847571ee4a518d
+  modeldiag/..Rcheck/vign_test/modeldiag/..Rcheck/vign_test/modeldiag/.git/objects/73/06f7e40908db1aa6cda4e44fd502cde782587e
+  modeldiag/..Rcheck/vign_test/modeldiag/..Rcheck/vign_test/modeldiag/.git/objects/73/b37d13b1d186ade90d9a2d379eec8ff923be92
+  modeldiag/..Rcheck/vign_test/modeldiag/..Rcheck/vign_test/modeldiag/.git/objects/74/31b3970671e7e9ffad9a106b47b1ece635d3a7
+  modeldiag/..Rcheck/vign_test/modeldiag/..Rcheck/vign_test/modeldiag/.git/objects/74/e201f10185a77bc5be3d55dd69c6e66cd22286
+  modeldiag/..Rcheck/vign_test/modeldiag/..Rcheck/vign_test/modeldiag/.git/objects/74/ec7b051aae5ed0f3de7e07fa53d08ee9ea0632
+  modeldiag/..Rcheck/vign_test/modeldiag/..Rcheck/vign_test/modeldiag/.git/objects/79/e05fa89ef0d7b87268442bd97b9d95aa071ad2
+  modeldiag/..Rcheck/vign_test/modeldiag/..Rcheck/vign_test/modeldiag/.git/objects/7b/1b644f0e2831513ea0e394dfbb0bbb9c98ac1f
+  modeldiag/..Rcheck/vign_test/modeldiag/..Rcheck/vign_test/modeldiag/.git/objects/7c/4cf15ce2ecd2d1e8d57347fe2475da721bbda8
+  modeldiag/..Rcheck/vign_test/modeldiag/..Rcheck/vign_test/modeldiag/.git/objects/7d/d0ba39cf3ac48eb3dd07c5b87f3e749319fd85
+  modeldiag/..Rcheck/vign_test/modeldiag/..Rcheck/vign_test/modeldiag/.git/objects/7e/76a2a3f21e71985e0c38db57f3e59f7317c7d1
+  modeldiag/..Rcheck/vign_test/modeldiag/..Rcheck/vign_test/modeldiag/.git/objects/80/31b12e426e98c0a65accbe3823058be03c84ac
+  modeldiag/..Rcheck/vign_test/modeldiag/..Rcheck/vign_test/modeldiag/.git/objects/82/4335168d7d7479cef67a28f0ff867558edc4ae
+  modeldiag/..Rcheck/vign_test/modeldiag/..Rcheck/vign_test/modeldiag/.git/objects/82/57aebd3c0f2b6d376be1ff1b2c7e15763486c7
+  modeldiag/..Rcheck/vign_test/modeldiag/..Rcheck/vign_test/modeldiag/.git/objects/84/9433321a0c681f8f1c73253678e3073b6d7b89
+  modeldiag/..Rcheck/vign_test/modeldiag/..Rcheck/vign_test/modeldiag/.git/objects/85/23c018e1e6bcf50a7b80e073f4cc1bfe3410ed
+  modeldiag/..Rcheck/vign_test/modeldiag/..Rcheck/vign_test/modeldiag/.git/objects/85/d9a723035e8032ff2a6f21172d71926c2a0d75
+  modeldiag/..Rcheck/vign_test/modeldiag/..Rcheck/vign_test/modeldiag/.git/objects/86/2ec82dbbe0387ba0e039a8e8ec9a6b56b2afda
+  modeldiag/..Rcheck/vign_test/modeldiag/..Rcheck/vign_test/modeldiag/.git/objects/87/7b8efde6cc7fc7eb0dc4377787aa52dfe6a94d
+  modeldiag/..Rcheck/vign_test/modeldiag/..Rcheck/vign_test/modeldiag/.git/objects/88/1dd565dfbfa246596ebbdf58617b722b0c9034
+  modeldiag/..Rcheck/vign_test/modeldiag/..Rcheck/vign_test/modeldiag/.git/objects/88/7f1a0cf19c988e7a8355502aadbb7b0c4b59ea
+  modeldiag/..Rcheck/vign_test/modeldiag/..Rcheck/vign_test/modeldiag/.git/objects/8a/6d88e14101ba27f069b28fa4d203cf5c68ea65
+  modeldiag/..Rcheck/vign_test/modeldiag/..Rcheck/vign_test/modeldiag/.git/objects/8a/d37d8eee4fb794292a0ee6cd30b8536088c1cd
+  modeldiag/..Rcheck/vign_test/modeldiag/..Rcheck/vign_test/modeldiag/.git/objects/8a/d6d2508705d9a8fa77097c91589694c4a7867f
+  modeldiag/..Rcheck/vign_test/modeldiag/..Rcheck/vign_test/modeldiag/.git/objects/8b/0841a13c360f2e4371fc8d0c62358237e02eb2
+  modeldiag/..Rcheck/vign_test/modeldiag/..Rcheck/vign_test/modeldiag/.git/objects/8b/7fee1c368c3d6c9c31f7c32bfd47b3ad0edd30
+  modeldiag/..Rcheck/vign_test/modeldiag/..Rcheck/vign_test/modeldiag/.git/objects/8d/9a8b17af5c58d3d75795818984b783ef4480e2
+  modeldiag/..Rcheck/vign_test/modeldiag/..Rcheck/vign_test/modeldiag/.git/objects/8d/9f6e8b0215272ca6ed4d103331d5ea34d87edb
+  modeldiag/..Rcheck/vign_test/modeldiag/..Rcheck/vign_test/modeldiag/.git/objects/8d/ae503ccac9b2c31fa6f4b419b07fae7acdbe97
+  modeldiag/..Rcheck/vign_test/modeldiag/..Rcheck/vign_test/modeldiag/.git/objects/8e/1a89c83d14b3acd0a08760f9a02538db4a87fb
+  modeldiag/..Rcheck/vign_test/modeldiag/..Rcheck/vign_test/modeldiag/.git/objects/8e/82ec1a71aa342a389c28c74d79e7b128f7b4d4
+  modeldiag/..Rcheck/vign_test/modeldiag/..Rcheck/vign_test/modeldiag/.git/objects/90/3d7985c7bed610b4ee09c08e9bb5a2f4d4f1f5
+  modeldiag/..Rcheck/vign_test/modeldiag/..Rcheck/vign_test/modeldiag/.git/objects/92/5ebfdbb2bb846ebe8e07a6ddbfb0f5cee2c0f8
+  modeldiag/..Rcheck/vign_test/modeldiag/..Rcheck/vign_test/modeldiag/.git/objects/92/c8baf01f1c5058c947e1182fe3e037e7dd0def
+  modeldiag/..Rcheck/vign_test/modeldiag/..Rcheck/vign_test/modeldiag/.git/objects/92/c9cf718df7bd5c7572b12a0689995cdce73fc4
+  modeldiag/..Rcheck/vign_test/modeldiag/..Rcheck/vign_test/modeldiag/.git/objects/93/1e053424064bc04396a588cc33d0d55dc08bfe
+  modeldiag/..Rcheck/vign_test/modeldiag/..Rcheck/vign_test/modeldiag/.git/objects/94/4a638537181a3add41b32232741dc61a5c3994
+  modeldiag/..Rcheck/vign_test/modeldiag/..Rcheck/vign_test/modeldiag/.git/objects/94/4d38755e1a4fbbb08a71f92a11f2575bf3562c
+  modeldiag/..Rcheck/vign_test/modeldiag/..Rcheck/vign_test/modeldiag/.git/objects/95/5196bf94e66bab2f215d4bd658f4db3cf7e8ee
+  modeldiag/..Rcheck/vign_test/modeldiag/..Rcheck/vign_test/modeldiag/.git/objects/95/e08568b57ad65a73ebff29702a33504dd05d7a
+  modeldiag/..Rcheck/vign_test/modeldiag/..Rcheck/vign_test/modeldiag/.git/objects/96/54cf6dd5ad5c505b1963bc004e43856e166d48
+  modeldiag/..Rcheck/vign_test/modeldiag/..Rcheck/vign_test/modeldiag/.git/objects/96/cf38656b39adc39213ca8061c0fedd5527081c
+  modeldiag/..Rcheck/vign_test/modeldiag/..Rcheck/vign_test/modeldiag/.git/objects/97/963d86b33797f5308e679def3772e17692578b
+  modeldiag/..Rcheck/vign_test/modeldiag/..Rcheck/vign_test/modeldiag/.git/objects/97/ad51487964ad7fe68e6a5c1dc528c2112d6e2d
+  modeldiag/..Rcheck/vign_test/modeldiag/..Rcheck/vign_test/modeldiag/.git/objects/98/0d320f2e5db4dd2f7733722b6a790e48eda0e5
+  modeldiag/..Rcheck/vign_test/modeldiag/..Rcheck/vign_test/modeldiag/.git/objects/98/e7b48da8d608c77d7a97836ba3c1cf2c73ec20
+  modeldiag/..Rcheck/vign_test/modeldiag/..Rcheck/vign_test/modeldiag/.git/objects/99/30a665dbb680c9acdd23d4da7290261ec597eb
+  modeldiag/..Rcheck/vign_test/modeldiag/..Rcheck/vign_test/modeldiag/.git/objects/99/6881cc53517b071e7f1455b6cd3569ac728c43
+  modeldiag/..Rcheck/vign_test/modeldiag/..Rcheck/vign_test/modeldiag/.git/objects/9a/60fb75920d561b39bc256dcf3ae28fb15b3004
+  modeldiag/..Rcheck/vign_test/modeldiag/..Rcheck/vign_test/modeldiag/.git/objects/9b/cefd1037d939abff8b2dbc83e2d06e5278e634
+  modeldiag/..Rcheck/vign_test/modeldiag/..Rcheck/vign_test/modeldiag/.git/objects/9d/0e5d46d9cf066eaa2a9c6613182287478d2c09
+  modeldiag/..Rcheck/vign_test/modeldiag/..Rcheck/vign_test/modeldiag/.git/objects/9d/27e859fa5cf72c9994015d497fe28a2a3a380b
+  modeldiag/..Rcheck/vign_test/modeldiag/..Rcheck/vign_test/modeldiag/.git/objects/9e/0f8162390fe8f2b8a774e8eb534efdf8cfd288
+  modeldiag/..Rcheck/vign_test/modeldiag/..Rcheck/vign_test/modeldiag/.git/objects/9e/91bb657aa565c3804bb4a430bf92da84dc1b27
+  modeldiag/..Rcheck/vign_test/modeldiag/..Rcheck/vign_test/modeldiag/.git/objects/9f/12f430dfd9cf2a6904158132ce37caa7c75b6a
+  modeldiag/..Rcheck/vign_test/modeldiag/..Rcheck/vign_test/modeldiag/.git/objects/9f/87a84f7774a421744902d26bdf98a572755c00
+  modeldiag/..Rcheck/vign_test/modeldiag/..Rcheck/vign_test/modeldiag/.git/objects/a0/2f1bc2334ae8b8043ab539a20cf81707009a1f
+  modeldiag/..Rcheck/vign_test/modeldiag/..Rcheck/vign_test/modeldiag/.git/objects/a3/6fdd1a11999b29ff07cfa65da60aff4e5f412d
+  modeldiag/..Rcheck/vign_test/modeldiag/..Rcheck/vign_test/modeldiag/.git/objects/a3/8eb084fee57f1862d4d9166af10d2a8ed4a79c
+  modeldiag/..Rcheck/vign_test/modeldiag/..Rcheck/vign_test/modeldiag/.git/objects/a4/e696fbfc38bba6f3b43184f73e77f202f04798
+  modeldiag/..Rcheck/vign_test/modeldiag/..Rcheck/vign_test/modeldiag/.git/objects/a5/6dfd8eb53754ee16a87671fb320cd94644ac0c
+  modeldiag/..Rcheck/vign_test/modeldiag/..Rcheck/vign_test/modeldiag/.git/objects/a5/c47ebd159fe039b7154ded965ed6aac8df84ba
+  modeldiag/..Rcheck/vign_test/modeldiag/..Rcheck/vign_test/modeldiag/.git/objects/a6/1b8ad2804c42298917a310e990c8c06b8d40bb
+  modeldiag/..Rcheck/vign_test/modeldiag/..Rcheck/vign_test/modeldiag/.git/objects/a7/759ba43a51b1ec2148f08557fde6d96e50e72a
+  modeldiag/..Rcheck/vign_test/modeldiag/..Rcheck/vign_test/modeldiag/.git/objects/a8/e41c90f990feab46507b1e4ce34254cc7a5e2b
+  modeldiag/..Rcheck/vign_test/modeldiag/..Rcheck/vign_test/modeldiag/.git/objects/a9/bb37b6f4fc965bcae69e1c799497ef9a251f2d
+  modeldiag/..Rcheck/vign_test/modeldiag/..Rcheck/vign_test/modeldiag/.git/objects/ab/96f99d8c49bff14cfcc92a612da475e3dbb84a
+  modeldiag/..Rcheck/vign_test/modeldiag/..Rcheck/vign_test/modeldiag/.git/objects/ac/4645d810b34d40bc3190ab3977340f52a5eea7
+  modeldiag/..Rcheck/vign_test/modeldiag/..Rcheck/vign_test/modeldiag/.git/objects/ac/a5cece20aff1a766b6cf2c76b440ab8154a678
+  modeldiag/..Rcheck/vign_test/modeldiag/..Rcheck/vign_test/modeldiag/.git/objects/ad/293093b07ce949885da1fddaa7f52bfa6c4ce7
+  modeldiag/..Rcheck/vign_test/modeldiag/..Rcheck/vign_test/modeldiag/.git/objects/ae/0fee505d7db148af5b9a4773ac422d4511d7cf
+  modeldiag/..Rcheck/vign_test/modeldiag/..Rcheck/vign_test/modeldiag/.git/objects/ae/383476dda9f3d2bca494d3fafa9b4621071c92
+  modeldiag/..Rcheck/vign_test/modeldiag/..Rcheck/vign_test/modeldiag/.git/objects/af/3d96872877d36b18375970b950a4a504bffc57
+  modeldiag/..Rcheck/vign_test/modeldiag/..Rcheck/vign_test/modeldiag/.git/objects/b1/a1bddc9daf7ad106b2be1ad7bf4da6e555d21d
+  modeldiag/..Rcheck/vign_test/modeldiag/..Rcheck/vign_test/modeldiag/.git/objects/b1/fe8a6596c644f8752b5eea2b98fa8486eb960b
+  modeldiag/..Rcheck/vign_test/modeldiag/..Rcheck/vign_test/modeldiag/.git/objects/b2/2ecd66d01a68d17611499259513c519895b086
+  modeldiag/..Rcheck/vign_test/modeldiag/..Rcheck/vign_test/modeldiag/.git/objects/b3/653ad74766ed55a04e5a354165a39359381673
+  modeldiag/..Rcheck/vign_test/modeldiag/..Rcheck/vign_test/modeldiag/.git/objects/b3/66b1d4b3946e84985b62c936aa49388d703b10
+  modeldiag/..Rcheck/vign_test/modeldiag/..Rcheck/vign_test/modeldiag/.git/objects/b4/e0f7763168226dc8b10960bbe9a4bac1ad27bb
+  modeldiag/..Rcheck/vign_test/modeldiag/..Rcheck/vign_test/modeldiag/.git/objects/b5/05459dfd3ac208f3f79ebbb0ed7f5c443742ea
+  modeldiag/..Rcheck/vign_test/modeldiag/..Rcheck/vign_test/modeldiag/.git/objects/b5/f174f859025bb7515a4fdf19e350e1cbd198a1
+  modeldiag/..Rcheck/vign_test/modeldiag/..Rcheck/vign_test/modeldiag/.git/objects/b6/07b3afafbcf508461716c5fb8cdb87063e5f4f
+  modeldiag/..Rcheck/vign_test/modeldiag/..Rcheck/vign_test/modeldiag/.git/objects/b7/9ce3efbef03cdae6126ca567482764f9f92a60
+  modeldiag/..Rcheck/vign_test/modeldiag/..Rcheck/vign_test/modeldiag/.git/objects/b8/1b689c38b8f1c52a708b96a66adb699b9ae67a
+  modeldiag/..Rcheck/vign_test/modeldiag/..Rcheck/vign_test/modeldiag/.git/objects/b8/35bf88a7741d4b0605bb0e49a477a2b533ba82
+  modeldiag/..Rcheck/vign_test/modeldiag/..Rcheck/vign_test/modeldiag/.git/objects/b8/547c2d6c9d6a87c57a25044597cd5a0d6e68b3
+  modeldiag/..Rcheck/vign_test/modeldiag/..Rcheck/vign_test/modeldiag/.git/objects/b9/fdf7e5d696d2bdb2247d9dbd43da61c535f250
+  modeldiag/..Rcheck/vign_test/modeldiag/..Rcheck/vign_test/modeldiag/.git/objects/ba/80a2803e919676e6e2fd0b7c28ed61215384c4
+  modeldiag/..Rcheck/vign_test/modeldiag/..Rcheck/vign_test/modeldiag/.git/objects/bb/18a45b0923c682585172654ccc4aa120c72823
+  modeldiag/..Rcheck/vign_test/modeldiag/..Rcheck/vign_test/modeldiag/.git/objects/bb/6b82e5f70ef34ee1c1b85fc80f3ba403f2d014
+  modeldiag/..Rcheck/vign_test/modeldiag/..Rcheck/vign_test/modeldiag/.git/objects/bd/446200d63f78c31960298a268d354fcf99fd72
+  modeldiag/..Rcheck/vign_test/modeldiag/..Rcheck/vign_test/modeldiag/.git/objects/c0/6a868501d1a2a456660b7ec834155e76116649
+  modeldiag/..Rcheck/vign_test/modeldiag/..Rcheck/vign_test/modeldiag/.git/objects/c0/77031bfd1bde769c0bf3f47164cca4a11f3878
+  modeldiag/..Rcheck/vign_test/modeldiag/..Rcheck/vign_test/modeldiag/.git/objects/c1/2bbfc2fe40b1fedeeb2da3a5cc4e74bcc2f233
+  modeldiag/..Rcheck/vign_test/modeldiag/..Rcheck/vign_test/modeldiag/.git/objects/c2/bfa3b5b8371369e49bfba5e600bd100538a8e5
+  modeldiag/..Rcheck/vign_test/modeldiag/..Rcheck/vign_test/modeldiag/.git/objects/c4/021d9bcb9f0e81c1f15345b44de00cda959658
+  modeldiag/..Rcheck/vign_test/modeldiag/..Rcheck/vign_test/modeldiag/.git/objects/c4/1dab99245ca7e2c3382207a374f45dba37c950
+  modeldiag/..Rcheck/vign_test/modeldiag/..Rcheck/vign_test/modeldiag/.git/objects/c4/686f744095af357228de4a24f47103f4c26e36
+  modeldiag/..Rcheck/vign_test/modeldiag/..Rcheck/vign_test/modeldiag/.git/objects/c6/524ba2c9c968586c7ca9a1ebbca7f5c9b0ae56
+  modeldiag/..Rcheck/vign_test/modeldiag/..Rcheck/vign_test/modeldiag/.git/objects/c6/909a0ee252d2551c8de2d9692110a101c11e3a
+  modeldiag/..Rcheck/vign_test/modeldiag/..Rcheck/vign_test/modeldiag/.git/objects/c6/ba4f59998c0318ea2a9b1d3de94b0a21309f98
+  modeldiag/..Rcheck/vign_test/modeldiag/..Rcheck/vign_test/modeldiag/.git/objects/c7/7d619f16c9b26a4444ccd5934d8eeed3270b0a
+  modeldiag/..Rcheck/vign_test/modeldiag/..Rcheck/vign_test/modeldiag/.git/objects/c7/dada005f8072cfbf1759bd60b905f4ed2bde20
+  modeldiag/..Rcheck/vign_test/modeldiag/..Rcheck/vign_test/modeldiag/.git/objects/c8/5ad3445dc6a70ae28f0c27b7f2db431630f18e
+  modeldiag/..Rcheck/vign_test/modeldiag/..Rcheck/vign_test/modeldiag/.git/objects/c9/0f453961c7d65dee623530c1aed4d8685bf354
+  modeldiag/..Rcheck/vign_test/modeldiag/..Rcheck/vign_test/modeldiag/.git/objects/c9/196bdd9d615b72c6e9a67fcc1faba63764dc41
+  modeldiag/..Rcheck/vign_test/modeldiag/..Rcheck/vign_test/modeldiag/.git/objects/ca/25a9b9a4489986db930dd4e631ff76a5099d41
+  modeldiag/..Rcheck/vign_test/modeldiag/..Rcheck/vign_test/modeldiag/.git/objects/ca/f976f95190772011f4ce7e7156493308a151bb
+  modeldiag/..Rcheck/vign_test/modeldiag/..Rcheck/vign_test/modeldiag/.git/objects/cb/875911cf37b4fa4366cd8d4d3be067d0db1e11
+  modeldiag/..Rcheck/vign_test/modeldiag/..Rcheck/vign_test/modeldiag/.git/objects/cd/1f4e5d51c8814feb3b2b11c4c8ad5d01edf1ab
+  modeldiag/..Rcheck/vign_test/modeldiag/..Rcheck/vign_test/modeldiag/.git/objects/cd/c386da52089626207f6ecb4fb6d1c0ff4d2d36
+  modeldiag/..Rcheck/vign_test/modeldiag/..Rcheck/vign_test/modeldiag/.git/objects/cf/0a6a8aa7c7fb117d9edf3d7d1efd43c494a328
+  modeldiag/..Rcheck/vign_test/modeldiag/..Rcheck/vign_test/modeldiag/.git/objects/cf/f596be0bb6d12f1ea43643dd51cf4d17efa034
+  modeldiag/..Rcheck/vign_test/modeldiag/..Rcheck/vign_test/modeldiag/.git/objects/d0/45858db671e4dac6cfdba65180e0c1303d24df
+  modeldiag/..Rcheck/vign_test/modeldiag/..Rcheck/vign_test/modeldiag/.git/objects/d0/e189aa09e1829e4f069fae245ceeb4f0e42b80
+  modeldiag/..Rcheck/vign_test/modeldiag/..Rcheck/vign_test/modeldiag/.git/objects/d1/ac0d904a59a72be3a01c83c7d68c2fc231c8c9
+  modeldiag/..Rcheck/vign_test/modeldiag/..Rcheck/vign_test/modeldiag/.git/objects/d1/f88912a7d915fd8611f91746ed16f880580f37
+  modeldiag/..Rcheck/vign_test/modeldiag/..Rcheck/vign_test/modeldiag/.git/objects/d2/7ebe4e4a083204fe17603eb2babee269993bef
+  modeldiag/..Rcheck/vign_test/modeldiag/..Rcheck/vign_test/modeldiag/.git/objects/d3/3bac01d50ffa1d426be9b49db2cb638e78adfd
+  modeldiag/..Rcheck/vign_test/modeldiag/..Rcheck/vign_test/modeldiag/.git/objects/d3/bb2954bae1de0765902860893936383c2df9d4
+  modeldiag/..Rcheck/vign_test/modeldiag/..Rcheck/vign_test/modeldiag/.git/objects/d4/f7919640ce8cc6c369cabb160cf7fdc7666bae
+  modeldiag/..Rcheck/vign_test/modeldiag/..Rcheck/vign_test/modeldiag/.git/objects/d5/c6f2e670f1fe17f22b2211c3c528fac6974255
+  modeldiag/..Rcheck/vign_test/modeldiag/..Rcheck/vign_test/modeldiag/.git/objects/d5/ee58bdcb64760ff25f3da52bd61febe0926a12
+  modeldiag/..Rcheck/vign_test/modeldiag/..Rcheck/vign_test/modeldiag/.git/objects/d7/17cca407da7b55820fb3d8724f9f21ffa4eebd
+  modeldiag/..Rcheck/vign_test/modeldiag/..Rcheck/vign_test/modeldiag/.git/objects/d7/364d12191855864377662d3f065ed8357cb4f5
+  modeldiag/..Rcheck/vign_test/modeldiag/..Rcheck/vign_test/modeldiag/.git/objects/d7/da3628fedfb3273a62bf3c7724418b7ad2ddf4
+  modeldiag/..Rcheck/vign_test/modeldiag/..Rcheck/vign_test/modeldiag/.git/objects/d9/1fec49f081f66763b64d01defda5ef4c979085
+  modeldiag/..Rcheck/vign_test/modeldiag/..Rcheck/vign_test/modeldiag/.git/objects/d9/2d6e2a7a6d1c146fb16bbb50193d8c5d4fec4f
+  modeldiag/..Rcheck/vign_test/modeldiag/..Rcheck/vign_test/modeldiag/.git/objects/d9/49d4e6614a6c689da1e73a1cce63b0a35982bc
+  modeldiag/..Rcheck/vign_test/modeldiag/..Rcheck/vign_test/modeldiag/.git/objects/da/301ee6d2f37db35acf17db189f17bd32c0e675
+  modeldiag/..Rcheck/vign_test/modeldiag/..Rcheck/vign_test/modeldiag/.git/objects/da/def58be3c40f646546c6b872f19e957a8a4bc2
+  modeldiag/..Rcheck/vign_test/modeldiag/..Rcheck/vign_test/modeldiag/.git/objects/db/1a480408540abcced093e75661c62ba053246f
+  modeldiag/..Rcheck/vign_test/modeldiag/..Rcheck/vign_test/modeldiag/.git/objects/dc/7d4b317be6aae9db16de16a64ff874bc4f3449
+  modeldiag/..Rcheck/vign_test/modeldiag/..Rcheck/vign_test/modeldiag/.git/objects/dc/a9db3fe7d2a80e9eb5da341bc0eb5b9a3682e7
+  modeldiag/..Rcheck/vign_test/modeldiag/..Rcheck/vign_test/modeldiag/.git/objects/dd/43da7c8642a7af1493acab7048d6348df24125
+  modeldiag/..Rcheck/vign_test/modeldiag/..Rcheck/vign_test/modeldiag/.git/objects/dd/d02506d88c8ce6ebdd325dbbc82e1845b5d9e4
+  modeldiag/..Rcheck/vign_test/modeldiag/..Rcheck/vign_test/modeldiag/.git/objects/e1/4fb9e48b042e373a4d52564bb9d61bc34a146a
+  modeldiag/..Rcheck/vign_test/modeldiag/..Rcheck/vign_test/modeldiag/.git/objects/e5/0e5f5c8ea7619ae50d4585778aa1379471ed5f
+  modeldiag/..Rcheck/vign_test/modeldiag/..Rcheck/vign_test/modeldiag/.git/objects/e6/a65912b6eed24ceaf9628833609ba159150e70
+  modeldiag/..Rcheck/vign_test/modeldiag/..Rcheck/vign_test/modeldiag/.git/objects/e8/120cd7eb4d0e016f1124391ae522698843408e
+  modeldiag/..Rcheck/vign_test/modeldiag/..Rcheck/vign_test/modeldiag/.git/objects/e9/6507cb0d327173cd48fc6001fda5100195a3a9
+  modeldiag/..Rcheck/vign_test/modeldiag/..Rcheck/vign_test/modeldiag/.git/objects/e9/827a401b1eb31b3db97faad16267506e18d78a
+  modeldiag/..Rcheck/vign_test/modeldiag/..Rcheck/vign_test/modeldiag/.git/objects/eb/3b121ebc959327fce31fd409a7415602bbb112
+  modeldiag/..Rcheck/vign_test/modeldiag/..Rcheck/vign_test/modeldiag/.git/objects/eb/6673b2774e615df70f99cde9ee55606d040f57
+  modeldiag/..Rcheck/vign_test/modeldiag/..Rcheck/vign_test/modeldiag/.git/objects/ed/230bd2e84f1f9ec36598f89ddc496dc61a182c
+  modeldiag/..Rcheck/vign_test/modeldiag/..Rcheck/vign_test/modeldiag/.git/objects/ed/b22bc727cf394841c2a17b44573a08bd2f35f4
+  modeldiag/..Rcheck/vign_test/modeldiag/..Rcheck/vign_test/modeldiag/.git/objects/ee/eb2c6d300bd844fad07d4ef854f8ea887d0710
+  modeldiag/..Rcheck/vign_test/modeldiag/..Rcheck/vign_test/modeldiag/.git/objects/ee/f3b4bb44da63717fa979ccdb120bbaaebd2984
+  modeldiag/..Rcheck/vign_test/modeldiag/..Rcheck/vign_test/modeldiag/.git/objects/f0/36426e4f5649889823b367e5caf35347d6b0b1
+  modeldiag/..Rcheck/vign_test/modeldiag/..Rcheck/vign_test/modeldiag/.git/objects/f0/844ad843ceefc1b6053c525e8134b93305712e
+  modeldiag/..Rcheck/vign_test/modeldiag/..Rcheck/vign_test/modeldiag/.git/objects/f1/86ff914f7baa1d9daec02acb0318eed6857398
+  modeldiag/..Rcheck/vign_test/modeldiag/..Rcheck/vign_test/modeldiag/.git/objects/f2/e8b5655443d97c6136580f0a9085d1dcdc8f5d
+  modeldiag/..Rcheck/vign_test/modeldiag/..Rcheck/vign_test/modeldiag/.git/objects/f2/eb60851a54e3ed8097b64216be196864a1b5d8
+  modeldiag/..Rcheck/vign_test/modeldiag/..Rcheck/vign_test/modeldiag/.git/objects/f3/6fc60af6cc8e28747e89ec0e70763606329c7e
+  modeldiag/..Rcheck/vign_test/modeldiag/..Rcheck/vign_test/modeldiag/.git/objects/f3/ec2e029c34d23e6b167ff25d0dce243282ad1c
+  modeldiag/..Rcheck/vign_test/modeldiag/..Rcheck/vign_test/modeldiag/.git/objects/f4/1b2392f008e0cd0f1f56c139916b75035dddf0
+  modeldiag/..Rcheck/vign_test/modeldiag/..Rcheck/vign_test/modeldiag/.git/objects/f5/1202d5cd7c2db7c4d599bb6ed802b2445226ba
+  modeldiag/..Rcheck/vign_test/modeldiag/..Rcheck/vign_test/modeldiag/.git/objects/f6/a855866ecb4f333f611bda98df4c077a7ee12f
+  modeldiag/..Rcheck/vign_test/modeldiag/..Rcheck/vign_test/modeldiag/.git/objects/f7/27d858baf22227ef0ccba452875b7afd7dc7b9
+  modeldiag/..Rcheck/vign_test/modeldiag/..Rcheck/vign_test/modeldiag/.git/objects/f8/00abf21a8f4d421475d19a93620cc23fc29714
+  modeldiag/..Rcheck/vign_test/modeldiag/..Rcheck/vign_test/modeldiag/.git/objects/f8/b6bc1fe1da4aea5d99d632de6a14a621c5f337
+  modeldiag/..Rcheck/vign_test/modeldiag/..Rcheck/vign_test/modeldiag/.git/objects/f9/4ac4c30836e63c7c447e64538cc6847941b870
+  modeldiag/..Rcheck/vign_test/modeldiag/..Rcheck/vign_test/modeldiag/.git/objects/f9/94461bd152e69bf91f5b5f11c351a5d9080924
+  modeldiag/..Rcheck/vign_test/modeldiag/..Rcheck/vign_test/modeldiag/.git/objects/f9/a5595133073ac663382d7cf04ed78bfd1144bf
+  modeldiag/..Rcheck/vign_test/modeldiag/..Rcheck/vign_test/modeldiag/.git/objects/fb/5d62e38078608345f6147b393160a66e1ac7fc
+  modeldiag/..Rcheck/vign_test/modeldiag/..Rcheck/vign_test/modeldiag/.git/objects/fb/e597e5c909458999bfb7aee05c946ce447cfb8
+  modeldiag/..Rcheck/vign_test/modeldiag/..Rcheck/vign_test/modeldiag/.git/objects/fd/3e5079186ef463cfea76bafbe90b02176e7d2a
+
+Tarballs are only required to store paths of up to 100 bytes and cannot
+store those of more than 256 bytes, with restrictions including to 100
+bytes for the final component.
+See section 'Package structure' in the 'Writing R Extensions' manual.
+* checking whether package 'modeldiag' can be installed ... OK
+* checking installed package size ... OK
+* checking package directory ... OK
+* checking DESCRIPTION meta-information ... NOTE
+Checking should be performed on sources prepared by 'R CMD build'.
+* checking top-level files ... OK
+* checking for left-over files ... OK
+* checking index information ... OK
+* checking package subdirectories ... WARNING
+Found the following directories with names of check directories:
+  ./..Rcheck
+  ./..Rcheck/vign_test/modeldiag/..Rcheck
+  ./modeldiag.Rcheck
+Most likely, these were included erroneously.
+* checking code files for non-ASCII characters ... OK
+* checking R files for syntax errors ... OK
+* checking whether the package can be loaded ... OK
+* checking whether the package can be loaded with stated dependencies ... OK
+* checking whether the package can be unloaded cleanly ... OK
+* checking whether the namespace can be loaded with stated dependencies ... OK
+* checking whether the namespace can be unloaded cleanly ... OK
+* checking loading without being on the library search path ... OK
+* checking dependencies in R code ... OK
+* checking S3 generic/method consistency ... OK
+* checking replacement functions ... OK
+* checking foreign function calls ... OK
+* checking R code for possible problems ... OK
+* checking Rd files ... OK
+* checking Rd metadata ... OK
+* checking Rd cross-references ... OK
+* checking for missing documentation entries ... OK
+* checking for code/documentation mismatches ... OK
+* checking Rd \usage sections ... OK
+* checking Rd contents ... OK
+* checking for unstated dependencies in examples ... OK
+* checking files in 'vignettes' ... WARNING
+Files in the 'vignettes' directory but no files in 'inst/doc':
+  'introduction.Rmd'
+* checking examples ... OK
+* checking for unstated dependencies in 'tests' ... OK
+* checking tests ... OK
+  Running 'testthat.R'
+* checking for unstated dependencies in vignettes ... OK
+* checking package vignettes ... WARNING
+Directory 'inst/doc' does not exist.
+Package vignette without corresponding single PDF/HTML:
+  'introduction.Rmd'
+* checking running R code from vignettes ... SKIPPED
+* checking re-building of vignette outputs ... SKIPPED
 * DONE
-Status: 1 ERROR
+Status: 3 WARNINGs, 4 NOTEs

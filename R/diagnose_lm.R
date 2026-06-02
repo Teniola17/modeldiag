@@ -44,6 +44,7 @@ diagnose_model.lm <- function(model, ...) {
     multicollinearity = check_vif(model),
     heteroskedasticity = check_heteroskedasticity(model),
     autocorrelation = check_autocorrelation(model),
+    linearity = check_linearity(model),
     normality = check_normality(model),
     outliers = check_outliers(model)
   )

@@ -117,6 +117,27 @@ check_autocorrelation <- function(model) {
 }
 
 
+check_linearity <- function(model, power = 2) {
+  if (!inherits(model, "lm")) return(NA)
+
+  tryCatch({
+    result <- suppressWarnings(lmtest::resettest(model, power = power, type = "fitted"))
+    if (inherits(result, "htest")) {
+      result$note <- if (result$p.value <= 0.05) {
+        "Evidence against linearity in the model; consider adding nonlinear terms or transformations."
+      } else {
+        "No evidence against linearity in the model; the linear functional form appears reasonable."
+      }
+    }
+    result
+  }, warning = function(e) {
+    NA
+  }, error = function(e) {
+    NA
+  })
+}
+
+
 check_normality <- function(model) {
   res <- residuals(model)
   tryCatch({
