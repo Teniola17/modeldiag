@@ -6,7 +6,7 @@
     GNU Fortran (GCC) 14.3.0
 * running under: Windows 11 x64 (build 26200)
 * using session charset: UTF-8
-* current time: 2026-06-02 17:56:14 UTC
+* current time: 2026-06-02 18:02:05 UTC
 * using options '--no-manual --no-vignettes'
 * checking for file './DESCRIPTION' ... OK
 * checking extension type ... Package
@@ -355,14 +355,7 @@ Found the following directories with names of check directories:
   ./..Rcheck/vign_test/modeldiag/..Rcheck
   ./modeldiag.Rcheck
 Most likely, these were included erroneously.
-* checking code files for non-ASCII characters ... WARNING
-Found the following file with non-ASCII characters:
-  R/summary.R
-Portable packages must use only ASCII characters in their R code and
-NAMESPACE directives, except perhaps in comments.
-Use \uxxxx escapes for other characters.
-Function 'tools::showNonASCIIfile' can help in finding non-ASCII
-characters in files.
+* checking code files for non-ASCII characters ... OK
 * checking R files for syntax errors ... OK
 * checking whether the package can be loaded ... OK
 * checking whether the package can be loaded with stated dependencies ... OK
@@ -398,4 +391,4 @@ Package vignette without corresponding single PDF/HTML:
 * checking running R code from vignettes ... SKIPPED
 * checking re-building of vignette outputs ... SKIPPED
 * DONE
-Status: 4 WARNINGs, 4 NOTEs
+Status: 3 WARNINGs, 4 NOTEs

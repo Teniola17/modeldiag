@@ -127,7 +127,7 @@ summarize_vif <- function(result) {
   if (any(vif_values >= 10, na.rm = TRUE)) {
     cat("! At least one predictor has VIF >= 10, indicating multicollinearity in the model.\n\n")
   } else {
-    cat("✓ No multicollinearity problem detected based on VIF values.\n\n")
+    cat("[OK] No multicollinearity problem detected based on VIF values.\n\n")
   }
 
   invisible(NULL)
@@ -229,7 +229,7 @@ summary.model_diagnostics <- function(object, ...) {
         if (result$overdispersed) {
           cat("! Overdispersion detected; consider negative binomial or quasipoisson model.\n\n")
         } else {
-          cat("✓ No evidence of overdispersion.\n\n")
+          cat("[OK] No evidence of overdispersion.\n\n")
         }
       } else {
         print(result)
@@ -242,7 +242,7 @@ summary.model_diagnostics <- function(object, ...) {
         if (result$zero_inflated) {
           cat("! Zero-inflation detected; consider zero-inflated Poisson or hurdle models.\n\n")
         } else {
-          cat("✓ No evidence of zero-inflation.\n\n")
+          cat("[OK] No evidence of zero-inflation.\n\n")
         }
       } else {
         print(result)

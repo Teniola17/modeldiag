@@ -173,13 +173,13 @@ No separation issues detected.
 Residual deviance:  12.27804 
 Degrees of freedom:  29 
 Ratio:  0.4233806 
-✓ No evidence of overdispersion.
+[OK] No evidence of overdispersion.
 
 --  zero_inflation  --
 
 Observed zeros:  0  ( 0 %)
 Expected zeros:  3  ( 9.3 %)
-✓ No evidence of zero-inflation.
+[OK] No evidence of zero-inflation.
 
 --  influential_observations  --
 
@@ -244,7 +244,7 @@ detaching 'package:survival'
 
 > options(digits = 7L)
 > base::cat("Time elapsed: ", proc.time() - base::get("ptime", pos = 'CheckExEnv'),"\n")
-Time elapsed:  0.77 0.11 0.89 NA NA 
+Time elapsed:  1.14 0.26 1.59 NA NA 
 > grDevices::dev.off()
 null device 
           1 
