@@ -30,6 +30,12 @@
     <div id="navbar" class="collapse navbar-collapse ms-3">
       <ul class="navbar-nav me-auto">
 <li class="nav-item"><a class="nav-link" href="../reference/index.html">Reference</a></li>
+<li class="active nav-item dropdown">
+  <button class="nav-link dropdown-toggle" type="button" id="dropdown-articles" data-bs-toggle="dropdown" aria-expanded="false" aria-haspopup="true">Articles</button>
+  <ul class="dropdown-menu" aria-labelledby="dropdown-articles">
+<li><a class="dropdown-item" href="../articles/introduction.html">Introduction to modeldiag</a></li>
+  </ul>
+</li>
 <li class="nav-item"><a class="nav-link" href="../news/index.html">Changelog</a></li>
       </ul>
 <ul class="navbar-nav">
@@ -146,10 +152,56 @@ D_i = \frac{( \hat{\beta} - \hat{\beta}*{(i)} )^T X^T X (\hat{\beta} - \hat{\bet
 <code class="sourceCode R"><span><span class="va">model_lm</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/stats/lm.html" class="external-link">lm</a></span><span class="op">(</span><span class="va">mpg</span> <span class="op">~</span> <span class="va">wt</span> <span class="op">+</span> <span class="va">hp</span> <span class="op">+</span> <span class="va">disp</span>, data <span class="op">=</span> <span class="va">mtcars</span><span class="op">)</span></span>
 <span><span class="va">diag_lm</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/diagnose_model.html">diagnose_model</a></span><span class="op">(</span><span class="va">model_lm</span><span class="op">)</span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/base/summary.html" class="external-link">summary</a></span><span class="op">(</span><span class="va">diag_lm</span><span class="op">)</span></span>
-<span><span class="co">#&gt; Model Diagnostics Summary</span></span>
-<span><span class="co">#&gt; =========================</span></span>
+<span><span class="co">#&gt; -- Model Diagnostics Summary ---------------------------------------------------</span></span>
 <span><span class="co">#&gt; </span></span>
-<span><span class="co">#&gt; ---- multicollinearity ----</span></span>
+<span><span class="co">#&gt; --  multicollinearity  --</span></span>
+<span><span class="co">#&gt; </span></span>
+<span><span class="co">#&gt; -- Variance inflation factors </span></span>
+<span><span class="co">#&gt; </span></span>
+<span><span class="co">#&gt;       wt       hp     disp </span></span>
+<span><span class="co">#&gt; 4.844618 2.736633 7.324517 </span></span>
+<span><span class="co">#&gt; -- VIF severity by predictor: </span></span>
+<span><span class="co">#&gt; </span></span>
+<span><span class="co">#&gt;         wt         hp       disp </span></span>
+<span><span class="co">#&gt; "Moderate" "Moderate"     "High" </span></span>
+<span><span class="co">#&gt; -- Severity legend: </span></span>
+<span><span class="co">#&gt; * &lt; 2 : Negligible</span></span>
+<span><span class="co">#&gt; * 2 - 5 : Moderate</span></span>
+<span><span class="co">#&gt; * 5 - 10 : High</span></span>
+<span><span class="co">#&gt; * &gt;= 10 : Severe</span></span>
+<span><span class="co">#&gt; </span></span>
+<span><span class="co">#&gt; --  heteroskedasticity  --</span></span>
+<span><span class="co">#&gt; </span></span>
+<span><span class="co">#&gt; p-value:  0.8143398 </span></span>
+<span><span class="co">#&gt; Residual variance appears approximately constant. </span></span>
+<span><span class="co">#&gt; </span></span>
+<span><span class="co">#&gt; --  autocorrelation  --</span></span>
+<span><span class="co">#&gt; </span></span>
+<span><span class="co">#&gt; p-value:  0.01611772 </span></span>
+<span><span class="co">#&gt; Residuals appear autocorrelated; consider time-series adjustments. </span></span>
+<span><span class="co">#&gt; </span></span>
+<span><span class="co">#&gt; --  linearity  --</span></span>
+<span><span class="co">#&gt; </span></span>
+<span><span class="co">#&gt; p-value:  0.000869965 </span></span>
+<span><span class="co">#&gt; Evidence against linearity in the model; consider adding nonlinear terms or transformations. </span></span>
+<span><span class="co">#&gt; </span></span>
+<span><span class="co">#&gt; --  normality  --</span></span>
+<span><span class="co">#&gt; </span></span>
+<span><span class="co">#&gt; p-value:  0.03304597 </span></span>
+<span><span class="co">#&gt; Residuals deviate from normality; check model assumptions. </span></span>
+<span><span class="co">#&gt; </span></span>
+<span><span class="co">#&gt; --  outliers  --</span></span>
+<span><span class="co">#&gt; </span></span>
+<span><span class="co">#&gt; Number of influential points:  3 </span></span>
+<span><span class="co">#&gt; Influential observations:  Chrysler Imperial, Toyota Corolla, Maserati Bora </span></span>
+<span><span class="co">#&gt; Cook's distances for influential observations:</span></span>
+<span><span class="co">#&gt; Chrysler Imperial    Toyota Corolla     Maserati Bora </span></span>
+<span><span class="co">#&gt;         0.3199707         0.1529771         0.3402911 </span></span>
+<span><span class="co">#&gt; 3 influential observation(s) detected. Influential observations have Cook's distance above 4/n. Review these cases for leverage, data entry issues, or model fit problems.</span></span></code></pre></div>
+<p>You can also run individual checks when you only need one
+diagnostic.</p>
+<div class="sourceCode" id="cb3"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="fu"><a href="../reference/check_vif.html">check_vif</a></span><span class="op">(</span><span class="va">model_lm</span><span class="op">)</span></span>
 <span><span class="co">#&gt; $success</span></span>
 <span><span class="co">#&gt; [1] TRUE</span></span>
 <span><span class="co">#&gt; </span></span>
@@ -157,26 +209,62 @@ D_i = \frac{( \hat{\beta} - \hat{\beta}*{(i)} )^T X^T X (\hat{\beta} - \hat{\bet
 <span><span class="co">#&gt;       wt       hp     disp </span></span>
 <span><span class="co">#&gt; 4.844618 2.736633 7.324517 </span></span>
 <span><span class="co">#&gt; </span></span>
+<span><span class="co">#&gt; $note</span></span>
+<span><span class="co">#&gt; [1] "VIF severity by predictor: wt (Moderate), hp (Moderate), disp (High)"</span></span>
 <span><span class="co">#&gt; </span></span>
-<span><span class="co">#&gt; ---- heteroskedasticity ----</span></span>
-<span><span class="co">#&gt; p-value: 0.8143398 </span></span>
-<span><span class="co">#&gt; Residual variance appears approximately constant. </span></span>
+<span><span class="co">#&gt; $collinear_predictors</span></span>
+<span><span class="co">#&gt; character(0)</span></span>
 <span><span class="co">#&gt; </span></span>
-<span><span class="co">#&gt; ---- autocorrelation ----</span></span>
-<span><span class="co">#&gt; p-value: 0.01611772 </span></span>
-<span><span class="co">#&gt; Residuals appear autocorrelated; consider time-series adjustments. </span></span>
+<span><span class="co">#&gt; $severities</span></span>
+<span><span class="co">#&gt;         wt         hp       disp </span></span>
+<span><span class="co">#&gt; "Moderate" "Moderate"     "High"</span></span>
+<span><span class="fu"><a href="../reference/check_heteroskedasticity.html">check_heteroskedasticity</a></span><span class="op">(</span><span class="va">model_lm</span><span class="op">)</span></span>
 <span><span class="co">#&gt; </span></span>
-<span><span class="co">#&gt; ---- normality ----</span></span>
-<span><span class="co">#&gt; p-value: 0.03304597 </span></span>
-<span><span class="co">#&gt; Residuals deviate from normality; check model assumptions. </span></span>
+<span><span class="co">#&gt;  studentized Breusch-Pagan test</span></span>
 <span><span class="co">#&gt; </span></span>
-<span><span class="co">#&gt; ---- outliers ----</span></span>
-<span><span class="co">#&gt; Number of influential points: 3 </span></span>
-<span><span class="co">#&gt; Influential observations: Chrysler Imperial, Toyota Corolla, Maserati Bora </span></span>
-<span><span class="co">#&gt; Cook's distances for influential observations:</span></span>
+<span><span class="co">#&gt; data:  model</span></span>
+<span><span class="co">#&gt; BP = 0.9459, df = 3, p-value = 0.8143</span></span>
+<span><span class="fu"><a href="../reference/check_autocorrelation.html">check_autocorrelation</a></span><span class="op">(</span><span class="va">model_lm</span><span class="op">)</span></span>
+<span><span class="co">#&gt; </span></span>
+<span><span class="co">#&gt;  Durbin-Watson test</span></span>
+<span><span class="co">#&gt; </span></span>
+<span><span class="co">#&gt; data:  model</span></span>
+<span><span class="co">#&gt; DW = 1.3673, p-value = 0.01612</span></span>
+<span><span class="co">#&gt; alternative hypothesis: true autocorrelation is greater than 0</span></span>
+<span><span class="fu"><a href="../reference/check_linearity.html">check_linearity</a></span><span class="op">(</span><span class="va">model_lm</span><span class="op">)</span></span>
+<span><span class="co">#&gt; </span></span>
+<span><span class="co">#&gt;  RESET test</span></span>
+<span><span class="co">#&gt; </span></span>
+<span><span class="co">#&gt; data:  model</span></span>
+<span><span class="co">#&gt; RESET = 14.01, df1 = 1, df2 = 27, p-value = 0.00087</span></span>
+<span><span class="fu"><a href="../reference/check_normality.html">check_normality</a></span><span class="op">(</span><span class="va">model_lm</span><span class="op">)</span></span>
+<span><span class="co">#&gt; </span></span>
+<span><span class="co">#&gt;  Shapiro-Wilk normality test</span></span>
+<span><span class="co">#&gt; </span></span>
+<span><span class="co">#&gt; data:  res</span></span>
+<span><span class="co">#&gt; W = 0.92734, p-value = 0.03305</span></span>
+<span><span class="fu"><a href="../reference/check_outliers.html">check_outliers</a></span><span class="op">(</span><span class="va">model_lm</span><span class="op">)</span></span>
+<span><span class="co">#&gt; $cooks_distance</span></span>
+<span><span class="co">#&gt;           Mazda RX4       Mazda RX4 Wag          Datsun 710      Hornet 4 Drive </span></span>
+<span><span class="co">#&gt;        1.152035e-02        4.621112e-03        1.598334e-02        1.283888e-04 </span></span>
+<span><span class="co">#&gt;   Hornet Sportabout             Valiant          Duster 360           Merc 240D </span></span>
+<span><span class="co">#&gt;        1.839055e-03        1.560119e-02        1.053270e-02        1.313511e-02 </span></span>
+<span><span class="co">#&gt;            Merc 230            Merc 280           Merc 280C          Merc 450SE </span></span>
+<span><span class="co">#&gt;        2.525382e-03        3.671067e-03        2.606104e-02        1.551454e-03 </span></span>
+<span><span class="co">#&gt;          Merc 450SL         Merc 450SLC  Cadillac Fleetwood Lincoln Continental </span></span>
+<span><span class="co">#&gt;        1.049983e-04        5.648180e-03        7.218880e-05        1.298764e-02 </span></span>
+<span><span class="co">#&gt;   Chrysler Imperial            Fiat 128         Honda Civic      Toyota Corolla </span></span>
+<span><span class="co">#&gt;        3.199707e-01        1.196019e-01        9.092102e-03        1.529771e-01 </span></span>
+<span><span class="co">#&gt;       Toyota Corona    Dodge Challenger         AMC Javelin          Camaro Z28 </span></span>
+<span><span class="co">#&gt;        2.215865e-02        4.218196e-02        4.909944e-02        7.181085e-03 </span></span>
+<span><span class="co">#&gt;    Pontiac Firebird           Fiat X1-9       Porsche 914-2        Lotus Europa </span></span>
+<span><span class="co">#&gt;        6.980693e-02        4.163138e-04        1.732523e-06        5.959750e-02 </span></span>
+<span><span class="co">#&gt;      Ford Pantera L        Ferrari Dino       Maserati Bora          Volvo 142E </span></span>
+<span><span class="co">#&gt;        7.279943e-03        1.100867e-02        3.402911e-01        8.796726e-03 </span></span>
+<span><span class="co">#&gt; </span></span>
+<span><span class="co">#&gt; $influential_points</span></span>
 <span><span class="co">#&gt; Chrysler Imperial    Toyota Corolla     Maserati Bora </span></span>
-<span><span class="co">#&gt;         0.3199707         0.1529771         0.3402911 </span></span>
-<span><span class="co">#&gt; 3 influential observation(s) detected. Influential observations have Cook's distance above 4/n. Review these cases for leverage, data entry issues, or model fit problems.</span></span></code></pre></div>
+<span><span class="co">#&gt;                17                20                31</span></span></code></pre></div>
 <hr>
 </div>
 </div>
@@ -218,23 +306,30 @@ estimates.</p>
 <div class="section level3">
 <h3 id="example-1">Example<a class="anchor" aria-label="anchor" href="#example-1"></a>
 </h3>
-<div class="sourceCode" id="cb3"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb4"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">model_glm</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/stats/glm.html" class="external-link">glm</a></span><span class="op">(</span><span class="va">am</span> <span class="op">~</span> <span class="va">wt</span> <span class="op">+</span> <span class="va">hp</span>, data <span class="op">=</span> <span class="va">mtcars</span>, family <span class="op">=</span> <span class="va">binomial</span><span class="op">)</span></span>
 <span><span class="va">diag_glm</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/diagnose_model.html">diagnose_model</a></span><span class="op">(</span><span class="va">model_glm</span><span class="op">)</span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/base/summary.html" class="external-link">summary</a></span><span class="op">(</span><span class="va">diag_glm</span><span class="op">)</span></span>
-<span><span class="co">#&gt; Model Diagnostics Summary</span></span>
-<span><span class="co">#&gt; =========================</span></span>
+<span><span class="co">#&gt; -- Model Diagnostics Summary ---------------------------------------------------</span></span>
 <span><span class="co">#&gt; </span></span>
-<span><span class="co">#&gt; ---- multicollinearity ----</span></span>
-<span><span class="co">#&gt; $success</span></span>
-<span><span class="co">#&gt; [1] TRUE</span></span>
+<span><span class="co">#&gt; --  multicollinearity  --</span></span>
 <span><span class="co">#&gt; </span></span>
-<span><span class="co">#&gt; $vif</span></span>
+<span><span class="co">#&gt; -- Variance inflation factors </span></span>
+<span><span class="co">#&gt; </span></span>
 <span><span class="co">#&gt;       wt       hp </span></span>
 <span><span class="co">#&gt; 2.444297 2.444297 </span></span>
+<span><span class="co">#&gt; -- VIF severity by predictor: </span></span>
 <span><span class="co">#&gt; </span></span>
+<span><span class="co">#&gt;         wt         hp </span></span>
+<span><span class="co">#&gt; "Moderate" "Moderate" </span></span>
+<span><span class="co">#&gt; -- Severity legend: </span></span>
+<span><span class="co">#&gt; * &lt; 2 : Negligible</span></span>
+<span><span class="co">#&gt; * 2 - 5 : Moderate</span></span>
+<span><span class="co">#&gt; * 5 - 10 : High</span></span>
+<span><span class="co">#&gt; * &gt;= 10 : Severe</span></span>
 <span><span class="co">#&gt; </span></span>
-<span><span class="co">#&gt; ---- linearity_logit ----</span></span>
+<span><span class="co">#&gt; --  linearity_logit  --</span></span>
+<span><span class="co">#&gt; </span></span>
 <span><span class="co">#&gt;    MLE of lambda Score Statistic (t) Pr(&gt;|t|)  </span></span>
 <span><span class="co">#&gt; wt     -0.088743              2.2318  0.03412 *</span></span>
 <span><span class="co">#&gt; hp      3.205811              0.8980  0.37711  </span></span>
@@ -247,20 +342,67 @@ estimates.</p>
 <span><span class="co">#&gt; F = 3.6654, df = 2 and 27, Pr(&gt;F) = 0.03905</span></span>
 <span><span class="co">#&gt; </span></span>
 <span><span class="co">#&gt; </span></span>
-<span><span class="co">#&gt; ---- goodness_of_fit ----</span></span>
-<span><span class="co">#&gt; p-value: 0.6716511 </span></span>
+<span><span class="co">#&gt; --  goodness_of_fit  --</span></span>
+<span><span class="co">#&gt; </span></span>
+<span><span class="co">#&gt; p-value:  0.6716511 </span></span>
 <span><span class="co">#&gt; Model fit appears adequate. </span></span>
 <span><span class="co">#&gt; </span></span>
-<span><span class="co">#&gt; ---- influential_observations ----</span></span>
-<span><span class="co">#&gt; Number of influential points: 2 </span></span>
-<span><span class="co">#&gt; Influential observations: Mazda RX4 Wag, Toyota Corona </span></span>
+<span><span class="co">#&gt; --  influential_observations  --</span></span>
+<span><span class="co">#&gt; </span></span>
+<span><span class="co">#&gt; Number of influential points:  2 </span></span>
+<span><span class="co">#&gt; Influential observations:  Mazda RX4 Wag, Toyota Corona </span></span>
 <span><span class="co">#&gt; Cook's distances for influential observations:</span></span>
 <span><span class="co">#&gt; Mazda RX4 Wag Toyota Corona </span></span>
 <span><span class="co">#&gt;     0.2034041     0.7917908 </span></span>
 <span><span class="co">#&gt; 2 influential observation(s) detected. Influential observations have Cook's distance above 4/n. Review these cases for leverage, data entry issues, or model fit problems. </span></span>
 <span><span class="co">#&gt; </span></span>
-<span><span class="co">#&gt; ---- separation_issues ----</span></span>
+<span><span class="co">#&gt; --  separation_issues  --</span></span>
+<span><span class="co">#&gt; </span></span>
 <span><span class="co">#&gt; No separation issues detected.</span></span></code></pre></div>
+<p>Individual logistic regression diagnostics can be called
+directly.</p>
+<div class="sourceCode" id="cb5"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="fu"><a href="../reference/check_box_tidwell.html">check_box_tidwell</a></span><span class="op">(</span><span class="va">model_glm</span><span class="op">)</span></span>
+<span><span class="co">#&gt;    MLE of lambda Score Statistic (t) Pr(&gt;|t|)  </span></span>
+<span><span class="co">#&gt; wt     -0.088743              2.2318  0.03412 *</span></span>
+<span><span class="co">#&gt; hp      3.205811              0.8980  0.37711  </span></span>
+<span><span class="co">#&gt; ---</span></span>
+<span><span class="co">#&gt; Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1</span></span>
+<span><span class="co">#&gt; </span></span>
+<span><span class="co">#&gt; iterations =  13 </span></span>
+<span><span class="co">#&gt; </span></span>
+<span><span class="co">#&gt; Score test for null hypothesis that all lambdas = 1:</span></span>
+<span><span class="co">#&gt; F = 3.6654, df = 2 and 27, Pr(&gt;F) = 0.03905</span></span>
+<span><span class="fu"><a href="../reference/check_hosmer_lemeshow.html">check_hosmer_lemeshow</a></span><span class="op">(</span><span class="va">model_glm</span><span class="op">)</span></span>
+<span><span class="co">#&gt; </span></span>
+<span><span class="co">#&gt;  Hosmer and Lemeshow goodness of fit (GOF) test</span></span>
+<span><span class="co">#&gt; </span></span>
+<span><span class="co">#&gt; data:  model$y, fitted(model)</span></span>
+<span><span class="co">#&gt; X-squared = 2.3502, df = 4, p-value = 0.6717</span></span>
+<span><span class="fu"><a href="../reference/check_influential_glm.html">check_influential_glm</a></span><span class="op">(</span><span class="va">model_glm</span><span class="op">)</span></span>
+<span><span class="co">#&gt; $cooks_distance</span></span>
+<span><span class="co">#&gt;           Mazda RX4       Mazda RX4 Wag          Datsun 710      Hornet 4 Drive </span></span>
+<span><span class="co">#&gt;        1.725110e-02        2.034041e-01        1.054039e-03        1.686756e-03 </span></span>
+<span><span class="co">#&gt;   Hornet Sportabout             Valiant          Duster 360           Merc 240D </span></span>
+<span><span class="co">#&gt;        3.512351e-03        4.413520e-05        9.441132e-02        1.553660e-04 </span></span>
+<span><span class="co">#&gt;            Merc 230            Merc 280           Merc 280C          Merc 450SE </span></span>
+<span><span class="co">#&gt;        1.805692e-03        1.692468e-04        1.692468e-04        9.043823e-07 </span></span>
+<span><span class="co">#&gt;          Merc 450SL         Merc 450SLC  Cadillac Fleetwood Lincoln Continental </span></span>
+<span><span class="co">#&gt;        1.047495e-04        5.277112e-05        1.234078e-13        1.734386e-14 </span></span>
+<span><span class="co">#&gt;   Chrysler Imperial            Fiat 128         Honda Civic      Toyota Corolla </span></span>
+<span><span class="co">#&gt;        1.619112e-13        1.309867e-03        7.429752e-07        7.402953e-06 </span></span>
+<span><span class="co">#&gt;       Toyota Corona    Dodge Challenger         AMC Javelin          Camaro Z28 </span></span>
+<span><span class="co">#&gt;        7.917908e-01        2.834875e-04        8.715763e-04        1.812379e-03 </span></span>
+<span><span class="co">#&gt;    Pontiac Firebird           Fiat X1-9       Porsche 914-2        Lotus Europa </span></span>
+<span><span class="co">#&gt;        1.563880e-05        2.899997e-05        9.799693e-05        2.790544e-09 </span></span>
+<span><span class="co">#&gt;      Ford Pantera L        Ferrari Dino       Maserati Bora          Volvo 142E </span></span>
+<span><span class="co">#&gt;        5.218144e-03        2.458477e-03        8.109529e-02        1.007256e-01 </span></span>
+<span><span class="co">#&gt; </span></span>
+<span><span class="co">#&gt; $influential_points</span></span>
+<span><span class="co">#&gt; Mazda RX4 Wag Toyota Corona </span></span>
+<span><span class="co">#&gt;             2            21</span></span>
+<span><span class="fu"><a href="../reference/check_separation.html">check_separation</a></span><span class="op">(</span><span class="va">model_glm</span><span class="op">)</span></span>
+<span><span class="co">#&gt; [1] "No separation issues detected."</span></span></code></pre></div>
 <hr>
 </div>
 </div>
@@ -294,43 +436,94 @@ zero-inflated process.</p>
 <div class="section level3">
 <h3 id="example-2">Example<a class="anchor" aria-label="anchor" href="#example-2"></a>
 </h3>
-<div class="sourceCode" id="cb4"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb6"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">model_pois</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/stats/glm.html" class="external-link">glm</a></span><span class="op">(</span><span class="va">carb</span> <span class="op">~</span> <span class="va">wt</span> <span class="op">+</span> <span class="va">hp</span>, data <span class="op">=</span> <span class="va">mtcars</span>, family <span class="op">=</span> <span class="va">poisson</span><span class="op">)</span></span>
 <span><span class="va">diag_pois</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/diagnose_model.html">diagnose_model</a></span><span class="op">(</span><span class="va">model_pois</span><span class="op">)</span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/base/summary.html" class="external-link">summary</a></span><span class="op">(</span><span class="va">diag_pois</span><span class="op">)</span></span>
-<span><span class="co">#&gt; Model Diagnostics Summary</span></span>
-<span><span class="co">#&gt; =========================</span></span>
+<span><span class="co">#&gt; -- Model Diagnostics Summary ---------------------------------------------------</span></span>
 <span><span class="co">#&gt; </span></span>
-<span><span class="co">#&gt; ---- multicollinearity ----</span></span>
-<span><span class="co">#&gt; $success</span></span>
-<span><span class="co">#&gt; [1] TRUE</span></span>
+<span><span class="co">#&gt; --  multicollinearity  --</span></span>
 <span><span class="co">#&gt; </span></span>
-<span><span class="co">#&gt; $vif</span></span>
+<span><span class="co">#&gt; -- Variance inflation factors </span></span>
+<span><span class="co">#&gt; </span></span>
 <span><span class="co">#&gt;       wt       hp </span></span>
 <span><span class="co">#&gt; 1.401553 1.401553 </span></span>
+<span><span class="co">#&gt; -- VIF severity by predictor: </span></span>
 <span><span class="co">#&gt; </span></span>
+<span><span class="co">#&gt;           wt           hp </span></span>
+<span><span class="co">#&gt; "Negligible" "Negligible" </span></span>
+<span><span class="co">#&gt; -- Severity legend: </span></span>
+<span><span class="co">#&gt; * &lt; 2 : Negligible</span></span>
+<span><span class="co">#&gt; * 2 - 5 : Moderate</span></span>
+<span><span class="co">#&gt; * 5 - 10 : High</span></span>
+<span><span class="co">#&gt; * &gt;= 10 : Severe</span></span>
 <span><span class="co">#&gt; </span></span>
-<span><span class="co">#&gt; ---- overdispersion ----</span></span>
-<span><span class="co">#&gt; Residual deviance: 12.27804 </span></span>
-<span><span class="co">#&gt; Degrees of freedom: 29 </span></span>
-<span><span class="co">#&gt; Ratio: 0.4233806 </span></span>
-<span><span class="co">#&gt; No evidence of overdispersion.</span></span>
+<span><span class="co">#&gt; --  overdispersion  --</span></span>
 <span><span class="co">#&gt; </span></span>
-<span><span class="co">#&gt; ---- zero_inflation ----</span></span>
-<span><span class="co">#&gt; Observed zeros: 0 ( 0 %)</span></span>
-<span><span class="co">#&gt; Expected zeros: 3 ( 9.3 %)</span></span>
-<span><span class="co">#&gt; No evidence of zero-inflation.</span></span>
+<span><span class="co">#&gt; Residual deviance:  12.27804 </span></span>
+<span><span class="co">#&gt; Degrees of freedom:  29 </span></span>
+<span><span class="co">#&gt; Ratio:  0.4233806 </span></span>
+<span><span class="co">#&gt; [OK] No evidence of overdispersion.</span></span>
 <span><span class="co">#&gt; </span></span>
-<span><span class="co">#&gt; ---- influential_observations ----</span></span>
-<span><span class="co">#&gt; Number of influential points: 0 </span></span>
+<span><span class="co">#&gt; --  zero_inflation  --</span></span>
+<span><span class="co">#&gt; </span></span>
+<span><span class="co">#&gt; Observed zeros:  0  ( 0 %)</span></span>
+<span><span class="co">#&gt; Expected zeros:  3  ( 9.3 %)</span></span>
+<span><span class="co">#&gt; [OK] No evidence of zero-inflation.</span></span>
+<span><span class="co">#&gt; </span></span>
+<span><span class="co">#&gt; --  influential_observations  --</span></span>
+<span><span class="co">#&gt; </span></span>
+<span><span class="co">#&gt; Number of influential points:  0 </span></span>
 <span><span class="co">#&gt; No observations exceed the influence threshold.</span></span>
 <span><span class="co">#&gt; No influential observations detected. Influential observations have Cook's distance above 4/n. Review these cases for leverage, data entry issues, or model fit problems. </span></span>
 <span><span class="co">#&gt; </span></span>
-<span><span class="co">#&gt; ---- residual_analysis ----</span></span>
-<span><span class="co">#&gt; Mean residual: -0.04200633 </span></span>
-<span><span class="co">#&gt; SD residual: 0.6278888 </span></span>
-<span><span class="co">#&gt; Min residual: -0.8656074 </span></span>
-<span><span class="co">#&gt; Max residual: 1.497036</span></span></code></pre></div>
+<span><span class="co">#&gt; --  residual_analysis  --</span></span>
+<span><span class="co">#&gt; </span></span>
+<span><span class="co">#&gt; Mean residual:  -0.04200633 </span></span>
+<span><span class="co">#&gt; SD residual:  0.6278888 </span></span>
+<span><span class="co">#&gt; Min residual:  -0.8656074 </span></span>
+<span><span class="co">#&gt; Max residual:  1.497036</span></span></code></pre></div>
+<p>Individual Poisson diagnostics are available for targeted checks.</p>
+<div class="sourceCode" id="cb7"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="fu"><a href="../reference/check_overdispersion.html">check_overdispersion</a></span><span class="op">(</span><span class="va">model_pois</span><span class="op">)</span></span>
+<span><span class="co">#&gt; $residual_deviance</span></span>
+<span><span class="co">#&gt; [1] 12.27804</span></span>
+<span><span class="co">#&gt; </span></span>
+<span><span class="co">#&gt; $df</span></span>
+<span><span class="co">#&gt; [1] 29</span></span>
+<span><span class="co">#&gt; </span></span>
+<span><span class="co">#&gt; $ratio</span></span>
+<span><span class="co">#&gt; [1] 0.4233806</span></span>
+<span><span class="co">#&gt; </span></span>
+<span><span class="co">#&gt; $overdispersed</span></span>
+<span><span class="co">#&gt; [1] FALSE</span></span>
+<span><span class="fu"><a href="../reference/check_zero_inflation.html">check_zero_inflation</a></span><span class="op">(</span><span class="va">model_pois</span><span class="op">)</span></span>
+<span><span class="co">#&gt; $observed_zeros</span></span>
+<span><span class="co">#&gt; [1] 0</span></span>
+<span><span class="co">#&gt; </span></span>
+<span><span class="co">#&gt; $expected_zeros</span></span>
+<span><span class="co">#&gt; [1] 2.978489</span></span>
+<span><span class="co">#&gt; </span></span>
+<span><span class="co">#&gt; $prop_observed</span></span>
+<span><span class="co">#&gt; [1] 0</span></span>
+<span><span class="co">#&gt; </span></span>
+<span><span class="co">#&gt; $prop_expected</span></span>
+<span><span class="co">#&gt; [1] 0.09307777</span></span>
+<span><span class="co">#&gt; </span></span>
+<span><span class="co">#&gt; $zero_inflated</span></span>
+<span><span class="co">#&gt; [1] FALSE</span></span>
+<span><span class="fu"><a href="../reference/check_residual_analysis.html">check_residual_analysis</a></span><span class="op">(</span><span class="va">model_pois</span><span class="op">)</span></span>
+<span><span class="co">#&gt; $mean_residual</span></span>
+<span><span class="co">#&gt; [1] -0.04200633</span></span>
+<span><span class="co">#&gt; </span></span>
+<span><span class="co">#&gt; $sd_residual</span></span>
+<span><span class="co">#&gt; [1] 0.6278888</span></span>
+<span><span class="co">#&gt; </span></span>
+<span><span class="co">#&gt; $min_residual</span></span>
+<span><span class="co">#&gt; [1] -0.8656074</span></span>
+<span><span class="co">#&gt; </span></span>
+<span><span class="co">#&gt; $max_residual</span></span>
+<span><span class="co">#&gt; [1] 1.497036</span></span></code></pre></div>
 <hr>
 </div>
 </div>
@@ -354,7 +547,7 @@ h(t | X) = h_0(t) \exp(X\beta)
 <div class="section level3">
 <h3 id="example-3">Example<a class="anchor" aria-label="anchor" href="#example-3"></a>
 </h3>
-<div class="sourceCode" id="cb5"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb8"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/therneau/survival" class="external-link">survival</a></span><span class="op">)</span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/utils/data.html" class="external-link">data</a></span><span class="op">(</span><span class="va">lung</span><span class="op">)</span></span>
 <span><span class="co">#&gt; Warning in data(lung): data set 'lung' not found</span></span>
@@ -362,19 +555,15 @@ h(t | X) = h_0(t) \exp(X\beta)
 <span><span class="va">model_cox</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/survival/man/coxph.html" class="external-link">coxph</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/pkg/survival/man/Surv.html" class="external-link">Surv</a></span><span class="op">(</span><span class="va">time</span>, <span class="va">status</span><span class="op">)</span> <span class="op">~</span> <span class="va">age</span> <span class="op">+</span> <span class="va">sex</span> <span class="op">+</span> <span class="va">ph.ecog</span>, data <span class="op">=</span> <span class="va">lung</span><span class="op">)</span></span>
 <span><span class="va">diag_cox</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/diagnose_model.html">diagnose_model</a></span><span class="op">(</span><span class="va">model_cox</span><span class="op">)</span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/base/summary.html" class="external-link">summary</a></span><span class="op">(</span><span class="va">diag_cox</span><span class="op">)</span></span>
-<span><span class="co">#&gt; Model Diagnostics Summary</span></span>
-<span><span class="co">#&gt; =========================</span></span>
+<span><span class="co">#&gt; -- Model Diagnostics Summary ---------------------------------------------------</span></span>
 <span><span class="co">#&gt; </span></span>
-<span><span class="co">#&gt; ---- multicollinearity ----</span></span>
-<span><span class="co">#&gt; $success</span></span>
-<span><span class="co">#&gt; [1] FALSE</span></span>
+<span><span class="co">#&gt; --  multicollinearity  --</span></span>
 <span><span class="co">#&gt; </span></span>
-<span><span class="co">#&gt; $message</span></span>
-<span><span class="co">#&gt; [1] "VIF not applicable to Cox models (no intercept)."</span></span>
+<span><span class="co">#&gt; VIF not applicable to Cox models (no intercept). </span></span>
 <span><span class="co">#&gt; </span></span>
+<span><span class="co">#&gt; --  proportional_hazards  --</span></span>
 <span><span class="co">#&gt; </span></span>
-<span><span class="co">#&gt; ---- proportional_hazards ----</span></span>
-<span><span class="co">#&gt; Global test p-value: 0.2155549 </span></span>
+<span><span class="co">#&gt; Global test p-value:  0.2155549 </span></span>
 <span><span class="co">#&gt;             chisq df         p</span></span>
 <span><span class="co">#&gt; age     0.1879877  1 0.6645968</span></span>
 <span><span class="co">#&gt; sex     2.3054372  1 0.1289220</span></span>
@@ -382,9 +571,10 @@ h(t | X) = h_0(t) \exp(X\beta)
 <span><span class="co">#&gt; GLOBAL  4.4636576  3 0.2155549</span></span>
 <span><span class="co">#&gt; Proportional hazards assumption appears reasonable. </span></span>
 <span><span class="co">#&gt; </span></span>
-<span><span class="co">#&gt; ---- influential_observations ----</span></span>
-<span><span class="co">#&gt; Number of influential points: 10 </span></span>
-<span><span class="co">#&gt; Influential observations: 3, 6, 17, 32, 36, 37, 70, 84, 88, 128 </span></span>
+<span><span class="co">#&gt; --  influential_observations  --</span></span>
+<span><span class="co">#&gt; </span></span>
+<span><span class="co">#&gt; Number of influential points:  10 </span></span>
+<span><span class="co">#&gt; Influential observations:  3, 6, 17, 32, 36, 37, 70, 84, 88, 128 </span></span>
 <span><span class="co">#&gt; Max |dfbeta| for influential observations:</span></span>
 <span><span class="co">#&gt;         3         6        18        33        37        38        71        85 </span></span>
 <span><span class="co">#&gt; 0.2103167 0.4334764 0.3724475 0.2236608 0.5149764 0.2628997 0.2410623 0.4614677 </span></span>
@@ -392,8 +582,253 @@ h(t | X) = h_0(t) \exp(X\beta)
 <span><span class="co">#&gt; 0.2431150 0.2057780 </span></span>
 <span><span class="co">#&gt; Influential observations have |dfbeta| &gt; 0.2 for at least one coefficient. Review these cases.</span></span>
 <span><span class="co">#&gt; </span></span>
-<span><span class="co">#&gt; ---- functional_form ----</span></span>
+<span><span class="co">#&gt; --  functional_form  --</span></span>
+<span><span class="co">#&gt; </span></span>
 <span><span class="co">#&gt; Functional form check: Review plots of martingale residuals vs predictors for nonlinearity.</span></span></code></pre></div>
+<p>Individual Cox model diagnostics can also be run directly.</p>
+<div class="sourceCode" id="cb9"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="fu"><a href="../reference/check_proportional_hazards.html">check_proportional_hazards</a></span><span class="op">(</span><span class="va">model_cox</span><span class="op">)</span></span>
+<span><span class="co">#&gt;         chisq df    p</span></span>
+<span><span class="co">#&gt; age     0.188  1 0.66</span></span>
+<span><span class="co">#&gt; sex     2.305  1 0.13</span></span>
+<span><span class="co">#&gt; ph.ecog 2.054  1 0.15</span></span>
+<span><span class="co">#&gt; GLOBAL  4.464  3 0.22</span></span>
+<span><span class="fu"><a href="../reference/check_influential_coxph.html">check_influential_coxph</a></span><span class="op">(</span><span class="va">model_cox</span><span class="op">)</span></span>
+<span><span class="co">#&gt; $dfbetas</span></span>
+<span><span class="co">#&gt;              [,1]          [,2]          [,3]</span></span>
+<span><span class="co">#&gt; 1    0.0019898612 -0.0113782893  6.631006e-03</span></span>
+<span><span class="co">#&gt; 2    0.0083884583 -0.0044437262 -6.509521e-03</span></span>
+<span><span class="co">#&gt; 3    0.1035755702  0.1037120879  2.103167e-01</span></span>
+<span><span class="co">#&gt; 4   -0.0330380008 -0.0286728004  9.415764e-03</span></span>
+<span><span class="co">#&gt; 5   -0.0205151822  0.0770639215  1.786017e-01</span></span>
+<span><span class="co">#&gt; 6   -0.4334763687  0.2231627194  4.290399e-02</span></span>
+<span><span class="co">#&gt; 7    0.0034484450  0.0074885523  2.217729e-02</span></span>
+<span><span class="co">#&gt; 8   -0.0034354243 -0.0123156330 -1.720884e-03</span></span>
+<span><span class="co">#&gt; 9   -0.0545859489 -0.0290902376  1.532795e-02</span></span>
+<span><span class="co">#&gt; 10  -0.0203524286 -0.0299237994  6.005745e-02</span></span>
+<span><span class="co">#&gt; 11  -0.0402721682 -0.0359013581  6.946416e-03</span></span>
+<span><span class="co">#&gt; 12  -0.0204388391 -0.1328570080 -1.186494e-01</span></span>
+<span><span class="co">#&gt; 13  -0.0269608241 -0.0845550087  2.599462e-02</span></span>
+<span><span class="co">#&gt; 15   0.0500749523  0.0468657714  3.676696e-03</span></span>
+<span><span class="co">#&gt; 16   0.0255499998 -0.0378692577 -8.237601e-03</span></span>
+<span><span class="co">#&gt; 17  -0.0673005764  0.0666616602  1.859480e-02</span></span>
+<span><span class="co">#&gt; 18   0.0677805147  0.2071896397 -3.724475e-01</span></span>
+<span><span class="co">#&gt; 19  -0.0767254887  0.1041755665  9.100104e-02</span></span>
+<span><span class="co">#&gt; 20  -0.0490731482 -0.0420620976 -5.505968e-03</span></span>
+<span><span class="co">#&gt; 21   0.0040113166 -0.0156559500  7.076112e-03</span></span>
+<span><span class="co">#&gt; 22  -0.1052516339  0.1201631714 -1.113843e-01</span></span>
+<span><span class="co">#&gt; 23   0.1109014162  0.0419282449 -1.271730e-02</span></span>
+<span><span class="co">#&gt; 24  -0.0065294229 -0.0179439992 -2.854969e-02</span></span>
+<span><span class="co">#&gt; 25   0.0100368581 -0.0092537857 -1.174584e-02</span></span>
+<span><span class="co">#&gt; 26   0.0074129218 -0.0058340366 -9.803345e-04</span></span>
+<span><span class="co">#&gt; 27   0.0059441198  0.0102630835  2.902271e-02</span></span>
+<span><span class="co">#&gt; 28   0.0124397186 -0.0267581202  9.171121e-02</span></span>
+<span><span class="co">#&gt; 29   0.0059686416  0.0035966310  5.447686e-03</span></span>
+<span><span class="co">#&gt; 30   0.0737321000 -0.0475682053  7.247954e-02</span></span>
+<span><span class="co">#&gt; 31   0.0083865691 -0.0011721621 -4.563597e-03</span></span>
+<span><span class="co">#&gt; 32   0.0643205077 -0.0470553678  7.190084e-02</span></span>
+<span><span class="co">#&gt; 33   0.2236608432  0.0820904131 -1.761672e-01</span></span>
+<span><span class="co">#&gt; 34  -0.0395963375  0.0956478074  8.223422e-02</span></span>
+<span><span class="co">#&gt; 35  -0.0348741914 -0.0476125800  8.855613e-02</span></span>
+<span><span class="co">#&gt; 36  -0.0220042339  0.0908613070  8.036788e-02</span></span>
+<span><span class="co">#&gt; 37  -0.0273847520  0.2983457171 -5.149764e-01</span></span>
+<span><span class="co">#&gt; 38  -0.0610066728 -0.2628997035  1.205452e-02</span></span>
+<span><span class="co">#&gt; 39   0.0581492118 -0.0388606066  5.839455e-02</span></span>
+<span><span class="co">#&gt; 40   0.0019819640 -0.0765191629  2.040386e-02</span></span>
+<span><span class="co">#&gt; 41  -0.0346977518  0.0282497267  5.503139e-03</span></span>
+<span><span class="co">#&gt; 42   0.0504437379  0.0799540315  6.056346e-02</span></span>
+<span><span class="co">#&gt; 43  -0.0109086809  0.0571036938 -6.101022e-02</span></span>
+<span><span class="co">#&gt; 44  -0.0378742791  0.0851494384  8.073107e-02</span></span>
+<span><span class="co">#&gt; 45  -0.0444443723  0.0614457376  1.687138e-02</span></span>
+<span><span class="co">#&gt; 46   0.0832006255  0.0939766536  5.810064e-02</span></span>
+<span><span class="co">#&gt; 47   0.0482339850 -0.0284671687 -4.845867e-02</span></span>
+<span><span class="co">#&gt; 48   0.0098492845  0.0306396494  3.653707e-04</span></span>
+<span><span class="co">#&gt; 49  -0.0632893286  0.0259644093  8.006261e-02</span></span>
+<span><span class="co">#&gt; 50   0.0756767437 -0.0407024519  6.631776e-03</span></span>
+<span><span class="co">#&gt; 51  -0.0681197399 -0.0951568481  3.355310e-02</span></span>
+<span><span class="co">#&gt; 52   0.0121286330 -0.0378057000 -8.028300e-02</span></span>
+<span><span class="co">#&gt; 53   0.0622907567 -0.0398198704 -1.336872e-01</span></span>
+<span><span class="co">#&gt; 54  -0.0228659361 -0.0330608778 -5.927036e-02</span></span>
+<span><span class="co">#&gt; 55   0.0641758549  0.0836364116 -8.760249e-03</span></span>
+<span><span class="co">#&gt; 56   0.0098180554 -0.0392584149 -1.201191e-01</span></span>
+<span><span class="co">#&gt; 57   0.0319091035  0.1291139999 -1.443057e-01</span></span>
+<span><span class="co">#&gt; 58  -0.0498881164 -0.0369076822  7.852703e-02</span></span>
+<span><span class="co">#&gt; 59   0.0299205943 -0.0372026229 -1.656423e-04</span></span>
+<span><span class="co">#&gt; 60   0.0018451697  0.0402453130  1.318178e-03</span></span>
+<span><span class="co">#&gt; 61  -0.0367924289 -0.0534874473 -3.852699e-02</span></span>
+<span><span class="co">#&gt; 62  -0.0785338667 -0.0322244907  2.131399e-02</span></span>
+<span><span class="co">#&gt; 63   0.0535821256 -0.0324735308 -8.568132e-03</span></span>
+<span><span class="co">#&gt; 64   0.0183300113  0.1130154262 -2.729181e-02</span></span>
+<span><span class="co">#&gt; 65   0.0352581667 -0.0346338143 -7.358120e-03</span></span>
+<span><span class="co">#&gt; 66   0.0221439514 -0.0433611232  7.221090e-02</span></span>
+<span><span class="co">#&gt; 67   0.0045346445  0.0535580295  5.434215e-02</span></span>
+<span><span class="co">#&gt; 68  -0.0397442023 -0.1522338787  1.527123e-01</span></span>
+<span><span class="co">#&gt; 69   0.0102568136 -0.0115179178 -1.423718e-02</span></span>
+<span><span class="co">#&gt; 70   0.0086164345 -0.0255925458  6.027162e-03</span></span>
+<span><span class="co">#&gt; 71  -0.0470406846  0.1049392189  2.410623e-01</span></span>
+<span><span class="co">#&gt; 72  -0.0860754948  0.0580683479  1.408366e-02</span></span>
+<span><span class="co">#&gt; 73   0.0740966086 -0.0479245443  7.394157e-02</span></span>
+<span><span class="co">#&gt; 74  -0.1758878058 -0.0413044150  2.481401e-02</span></span>
+<span><span class="co">#&gt; 75  -0.0719470999  0.0762086036  1.173566e-02</span></span>
+<span><span class="co">#&gt; 76   0.0148082806  0.0176939652 -4.434004e-04</span></span>
+<span><span class="co">#&gt; 77  -0.0046672396  0.0192137723 -1.813395e-02</span></span>
+<span><span class="co">#&gt; 78  -0.0266390434  0.0438138804  5.989556e-03</span></span>
+<span><span class="co">#&gt; 79   0.1782533223 -0.0375607865 -1.604460e-01</span></span>
+<span><span class="co">#&gt; 80   0.0816850630 -0.0351846583 -9.804956e-02</span></span>
+<span><span class="co">#&gt; 81   0.0152779990  0.0793079902  1.189438e-01</span></span>
+<span><span class="co">#&gt; 82  -0.0636198968 -0.0416836601 -1.306606e-03</span></span>
+<span><span class="co">#&gt; 83   0.0698051012  0.0177935997 -8.281316e-03</span></span>
+<span><span class="co">#&gt; 84  -0.1503150506  0.0968834915  1.709307e-02</span></span>
+<span><span class="co">#&gt; 85   0.4614677138  0.1477727601 -8.810651e-02</span></span>
+<span><span class="co">#&gt; 86   0.0154474340 -0.0164739726  5.604348e-04</span></span>
+<span><span class="co">#&gt; 87   0.0085719629 -0.0322435760  6.264670e-03</span></span>
+<span><span class="co">#&gt; 88  -0.0013733406 -0.0371414066 -9.646258e-02</span></span>
+<span><span class="co">#&gt; 89   0.2431149833 -0.1546166164 -3.292858e-02</span></span>
+<span><span class="co">#&gt; 90   0.0276317853 -0.0270515449  4.773117e-02</span></span>
+<span><span class="co">#&gt; 91   0.0045977579  0.0259099959  5.980967e-02</span></span>
+<span><span class="co">#&gt; 92   0.0177403510 -0.0242814478  4.411387e-03</span></span>
+<span><span class="co">#&gt; 93   0.0230650286 -0.0412215026 -1.773923e-02</span></span>
+<span><span class="co">#&gt; 94  -0.0426823226  0.0720064653  7.098509e-03</span></span>
+<span><span class="co">#&gt; 95  -0.0564521384 -0.0891532850  1.010963e-01</span></span>
+<span><span class="co">#&gt; 96   0.0559648269 -0.0471252036  7.343045e-02</span></span>
+<span><span class="co">#&gt; 97   0.0308758962 -0.0326325335 -4.524247e-03</span></span>
+<span><span class="co">#&gt; 98   0.0032395515 -0.0123927821  6.627081e-03</span></span>
+<span><span class="co">#&gt; 99   0.0026180610  0.0263848968 -1.344832e-03</span></span>
+<span><span class="co">#&gt; 100  0.0721113689  0.1060389633 -1.188152e-01</span></span>
+<span><span class="co">#&gt; 101  0.0177466831 -0.0726996366  7.216985e-02</span></span>
+<span><span class="co">#&gt; 102  0.0117130597  0.0108225866 -3.319975e-03</span></span>
+<span><span class="co">#&gt; 103  0.0069108034 -0.0005234452  5.100927e-03</span></span>
+<span><span class="co">#&gt; 104 -0.0001501724 -0.0393164284 -9.816928e-03</span></span>
+<span><span class="co">#&gt; 105 -0.0263533710 -0.0274232475  5.503929e-02</span></span>
+<span><span class="co">#&gt; 106  0.0177062136 -0.0349541815 -5.748319e-03</span></span>
+<span><span class="co">#&gt; 107  0.0755001113 -0.0979229433 -3.288944e-03</span></span>
+<span><span class="co">#&gt; 108  0.0304753917 -0.0432099350 -2.589854e-02</span></span>
+<span><span class="co">#&gt; 109  0.0173499082  0.0059787081  4.846321e-06</span></span>
+<span><span class="co">#&gt; 110 -0.0058002274 -0.0133607874  4.140821e-04</span></span>
+<span><span class="co">#&gt; 111  0.0700097729 -0.0389969262 -1.378760e-01</span></span>
+<span><span class="co">#&gt; 112 -0.1221994328 -0.0383062757  2.203808e-02</span></span>
+<span><span class="co">#&gt; 113  0.0220568694 -0.0122813838 -4.022791e-05</span></span>
+<span><span class="co">#&gt; 114  0.0996231959  0.0939974470 -1.118615e-01</span></span>
+<span><span class="co">#&gt; 115 -0.0012572451  0.0111730974  3.545064e-04</span></span>
+<span><span class="co">#&gt; 116  0.0908990976 -0.0473912195  6.914276e-02</span></span>
+<span><span class="co">#&gt; 117 -0.0456730504 -0.0178610689  4.539084e-02</span></span>
+<span><span class="co">#&gt; 118 -0.0345055675  0.1105009415 -1.877604e-01</span></span>
+<span><span class="co">#&gt; 119 -0.0013697789  0.0093433174 -2.210654e-02</span></span>
+<span><span class="co">#&gt; 120 -0.0482933670  0.0149483922  1.588416e-02</span></span>
+<span><span class="co">#&gt; 121  0.0033460475 -0.0064066864 -2.122262e-03</span></span>
+<span><span class="co">#&gt; 122 -0.0327622814  0.0595625887  6.736237e-02</span></span>
+<span><span class="co">#&gt; 123 -0.0070824888 -0.0145286411  1.332550e-02</span></span>
+<span><span class="co">#&gt; 124  0.0548688520 -0.0463741344  7.072927e-02</span></span>
+<span><span class="co">#&gt; 125 -0.0152959088  0.0160355428  4.569608e-02</span></span>
+<span><span class="co">#&gt; 126  0.0086214315 -0.0274821266  1.781469e-03</span></span>
+<span><span class="co">#&gt; 127 -0.1058282819 -0.0427239316  4.120953e-03</span></span>
+<span><span class="co">#&gt; 128  0.0088710803 -0.0443495143 -1.725015e-02</span></span>
+<span><span class="co">#&gt; 129 -0.2057779582 -0.2008082718 -1.535928e-01</span></span>
+<span><span class="co">#&gt; 130  0.0645107804 -0.0618179518  5.331680e-02</span></span>
+<span><span class="co">#&gt; 131 -0.0236343483  0.0568749151  5.914936e-03</span></span>
+<span><span class="co">#&gt; 132 -0.0561439462 -0.0321416892  1.270814e-02</span></span>
+<span><span class="co">#&gt; 133 -0.0586991589 -0.0274863346 -3.480657e-02</span></span>
+<span><span class="co">#&gt; 134  0.0630172285 -0.0910178391 -1.778694e-03</span></span>
+<span><span class="co">#&gt; 135  0.0258463538 -0.0304889411 -6.461534e-02</span></span>
+<span><span class="co">#&gt; 136 -0.1279169393 -0.1704506884 -1.371350e-01</span></span>
+<span><span class="co">#&gt; 137 -0.0154086097  0.0390418564  4.024052e-03</span></span>
+<span><span class="co">#&gt; 138  0.0669074111  0.0465558493 -8.898263e-02</span></span>
+<span><span class="co">#&gt; 139  0.0351034039  0.0152623303 -7.214797e-03</span></span>
+<span><span class="co">#&gt; 140 -0.0226985456 -0.0324411456 -3.972187e-02</span></span>
+<span><span class="co">#&gt; 141  0.0325169319  0.0523084757  4.975478e-02</span></span>
+<span><span class="co">#&gt; 142 -0.1365688305  0.0766382561  2.797470e-02</span></span>
+<span><span class="co">#&gt; 143 -0.0064160386 -0.0033925776  1.074984e-02</span></span>
+<span><span class="co">#&gt; 144  0.0178556896  0.1126558464 -2.672885e-02</span></span>
+<span><span class="co">#&gt; 145  0.0810398492  0.0771006813 -1.007872e-02</span></span>
+<span><span class="co">#&gt; 146  0.0521580824 -0.0609825008 -2.466540e-03</span></span>
+<span><span class="co">#&gt; 147  0.0265819228 -0.0190045447 -3.048193e-02</span></span>
+<span><span class="co">#&gt; 148 -0.0624588814 -0.0373134387  8.855150e-03</span></span>
+<span><span class="co">#&gt; 149  0.1854018296 -0.0391263682 -1.543971e-01</span></span>
+<span><span class="co">#&gt; 150 -0.0146643351  0.0695887941 -7.216112e-02</span></span>
+<span><span class="co">#&gt; 151  0.0179795901 -0.0245133503  4.575647e-03</span></span>
+<span><span class="co">#&gt; 152  0.0100768982  0.0424254888  9.334078e-02</span></span>
+<span><span class="co">#&gt; 153 -0.0021287480 -0.0376693165  3.921463e-02</span></span>
+<span><span class="co">#&gt; 154 -0.0772132998  0.0877302195  6.475027e-03</span></span>
+<span><span class="co">#&gt; 155 -0.0559623188 -0.0325046362  7.261258e-02</span></span>
+<span><span class="co">#&gt; 156 -0.0176598590  0.0235222457 -4.779548e-02</span></span>
+<span><span class="co">#&gt; 157 -0.0293957133 -0.0773271267  1.311357e-02</span></span>
+<span><span class="co">#&gt; 158  0.0068052932  0.0062231396 -1.786702e-02</span></span>
+<span><span class="co">#&gt; 159 -0.0023248131 -0.0339887124  9.058203e-04</span></span>
+<span><span class="co">#&gt; 160  0.0424716224 -0.0699038077 -1.947040e-04</span></span>
+<span><span class="co">#&gt; 161 -0.0029328740 -0.0493669420  5.139855e-02</span></span>
+<span><span class="co">#&gt; 162 -0.1285114884  0.0757464819  1.809179e-02</span></span>
+<span><span class="co">#&gt; 163 -0.0419861306  0.0756456597 -1.289759e-01</span></span>
+<span><span class="co">#&gt; 164 -0.0018120797 -0.0384883650 -3.677971e-03</span></span>
+<span><span class="co">#&gt; 165 -0.0066361460  0.0689299192  5.032142e-03</span></span>
+<span><span class="co">#&gt; 166  0.0083931592 -0.0261948636  2.556857e-02</span></span>
+<span><span class="co">#&gt; 167 -0.0242361426  0.0827222971 -1.754309e-03</span></span>
+<span><span class="co">#&gt; 168 -0.0747706920 -0.0344385691 -4.081238e-02</span></span>
+<span><span class="co">#&gt; 169 -0.0145645184 -0.0347051334  4.195715e-03</span></span>
+<span><span class="co">#&gt; 170  0.0176905893 -0.0301505049 -6.129940e-02</span></span>
+<span><span class="co">#&gt; 171  0.0176428967  0.0412026013  1.648694e-03</span></span>
+<span><span class="co">#&gt; 172 -0.0207180251  0.0703990895 -7.092345e-02</span></span>
+<span><span class="co">#&gt; 173 -0.0423107365 -0.0344824534  9.182614e-03</span></span>
+<span><span class="co">#&gt; 174  0.0573040836 -0.0398398542  3.132242e-02</span></span>
+<span><span class="co">#&gt; 175  0.0706157052  0.0386845932 -7.955815e-03</span></span>
+<span><span class="co">#&gt; 176  0.0175625437 -0.0498843953  3.139427e-03</span></span>
+<span><span class="co">#&gt; 177 -0.0376920672 -0.0274684521  5.621938e-02</span></span>
+<span><span class="co">#&gt; 178 -0.0600856029  0.0853066677  5.266695e-03</span></span>
+<span><span class="co">#&gt; 179 -0.0816891797  0.1008438435  1.361401e-03</span></span>
+<span><span class="co">#&gt; 180 -0.0323883857 -0.0334131872  3.991434e-02</span></span>
+<span><span class="co">#&gt; 181  0.0057921807  0.0224610020  5.465954e-02</span></span>
+<span><span class="co">#&gt; 182  0.0704448675  0.0159698178  2.765059e-02</span></span>
+<span><span class="co">#&gt; 183  0.0267115415  0.0667750050 -7.525088e-02</span></span>
+<span><span class="co">#&gt; 184 -0.0060728312 -0.0466007828  7.070918e-03</span></span>
+<span><span class="co">#&gt; 185  0.0232586076 -0.0295436234  2.647552e-02</span></span>
+<span><span class="co">#&gt; 186  0.0407291304 -0.0321686957  2.626321e-02</span></span>
+<span><span class="co">#&gt; 187  0.0154698862  0.0239576638  2.675119e-02</span></span>
+<span><span class="co">#&gt; 188  0.0114213958  0.0173517892  4.243866e-02</span></span>
+<span><span class="co">#&gt; 189  0.0071288629 -0.0384936423 -1.060828e-02</span></span>
+<span><span class="co">#&gt; 190 -0.0444176004 -0.0317421508 -5.581723e-02</span></span>
+<span><span class="co">#&gt; 191  0.0159454594 -0.0165595624  1.085787e-03</span></span>
+<span><span class="co">#&gt; 192 -0.0993555065 -0.0441102767  9.409598e-02</span></span>
+<span><span class="co">#&gt; 193 -0.0969346845 -0.0400537973  1.122165e-02</span></span>
+<span><span class="co">#&gt; 194 -0.0035331076  0.0285724239  5.525394e-03</span></span>
+<span><span class="co">#&gt; 195  0.0137088532 -0.0175698624  1.987928e-03</span></span>
+<span><span class="co">#&gt; 196 -0.0309687876  0.0170386947  5.052130e-02</span></span>
+<span><span class="co">#&gt; 197  0.0010346898 -0.0410911928  5.400080e-03</span></span>
+<span><span class="co">#&gt; 198 -0.0037269810  0.0355762475  5.400631e-03</span></span>
+<span><span class="co">#&gt; 199  0.0187209222 -0.0265200538  2.411146e-02</span></span>
+<span><span class="co">#&gt; 200 -0.0230595855 -0.0389285154 -1.259133e-04</span></span>
+<span><span class="co">#&gt; 201  0.0094105104  0.1112473351 -2.467330e-02</span></span>
+<span><span class="co">#&gt; 202  0.0842868100 -0.0438952808 -3.013321e-02</span></span>
+<span><span class="co">#&gt; 203 -0.0037067535 -0.0270728033  2.857329e-02</span></span>
+<span><span class="co">#&gt; 204  0.0158629290 -0.0189412224  1.702651e-02</span></span>
+<span><span class="co">#&gt; 205 -0.0036010735 -0.0261576214  2.763588e-02</span></span>
+<span><span class="co">#&gt; 206 -0.0212687130 -0.0394605273  7.407970e-02</span></span>
+<span><span class="co">#&gt; 207  0.0105619971 -0.0226867080  2.168648e-02</span></span>
+<span><span class="co">#&gt; 208 -0.0776674665  0.0507321487  7.253475e-02</span></span>
+<span><span class="co">#&gt; 209 -0.0330271125  0.0320311931  1.082496e-02</span></span>
+<span><span class="co">#&gt; 210  0.0072448367 -0.0225298740  2.727321e-03</span></span>
+<span><span class="co">#&gt; 211  0.0024952402 -0.0270962764  2.750152e-02</span></span>
+<span><span class="co">#&gt; 212 -0.0192850166  0.0283425246  8.471276e-03</span></span>
+<span><span class="co">#&gt; 213 -0.0241399125  0.0221530443  9.253175e-03</span></span>
+<span><span class="co">#&gt; 214  0.0016320746 -0.0158743625 -1.181062e-02</span></span>
+<span><span class="co">#&gt; 215  0.0140249859 -0.0436593170 -2.151875e-02</span></span>
+<span><span class="co">#&gt; 216 -0.0087475917  0.0282965084  6.519916e-03</span></span>
+<span><span class="co">#&gt; 217  0.0406981440 -0.0232985124 -3.285404e-03</span></span>
+<span><span class="co">#&gt; 218  0.0188001723 -0.0170423323  2.727106e-02</span></span>
+<span><span class="co">#&gt; 219 -0.0220949939 -0.0575983999 -4.376584e-02</span></span>
+<span><span class="co">#&gt; 220  0.0044258604 -0.0148088178  1.480410e-02</span></span>
+<span><span class="co">#&gt; 221 -0.0166117087  0.0236672521  7.910138e-03</span></span>
+<span><span class="co">#&gt; 222 -0.0223032796 -0.0364472324  9.439237e-03</span></span>
+<span><span class="co">#&gt; 223  0.0926762964 -0.0369128518 -2.492383e-02</span></span>
+<span><span class="co">#&gt; 224 -0.0641439711  0.0246405958  1.666007e-02</span></span>
+<span><span class="co">#&gt; 225  0.0433683096  0.0094356190  1.811624e-02</span></span>
+<span><span class="co">#&gt; 226 -0.0163049880 -0.0208684591 -1.240141e-02</span></span>
+<span><span class="co">#&gt; 227 -0.0092500861  0.0171511025  6.199495e-03</span></span>
+<span><span class="co">#&gt; 228  0.0095030791 -0.0237181596  2.452578e-03</span></span>
+<span><span class="co">#&gt; </span></span>
+<span><span class="co">#&gt; $influential_points</span></span>
+<span><span class="co">#&gt;   3   6  18  33  37  38  71  85  89 129 </span></span>
+<span><span class="co">#&gt;   3   6  17  32  36  37  70  84  88 128</span></span>
+<span><span class="fu"><a href="../reference/check_functional_form_coxph.html">check_functional_form_coxph</a></span><span class="op">(</span><span class="va">model_cox</span><span class="op">)</span></span>
+<span><span class="co">#&gt; [1] "Functional form check: Review plots of martingale residuals vs predictors for nonlinearity."</span></span></code></pre></div>
 <hr>
 </div>
 </div>
@@ -401,7 +836,7 @@ h(t | X) = h_0(t) \exp(X\beta)
 <h2 id="visualization">Visualization<a class="anchor" aria-label="anchor" href="#visualization"></a>
 </h2>
 <p>Diagnostic plots help identify violations visually.</p>
-<div class="sourceCode" id="cb6"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb10"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/graphics/plot.default.html" class="external-link">plot</a></span><span class="op">(</span><span class="va">diag_lm</span><span class="op">)</span></span></code></pre></div>
 <p><img src="introduction_files/figure-html/plotting-1.png" class="r-plt" alt="" width="576"></p>
 <hr>
@@ -442,7 +877,7 @@ of Count Data</em>. Cambridge University Press.</p>
 
 
     <footer><div class="pkgdown-footer-left">
-  <p>Developed by Emmanuel Adewuyi, Adewale Lukman.</p>
+  <p>Developed by Emmanuel Adewuyi, Adewale Lukman, Abiola Owolabi.</p>
 </div>
 
 <div class="pkgdown-footer-right">

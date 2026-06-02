@@ -31,6 +31,4 @@ Authors:
 
 - Adewale Lukman
 
-Other contributors:
-
-- Abiola Owolabi \[contributor\]
+- Abiola Owolabi

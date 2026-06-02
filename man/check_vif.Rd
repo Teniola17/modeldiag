@@ -16,3 +16,7 @@ A list describing whether VIF computation succeeded. Successful
 \description{
 Computes variance inflation factors to detect multicollinearity.
 }
+\examples{
+model <- lm(mpg ~ wt + hp + disp, data = mtcars)
+check_vif(model)
+}

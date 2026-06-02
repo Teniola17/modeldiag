@@ -5,6 +5,10 @@
 #' @param model A fitted model object.
 #' @return A list describing whether VIF computation succeeded. Successful
 #'   results include a `vif` element containing the variance inflation factors.
+#' @export
+#' @examples
+#' model <- lm(mpg ~ wt + hp + disp, data = mtcars)
+#' check_vif(model)
 check_vif <- function(model) {
 
   if (inherits(model, "coxph")) {
@@ -91,6 +95,10 @@ check_vif <- function(model) {
 #'
 #' @param model A fitted lm object.
 #' @return An htest object or NA if computation fails.
+#' @export
+#' @examples
+#' model <- lm(mpg ~ wt + hp, data = mtcars)
+#' check_heteroskedasticity(model)
 check_heteroskedasticity <- function(model) {
   if (!inherits(model, "lm")) return(NA)
 
@@ -103,7 +111,16 @@ check_heteroskedasticity <- function(model) {
   })
 }
 
-
+#' Check Autocorrelation
+#'
+#' Performs the Durbin-Watson test for first-order autocorrelation in residuals.
+#'
+#' @param model A fitted lm object.
+#' @return An htest object or NA if computation fails.
+#' @export
+#' @examples
+#' model <- lm(mpg ~ wt + hp, data = mtcars)
+#' check_autocorrelation(model)
 check_autocorrelation <- function(model) {
   if (!inherits(model, "lm")) return(NA)
 
@@ -116,7 +133,17 @@ check_autocorrelation <- function(model) {
   })
 }
 
-
+#' Check Linearity
+#'
+#' Performs Ramsey's RESET test for linear model misspecification.
+#'
+#' @param model A fitted lm object.
+#' @param power Powers of fitted values to include in the test.
+#' @return An htest object with an added note, or NA if computation fails.
+#' @export
+#' @examples
+#' model <- lm(mpg ~ wt + hp, data = mtcars)
+#' check_linearity(model)
 check_linearity <- function(model, power = 2) {
   if (!inherits(model, "lm")) return(NA)
 
@@ -137,7 +164,16 @@ check_linearity <- function(model, power = 2) {
   })
 }
 
-
+#' Check Normality of Residuals
+#'
+#' Performs the Shapiro-Wilk test on model residuals.
+#'
+#' @param model A fitted model object.
+#' @return An htest object or NA if computation fails.
+#' @export
+#' @examples
+#' model <- lm(mpg ~ wt + hp, data = mtcars)
+#' check_normality(model)
 check_normality <- function(model) {
   res <- residuals(model)
   tryCatch({
@@ -147,7 +183,18 @@ check_normality <- function(model) {
   })
 }
 
-
+#' Check Influential Observations
+#'
+#' Identifies influential observations using Cook's distance.
+#'
+#' @param model A fitted model object.
+#' @param cutoff Cook's distance cutoff. Defaults to 4 divided by the number of
+#'   observations.
+#' @return A list containing Cook's distances and influential point indices.
+#' @export
+#' @examples
+#' model <- lm(mpg ~ wt + hp, data = mtcars)
+#' check_outliers(model)
 check_outliers <- function(model, cutoff = 4 / length(residuals(model))) {
   cooks <- cooks.distance(model)
   if(!is.null(cutoff)) {
@@ -160,6 +207,18 @@ check_outliers <- function(model, cutoff = 4 / length(residuals(model))) {
     influential_points = influential
   )
 }
+
+#' Check Logistic Linearity with Box-Tidwell Test
+#'
+#' Performs a Box-Tidwell test for linearity of continuous predictors in the
+#' logit.
+#'
+#' @param model A fitted glm object.
+#' @return A Box-Tidwell test result or NA if computation fails.
+#' @export
+#' @examples
+#' model <- glm(am ~ wt + hp, data = mtcars, family = binomial)
+#' check_box_tidwell(model)
 check_box_tidwell <- function(model) {
   tryCatch({
     car::boxTidwell(model$formula, data = model$data)
@@ -168,6 +227,17 @@ check_box_tidwell <- function(model) {
   })
 }
 
+#' Check Logistic Goodness of Fit
+#'
+#' Performs the Hosmer-Lemeshow goodness-of-fit test for binomial glm models.
+#'
+#' @param model A fitted binomial glm object.
+#' @return An htest object or NA if computation fails or the model is not
+#'   binomial.
+#' @export
+#' @examples
+#' model <- glm(am ~ wt + hp, data = mtcars, family = binomial)
+#' check_hosmer_lemeshow(model)
 check_hosmer_lemeshow <- function(model) {
   if (!inherits(model, "glm") || model$family$family != "binomial") {
     return(NA)
@@ -187,6 +257,17 @@ check_hosmer_lemeshow <- function(model) {
   })
 }
 
+#' Check Influential Observations in GLMs
+#'
+#' Identifies influential observations in generalized linear models using
+#' Cook's distance.
+#'
+#' @param model A fitted glm object.
+#' @return A list containing Cook's distances and influential point indices.
+#' @export
+#' @examples
+#' model <- glm(am ~ wt + hp, data = mtcars, family = binomial)
+#' check_influential_glm(model)
 check_influential_glm <- function(model) {
   cooks <- cooks.distance(model)
   influential <- which(cooks > (4 / length(cooks)))
@@ -197,6 +278,17 @@ check_influential_glm <- function(model) {
   )
 }
 
+#' Check Separation in GLMs
+#'
+#' Checks for simple indicators of complete or quasi-complete separation.
+#'
+#' @param model A fitted glm object.
+#' @return A character message describing whether separation was detected, or NA
+#'   if the model is not a glm.
+#' @export
+#' @examples
+#' model <- glm(am ~ wt + hp, data = mtcars, family = binomial)
+#' check_separation(model)
 check_separation <- function(model) {
   if (!inherits(model, "glm")) return(NA)
 
@@ -213,6 +305,18 @@ check_separation <- function(model) {
   "No separation issues detected."
 }
 
+#' Check Overdispersion
+#'
+#' Checks whether a Poisson glm appears overdispersed using the residual
+#' deviance to degrees-of-freedom ratio.
+#'
+#' @param model A fitted Poisson glm object.
+#' @return A list with overdispersion diagnostics, or NA if the model is not
+#'   Poisson or computation fails.
+#' @export
+#' @examples
+#' model <- glm(carb ~ wt + hp, data = mtcars, family = poisson)
+#' check_overdispersion(model)
 check_overdispersion <- function(model) {
   if (model$family$family != "poisson") {
     return(NA)
@@ -232,6 +336,17 @@ check_overdispersion <- function(model) {
   })
 }
 
+#' Check Zero Inflation
+#'
+#' Compares observed zeros with the number expected under a fitted Poisson glm.
+#'
+#' @param model A fitted Poisson glm object.
+#' @return A list with zero-inflation diagnostics, or NA if the model is not
+#'   Poisson or computation fails.
+#' @export
+#' @examples
+#' model <- glm(carb ~ wt + hp, data = mtcars, family = poisson)
+#' check_zero_inflation(model)
 check_zero_inflation <- function(model) {
   if (model$family$family != "poisson") {
     return(NA)
@@ -256,6 +371,16 @@ check_zero_inflation <- function(model) {
   })
 }
 
+#' Check Residual Summary
+#'
+#' Summarizes deviance residuals for a generalized linear model.
+#'
+#' @param model A fitted model object.
+#' @return A list of residual summary statistics, or NA if computation fails.
+#' @export
+#' @examples
+#' model <- glm(carb ~ wt + hp, data = mtcars, family = poisson)
+#' check_residual_analysis(model)
 check_residual_analysis <- function(model) {
   tryCatch({
     res <- residuals(model, type = "deviance")
@@ -270,7 +395,22 @@ check_residual_analysis <- function(model) {
   })
 }
 
-
+#' Check Proportional Hazards
+#'
+#' Performs a proportional hazards test for a fitted Cox model using Schoenfeld
+#' residuals.
+#'
+#' @param model A fitted coxph object.
+#' @return A cox.zph result or NA if computation fails.
+#' @export
+#' @examples
+#' if (requireNamespace("survival", quietly = TRUE)) {
+#'   model <- survival::coxph(
+#'     survival::Surv(time, status) ~ age + sex,
+#'     data = survival::lung
+#'   )
+#'   check_proportional_hazards(model)
+#' }
 check_proportional_hazards <- function(model) {
   tryCatch({
     survival::cox.zph(model)
@@ -279,6 +419,22 @@ check_proportional_hazards <- function(model) {
   })
 }
 
+#' Check Influential Observations in Cox Models
+#'
+#' Identifies influential observations in Cox models using dfbeta residuals.
+#'
+#' @param model A fitted coxph object.
+#' @return A list containing dfbeta residuals and influential point indices, or
+#'   NA if computation fails.
+#' @export
+#' @examples
+#' if (requireNamespace("survival", quietly = TRUE)) {
+#'   model <- survival::coxph(
+#'     survival::Surv(time, status) ~ age + sex,
+#'     data = survival::lung
+#'   )
+#'   check_influential_coxph(model)
+#' }
 check_influential_coxph <- function(model) {
   tryCatch({
     dfb <- residuals(model, type = "dfbetas")
@@ -292,6 +448,22 @@ check_influential_coxph <- function(model) {
   })
 }
 
+#' Check Cox Model Functional Form
+#'
+#' Provides guidance for checking nonlinear functional form in Cox models using
+#' martingale residuals.
+#'
+#' @param model A fitted coxph object.
+#' @return A character message or NA if computation fails.
+#' @export
+#' @examples
+#' if (requireNamespace("survival", quietly = TRUE)) {
+#'   model <- survival::coxph(
+#'     survival::Surv(time, status) ~ age + sex,
+#'     data = survival::lung
+#'   )
+#'   check_functional_form_coxph(model)
+#' }
 check_functional_form_coxph <- function(model) {
   tryCatch({
     mart <- residuals(model, type = "martingale")

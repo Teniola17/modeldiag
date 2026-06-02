@@ -6,16 +6,21 @@ Authors@R:
     c(
       person(given = "Emmanuel", family = "Adewuyi",
              email = "emmanuel.adewuyi@lshtm.ac.uk",
-             role = c("aut", "cre")),
-      person(given = "Adewale", family = "Lukman", role = "aut"),
-      person(given = "Abiola", family = "Owolabi", role = "ctb")
+             role = c("aut", "cre"),
+             comment = c(ORCID = "0000-0002-7920-6866")),
+      person(given = "Adewale", family = "Lukman", role = "aut",
+        email = "adewale.lukman@und.edu",
+        comment = c(ORCID = "0000-0003-2881-1297")),
+      person(given = "Abiola", family = "Owolabi", role = "aut",
+        email = "abiola.owolabi@lautech.edu.ng",
+        comment = c(ORCID = "0000-0001-9843-5085"))
     )
 Description: Provides a unified framework for diagnosing common issues in statistical models including linear models, generalized linear models (logistic and Poisson regression), and survival models. Implements tests for multicollinearity, heteroscedasticity, autocorrelation, normality, influential observations, overdispersion, zero-inflation, and proportional hazards assumptions. Includes visualization methods for graphical diagnostics. Methods are based on established approaches including Fox and Monette (1992) <doi:10.1080/01621459.1992.10475190>, Breusch and Pagan (1979) <doi:10.2307/1911963>, and Dean and Lawless (1989) <doi:10.1080/01621459.1989.10478792>.
-Author: Emmanuel Adewuyi [aut, cre], Adewale Lukman [aut], Abiola Owolabi [ctb]
+Author: Emmanuel Adewuyi [aut, cre], Adewale Lukman [aut], Abiola Owolabi [aut]
 Maintainer: Emmanuel Adewuyi <emmanuel.adewuyi@lshtm.ac.uk>
 License: MIT + file LICENSE
 Encoding: UTF-8
-URL: https://github.com/Teniola17/modeldiag
+URL: https://github.com/Teniola17/modeldiag, https://teniola17.github.io/modeldiag/
 BugReports: https://github.com/Teniola17/modeldiag/issues
 Depends:
     R (>= 3.5.0)

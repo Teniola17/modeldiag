@@ -15,3 +15,7 @@ An htest object or NA if computation fails.
 \description{
 Performs Breusch-Pagan test for heteroskedasticity.
 }
+\examples{
+model <- lm(mpg ~ wt + hp, data = mtcars)
+check_heteroskedasticity(model)
+}
