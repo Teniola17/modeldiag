@@ -1,0 +1,15 @@
+package: modeldiag
+
+title: "modeldiag"
+
+destination: docs
+
+template:
+  bootstrap: 5
+
+navbar:
+  structure:
+    left: [home, reference, news]
+
+news:
+  include: NEWS.md

@@ -1,0 +1,128 @@
+# modeldiag
+
+The goal of modeldiag is to provide comprehensive diagnostic checks for
+statistical models including linear models, generalized linear models,
+and survival models.
+
+## Installation
+
+You can install the development version of modeldiag from
+[GitHub](https://github.com/) with:
+
+``` r
+
+# install.packages("devtools")
+devtools::install_github("Teniola17/modeldiag")
+```
+
+## Example
+
+This is a basic example which shows you how to diagnose a linear model:
+
+``` r
+
+library(modeldiag)
+
+# Fit a linear model
+model <- lm(mpg ~ wt + hp + disp, data = mtcars)
+
+# Run diagnostics
+diagnostics <- diagnose_model(model)
+
+# View summary
+summary(diagnostics)
+
+# Plot diagnostics
+plot(diagnostics)
+```
+
+## Supported Models
+
+The package currently supports:
+
+- **Linear models** (`lm`): Tests for multicollinearity,
+  heteroscedasticity, autocorrelation, normality, and outliers
+- **Generalized linear models** (`glm`):
+  - Binomial family: Tests for linearity of logit, goodness of fit,
+    influential observations, and separation
+  - Poisson family: Tests for overdispersion, zero-inflation, and
+    residual analysis
+- **Cox proportional hazards models** (`coxph`): Tests for proportional
+  hazards assumption, influential observations, and functional form
+
+## Features
+
+### Diagnostic Tests
+
+Each model type has specific diagnostic tests:
+
+#### Linear Models
+
+- Variance Inflation Factor (VIF) for multicollinearity
+- Breusch-Pagan test for heteroscedasticity\
+- Durbin-Watson test for autocorrelation
+- Shapiro-Wilk test for normality of residuals
+- Cook’s distance for influential observations
+
+#### Logistic Regression
+
+- VIF for multicollinearity
+- Box-Tidwell test for linearity of logit
+- Hosmer-Lemeshow test for goodness of fit
+- Complete/quasi-complete separation detection
+- Cook’s distance for influential observations
+
+#### Poisson Regression
+
+- VIF for multicollinearity
+- Overdispersion test
+- Zero-inflation test
+- Residual analysis
+- Cook’s distance for influential observations
+
+#### Cox Models
+
+- VIF for multicollinearity (with warnings)
+- Schoenfeld residuals test for proportional hazards
+- dfbetas for influential observations
+- Guidance for functional form assessment
+
+### Visualization
+
+The [`plot()`](https://rdrr.io/r/graphics/plot.default.html) method
+provides model-specific diagnostic plots:
+
+- Residuals vs Fitted values
+- Q-Q plots
+- Scale-Location plots
+- Cook’s distance plots
+- ACF plots for time series residuals (linear models)
+- Schoenfeld residual plots (Cox models)
+- dfbeta plots (Cox models)
+- Martingale residual plots (Cox models)
+
+## Getting Help
+
+If you encounter a bug, please file an issue with a minimal reproducible
+example on [GitHub](https://github.com/Teniola17/modeldiag/issues).#
+
+# Package index
+
+## All functions
+
+- [`check_heteroskedasticity()`](check_heteroskedasticity.md) : Check
+  Heteroskedasticity
+- [`check_vif()`](check_vif.md) : Check Variance Inflation Factors
+- [`diagnose_model()`](diagnose_model.md) : Diagnose Statistical Models
+- [`plot(`*`<model_diagnostics>`*`)`](plot.model_diagnostics.md) : Plot
+  Model Diagnostics
+- [`print(`*`<model_diagnostics>`*`)`](print.model_diagnostics.md) :
+  Print Model Diagnostics
+- [`summary(`*`<model_diagnostics>`*`)`](summary.model_diagnostics.md) :
+  Summarize Model Diagnostics
+
+# Articles
+
+### All vignettes
+
+- [Introduction to modeldiag](introduction.md):
