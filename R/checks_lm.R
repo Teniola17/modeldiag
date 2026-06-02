@@ -3,7 +3,8 @@
 #' Computes variance inflation factors to detect multicollinearity.
 #'
 #' @param model A fitted model object.
-#' @return A numeric vector of VIF values or NA if computation fails.
+#' @return A list describing whether VIF computation succeeded. Successful
+#'   results include a `vif` element containing the variance inflation factors.
 check_vif <- function(model) {
 
   if (inherits(model, "coxph")) {
@@ -16,9 +17,54 @@ check_vif <- function(model) {
   tryCatch({
     result <- suppressWarnings(car::vif(model))
 
+    vif_values <- if (is.matrix(result)) {
+      if ("GVIF" %in% colnames(result)) {
+        result[, "GVIF"]
+      } else {
+        result[, 1]
+      }
+    } else {
+      result
+    }
+
+    severity_label <- function(v) {
+      if (is.na(v)) return(NA_character_)
+      if (v < 2) return("Negligible")
+      if (v < 5) return("Moderate")
+      if (v < 10) return("High")
+      return("Severe")
+    }
+
+    severities <- if (length(vif_values) > 0 && is.numeric(vif_values)) {
+      vapply(vif_values, severity_label, FUN.VALUE = character(1), USE.NAMES = TRUE)
+    } else {
+      character(0)
+    }
+
+    collinear_predictors <- if (length(vif_values) > 0 && any(vif_values >= 10, na.rm = TRUE)) {
+      names(vif_values)[which(vif_values >= 10)]
+    } else {
+      character(0)
+    }
+
+    predictors_with_severity <- if (length(vif_values) > 0) {
+      paste0(names(vif_values), " (", severities, ")")
+    } else {
+      character(0)
+    }
+
+    note <- if (length(predictors_with_severity) > 0) {
+      paste("VIF severity by predictor:", paste(predictors_with_severity, collapse = ", "))
+    } else {
+      "VIF could not be computed or no predictors available."
+    }
+
     list(
       success = TRUE,
-      vif = result
+      vif = result,
+      note = note,
+      collinear_predictors = collinear_predictors,
+      severities = severities
     )
 
   }, warning = function(w) {

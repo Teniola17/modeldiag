@@ -114,6 +114,31 @@ test_that("summary method works", {
   expect_output(summary(diag), "Model Diagnostics Summary")
 })
 
+test_that("summary reports VIF values for linear models", {
+  model <- lm(mpg ~ wt + hp, data = mtcars)
+  diag <- diagnose_model(model)
+
+  expect_output(summary(diag), "Variance inflation factors")
+  expect_output(summary(diag), "No multicollinearity problem detected based on VIF values.|At least one predictor has VIF >= 10")
+})
+
+test_that("summary flags multicollinearity when VIF is high", {
+  set.seed(123)
+  df <- data.frame(
+    x1 = seq(1, 100),
+    x2 = seq(1, 100) + rnorm(100, sd = 0.01),
+    y = seq(1, 100) + rnorm(100)
+  )
+  model <- lm(y ~ x1 + x2, data = df)
+  diag <- diagnose_model(model)
+
+  expect_output(summary(diag), "VIF severity by predictor:")
+  expect_output(summary(diag), "Severity legend:")
+  expect_output(summary(diag), "Severe")
+  expect_true(length(diag$tests$multicollinearity$collinear_predictors) > 0)
+  expect_true(any(diag$tests$multicollinearity$severities == "Severe"))
+})
+
 test_that("plot method works without error", {
   model <- lm(mpg ~ wt, data = mtcars)
   diag <- diagnose_model(model)

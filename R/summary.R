@@ -1,5 +1,5 @@
 interpret_diagnostic <- function(test_name, result) {
-  if (is.na(result)) {
+  if (length(result) == 1 && is.na(result)) {
     return("Interpretation unavailable due to missing test result.")
   }
 
@@ -77,6 +77,53 @@ interpret_diagnostic <- function(test_name, result) {
   "No interpretation available for this diagnostic."
 }
 
+summarize_vif <- function(result) {
+  if (is.numeric(result)) {
+    vif_values <- result
+  } else if (is.list(result) && isTRUE(result$success) && is.numeric(result$vif)) {
+    vif_values <- result$vif
+  } else {
+    message <- "VIF could not be computed."
+    if (is.list(result) && !is.null(result$message)) {
+      message <- result$message
+    }
+    if (is.list(result) && !is.null(result$error)) {
+      message <- paste(message, result$error)
+    }
+    cat(message, "\n\n")
+    return(invisible(NULL))
+  }
+
+  cat("Variance inflation factors:\n")
+  print(vif_values)
+  if (is.list(result) && !is.null(result$severities) && length(result$severities) > 0) {
+    cat("VIF severity by predictor:\n")
+    print(result$severities)
+    cat("\nSeverity legend:\n")
+    cat("  < 2    : Negligible\n")
+    cat("  2 - 5  : Moderate\n")
+    cat("  5 - 10 : High\n")
+    cat("  >= 10  : Severe\n\n")
+    if (!is.null(result$collinear_predictors) && length(result$collinear_predictors) > 0) {
+      cat("Collinear predictors (VIF >= 10):", paste(result$collinear_predictors, collapse = ", "), "\n\n")
+    }
+    return(invisible(NULL))
+  }
+
+  if (is.list(result) && !is.null(result$note)) {
+    cat(result$note, "\n\n")
+    return(invisible(NULL))
+  }
+
+  if (any(vif_values >= 10, na.rm = TRUE)) {
+    cat("At least one predictor has VIF >= 10, indicating multicollinearity in the model.\n\n")
+  } else {
+    cat("No multicollinearity problem detected based on VIF values.\n\n")
+  }
+
+  invisible(NULL)
+}
+
 interpret_outliers <- function(outlier_result) {
   if (!is.list(outlier_result) || is.null(outlier_result$cooks_distance)) {
     return("Outlier diagnostics are unavailable for this model.")
@@ -114,16 +161,8 @@ summary.model_diagnostics <- function(object, ...) {
     if (inherits(result, "htest")) {
       cat("p-value:", result$p.value, "\n")
       cat(interpret_diagnostic(name, result$p.value), "\n\n")
-    } else if (name == "multicollinearity" && is.numeric(result)) {
-      cat("Variance inflation factors:\n")
-      print(result)
-      if (all(result < 5, na.rm = TRUE)) {
-        cat("VIFs are acceptable; no serious multicollinearity detected.\n\n")
-      } else if (any(result > 10, na.rm = TRUE)) {
-        cat("Some predictors show high VIF; multicollinearity may be problematic.\n\n")
-      } else {
-        cat("Some predictors show moderate VIF; monitor model stability.\n\n")
-      }
+    } else if (name == "multicollinearity") {
+      summarize_vif(result)
     } else if (name == "outliers" || name == "influential_observations") {
       if (is.list(result)) {
         if (!is.null(result$dfbetas)) {

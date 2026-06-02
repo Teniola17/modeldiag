@@ -10,7 +10,8 @@ check_vif(model)
 \item{model}{A fitted model object.}
 }
 \value{
-A numeric vector of VIF values or NA if computation fails.
+A list describing whether VIF computation succeeded. Successful
+  results include a `vif` element containing the variance inflation factors.
 }
 \description{
 Computes variance inflation factors to detect multicollinearity.

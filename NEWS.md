@@ -1,3 +1,8 @@
+# modeldiag 0.1.1
+
+* Improved multicollinearity reporting in `summary()` for linear model diagnostics.
+* Fixed `Authors@R` metadata so package builds derive `Author` and `Maintainer` correctly.
+
 # modeldiag 0.1.0
 
 * Initial CRAN submission.
