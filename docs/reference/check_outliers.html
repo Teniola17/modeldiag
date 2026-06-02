@@ -68,7 +68,28 @@ observations.</p></dd>
     <h2 id="ref-examples">Examples<a class="anchor" aria-label="anchor" href="#ref-examples"></a></h2>
     <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="va">model</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/stats/lm.html" class="external-link">lm</a></span><span class="op">(</span><span class="va">mpg</span> <span class="op">~</span> <span class="va">wt</span> <span class="op">+</span> <span class="va">hp</span>, data <span class="op">=</span> <span class="va">mtcars</span><span class="op">)</span></span></span>
 <span class="r-in"><span><span class="fu">check_outliers</span><span class="op">(</span><span class="va">model</span><span class="op">)</span></span></span>
-<span class="r-err co"><span class="r-pr">#&gt;</span> <span class="error">Error in check_outliers(model):</span> could not find function "check_outliers"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> $cooks_distance</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>           Mazda RX4       Mazda RX4 Wag          Datsun 710      Hornet 4 Drive </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>        1.589652e-02        5.464779e-03        2.070651e-02        4.724822e-05 </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   Hornet Sportabout             Valiant          Duster 360           Merc 240D </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>        2.736184e-04        2.155064e-02        1.255218e-02        1.677650e-02 </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>            Merc 230            Merc 280           Merc 280C          Merc 450SE </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>        2.188702e-03        1.554996e-03        1.215737e-02        1.423008e-03 </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>          Merc 450SL         Merc 450SLC  Cadillac Fleetwood Lincoln Continental </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>        1.458960e-04        6.266049e-03        2.786686e-05        1.780910e-02 </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   Chrysler Imperial            Fiat 128         Honda Civic      Toyota Corolla </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>        4.236109e-01        1.574263e-01        9.371446e-03        2.083933e-01 </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>       Toyota Corona    Dodge Challenger         AMC Javelin          Camaro Z28 </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>        2.791982e-02        2.087419e-02        2.751510e-02        9.943527e-03 </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>    Pontiac Firebird           Fiat X1-9       Porsche 914-2        Lotus Europa </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>        1.443199e-02        5.920440e-04        5.674986e-06        7.353985e-02 </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>      Ford Pantera L        Ferrari Dino       Maserati Bora          Volvo 142E </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>        8.919701e-03        5.732672e-03        2.720397e-01        5.600804e-03 </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> $influential_points</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> Chrysler Imperial          Fiat 128    Toyota Corolla     Maserati Bora </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>                17                18                20                31 </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
 </code></pre></div>
     </div>
   </main><aside class="col-md-3"><nav id="toc" aria-label="Table of contents"><h2>On this page</h2>

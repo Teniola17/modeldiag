@@ -64,7 +64,23 @@
     <h2 id="ref-examples">Examples<a class="anchor" aria-label="anchor" href="#ref-examples"></a></h2>
     <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="va">model</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/stats/lm.html" class="external-link">lm</a></span><span class="op">(</span><span class="va">mpg</span> <span class="op">~</span> <span class="va">wt</span> <span class="op">+</span> <span class="va">hp</span> <span class="op">+</span> <span class="va">disp</span>, data <span class="op">=</span> <span class="va">mtcars</span><span class="op">)</span></span></span>
 <span class="r-in"><span><span class="fu">check_vif</span><span class="op">(</span><span class="va">model</span><span class="op">)</span></span></span>
-<span class="r-err co"><span class="r-pr">#&gt;</span> <span class="error">Error in check_vif(model):</span> could not find function "check_vif"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> $success</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [1] TRUE</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> $vif</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>       wt       hp     disp </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 4.844618 2.736633 7.324517 </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> $note</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [1] "VIF severity by predictor: wt (Moderate), hp (Moderate), disp (High)"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> $collinear_predictors</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> character(0)</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> $severities</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>         wt         hp       disp </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> "Moderate" "Moderate"     "High" </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
 </code></pre></div>
     </div>
   </main><aside class="col-md-3"><nav id="toc" aria-label="Table of contents"><h2>On this page</h2>

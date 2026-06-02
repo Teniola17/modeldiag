@@ -21,14 +21,19 @@ Useful links:
 
 - <https://github.com/Teniola17/modeldiag>
 
+- <https://teniola17.github.io/modeldiag/>
+
 - Report bugs at <https://github.com/Teniola17/modeldiag/issues>
 
 ## Author
 
 **Maintainer**: Emmanuel Adewuyi <emmanuel.adewuyi@lshtm.ac.uk>
+([ORCID](https://orcid.org/0000-0002-7920-6866))
 
 Authors:
 
-- Adewale Lukman
+- Adewale Lukman <adewale.lukman@und.edu>
+  ([ORCID](https://orcid.org/0000-0003-2881-1297))
 
-- Abiola Owolabi
+- Abiola Owolabi <abiola.owolabi@lautech.edu.ng>
+  ([ORCID](https://orcid.org/0000-0001-9843-5085))

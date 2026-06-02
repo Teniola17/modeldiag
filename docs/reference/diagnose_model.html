@@ -81,33 +81,48 @@ It dispatches to specific methods based on the model type.</p>
 <span class="r-in"><span><span class="va">model_lm</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/stats/lm.html" class="external-link">lm</a></span><span class="op">(</span><span class="va">mpg</span> <span class="op">~</span> <span class="va">wt</span> <span class="op">+</span> <span class="va">hp</span>, data <span class="op">=</span> <span class="va">mtcars</span><span class="op">)</span></span></span>
 <span class="r-in"><span><span class="va">diag_lm</span> <span class="op">&lt;-</span> <span class="fu">diagnose_model</span><span class="op">(</span><span class="va">model_lm</span><span class="op">)</span></span></span>
 <span class="r-in"><span><span class="fu"><a href="https://rdrr.io/r/base/summary.html" class="external-link">summary</a></span><span class="op">(</span><span class="va">diag_lm</span><span class="op">)</span></span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> Model Diagnostics Summary</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> =========================</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> -- Model Diagnostics Summary ---------------------------------------------------</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> ---- multicollinearity ----</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> $success</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [1] TRUE</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> --  multicollinearity  --</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> $vif</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> -- Variance inflation factors </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>       wt       hp </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> 1.766625 1.766625 </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> -- VIF severity by predictor: </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>           wt           hp </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> "Negligible" "Negligible" </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> -- Severity legend: </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> * &lt; 2 : Negligible</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> * 2 - 5 : Moderate</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> * 5 - 10 : High</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> * &gt;= 10 : Severe</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> ---- heteroskedasticity ----</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> p-value: 0.6438038 </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> --  heteroskedasticity  --</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> p-value:  0.6438038 </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> Residual variance appears approximately constant. </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> ---- autocorrelation ----</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> p-value: 0.02061255 </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> --  autocorrelation  --</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> p-value:  0.02061255 </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> Residuals appear autocorrelated; consider time-series adjustments. </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> ---- normality ----</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> p-value: 0.03427476 </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> --  linearity  --</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> p-value:  0.0007226153 </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> Evidence against linearity in the model; consider adding nonlinear terms or transformations. </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> --  normality  --</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> p-value:  0.03427476 </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> Residuals deviate from normality; check model assumptions. </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> ---- outliers ----</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> Number of influential points: 4 </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> Influential observations: Chrysler Imperial, Fiat 128, Toyota Corolla, Maserati Bora </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> --  outliers  --</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> Number of influential points:  4 </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> Influential observations:  Chrysler Imperial, Fiat 128, Toyota Corolla, Maserati Bora </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> Cook's distances for influential observations:</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> Chrysler Imperial          Fiat 128    Toyota Corolla     Maserati Bora </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>         0.4236109         0.1574263         0.2083933         0.2720397 </span>
@@ -120,19 +135,26 @@ It dispatches to specific methods based on the model type.</p>
 <span class="r-in"><span><span class="va">model_glm</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/stats/glm.html" class="external-link">glm</a></span><span class="op">(</span><span class="va">am</span> <span class="op">~</span> <span class="va">wt</span> <span class="op">+</span> <span class="va">hp</span>, data <span class="op">=</span> <span class="va">mtcars</span>, family <span class="op">=</span> <span class="va">binomial</span><span class="op">)</span></span></span>
 <span class="r-in"><span><span class="va">diag_glm</span> <span class="op">&lt;-</span> <span class="fu">diagnose_model</span><span class="op">(</span><span class="va">model_glm</span><span class="op">)</span></span></span>
 <span class="r-in"><span><span class="fu"><a href="https://rdrr.io/r/base/summary.html" class="external-link">summary</a></span><span class="op">(</span><span class="va">diag_glm</span><span class="op">)</span></span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> Model Diagnostics Summary</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> =========================</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> -- Model Diagnostics Summary ---------------------------------------------------</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> ---- multicollinearity ----</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> $success</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [1] TRUE</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> --  multicollinearity  --</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> $vif</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> -- Variance inflation factors </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>       wt       hp </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> 2.444297 2.444297 </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> -- VIF severity by predictor: </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>         wt         hp </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> "Moderate" "Moderate" </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> -- Severity legend: </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> * &lt; 2 : Negligible</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> * 2 - 5 : Moderate</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> * 5 - 10 : High</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> * &gt;= 10 : Severe</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> ---- linearity_logit ----</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> --  linearity_logit  --</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>    MLE of lambda Score Statistic (t) Pr(&gt;|t|)  </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> wt     -0.088743              2.2318  0.03412 *</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> hp      3.205811              0.8980  0.37711  </span>
@@ -145,19 +167,22 @@ It dispatches to specific methods based on the model type.</p>
 <span class="r-out co"><span class="r-pr">#&gt;</span> F = 3.6654, df = 2 and 27, Pr(&gt;F) = 0.03905</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> ---- goodness_of_fit ----</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> p-value: 0.6716511 </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> --  goodness_of_fit  --</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> p-value:  0.6716511 </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> Model fit appears adequate. </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> ---- influential_observations ----</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> Number of influential points: 2 </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> Influential observations: Mazda RX4 Wag, Toyota Corona </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> --  influential_observations  --</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> Number of influential points:  2 </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> Influential observations:  Mazda RX4 Wag, Toyota Corona </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> Cook's distances for influential observations:</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> Mazda RX4 Wag Toyota Corona </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>     0.2034041     0.7917908 </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> 2 influential observation(s) detected. Influential observations have Cook's distance above 4/n. Review these cases for leverage, data entry issues, or model fit problems. </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> ---- separation_issues ----</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> --  separation_issues  --</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> No separation issues detected. </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-in"><span></span></span>
@@ -165,39 +190,49 @@ It dispatches to specific methods based on the model type.</p>
 <span class="r-in"><span><span class="va">model_pois</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/stats/glm.html" class="external-link">glm</a></span><span class="op">(</span><span class="va">carb</span> <span class="op">~</span> <span class="va">wt</span> <span class="op">+</span> <span class="va">hp</span>, data <span class="op">=</span> <span class="va">mtcars</span>, family <span class="op">=</span> <span class="va">poisson</span><span class="op">)</span></span></span>
 <span class="r-in"><span><span class="va">diag_pois</span> <span class="op">&lt;-</span> <span class="fu">diagnose_model</span><span class="op">(</span><span class="va">model_pois</span><span class="op">)</span></span></span>
 <span class="r-in"><span><span class="fu"><a href="https://rdrr.io/r/base/summary.html" class="external-link">summary</a></span><span class="op">(</span><span class="va">diag_pois</span><span class="op">)</span></span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> Model Diagnostics Summary</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> =========================</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> -- Model Diagnostics Summary ---------------------------------------------------</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> ---- multicollinearity ----</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> $success</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [1] TRUE</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> --  multicollinearity  --</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> $vif</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> -- Variance inflation factors </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>       wt       hp </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> 1.401553 1.401553 </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> -- VIF severity by predictor: </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>           wt           hp </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> "Negligible" "Negligible" </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> -- Severity legend: </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> * &lt; 2 : Negligible</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> * 2 - 5 : Moderate</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> * 5 - 10 : High</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> * &gt;= 10 : Severe</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> ---- overdispersion ----</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> Residual deviance: 12.27804 </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> Degrees of freedom: 29 </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> Ratio: 0.4233806 </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> No evidence of overdispersion.</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> --  overdispersion  --</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> ---- zero_inflation ----</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> Observed zeros: 0 ( 0 %)</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> Expected zeros: 3 ( 9.3 %)</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> No evidence of zero-inflation.</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> Residual deviance:  12.27804 </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> Degrees of freedom:  29 </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> Ratio:  0.4233806 </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [OK] No evidence of overdispersion.</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> ---- influential_observations ----</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> Number of influential points: 0 </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> --  zero_inflation  --</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> Observed zeros:  0  ( 0 %)</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> Expected zeros:  3  ( 9.3 %)</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [OK] No evidence of zero-inflation.</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> --  influential_observations  --</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> Number of influential points:  0 </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> No observations exceed the influence threshold.</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> No influential observations detected. Influential observations have Cook's distance above 4/n. Review these cases for leverage, data entry issues, or model fit problems. </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> ---- residual_analysis ----</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> Mean residual: -0.04200633 </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> SD residual: 0.6278888 </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> Min residual: -0.8656074 </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> Max residual: 1.497036 </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> --  residual_analysis  --</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> Mean residual:  -0.04200633 </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> SD residual:  0.6278888 </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> Min residual:  -0.8656074 </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> Max residual:  1.497036 </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="co"># Cox proportional hazards diagnostics</span></span></span>
@@ -207,19 +242,15 @@ It dispatches to specific methods based on the model type.</p>
 <span class="r-in"><span><span class="va">model_cox</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/survival/man/coxph.html" class="external-link">coxph</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/pkg/survival/man/Surv.html" class="external-link">Surv</a></span><span class="op">(</span><span class="va">time</span>, <span class="va">status</span><span class="op">)</span> <span class="op">~</span> <span class="va">age</span> <span class="op">+</span> <span class="va">sex</span> <span class="op">+</span> <span class="va">ph.ecog</span>, data <span class="op">=</span> <span class="va">lung</span><span class="op">)</span></span></span>
 <span class="r-in"><span><span class="va">diag_cox</span> <span class="op">&lt;-</span> <span class="fu">diagnose_model</span><span class="op">(</span><span class="va">model_cox</span><span class="op">)</span></span></span>
 <span class="r-in"><span><span class="fu"><a href="https://rdrr.io/r/base/summary.html" class="external-link">summary</a></span><span class="op">(</span><span class="va">diag_cox</span><span class="op">)</span></span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> Model Diagnostics Summary</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> =========================</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> -- Model Diagnostics Summary ---------------------------------------------------</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> ---- multicollinearity ----</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> $success</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [1] FALSE</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> --  multicollinearity  --</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> $message</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [1] "VIF not applicable to Cox models (no intercept)."</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> VIF not applicable to Cox models (no intercept). </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> --  proportional_hazards  --</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> ---- proportional_hazards ----</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> Global test p-value: 0.2155549 </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> Global test p-value:  0.2155549 </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>             chisq df         p</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> age     0.1879877  1 0.6645968</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> sex     2.3054372  1 0.1289220</span>
@@ -227,9 +258,10 @@ It dispatches to specific methods based on the model type.</p>
 <span class="r-out co"><span class="r-pr">#&gt;</span> GLOBAL  4.4636576  3 0.2155549</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> Proportional hazards assumption appears reasonable. </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> ---- influential_observations ----</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> Number of influential points: 10 </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> Influential observations: 3, 6, 17, 32, 36, 37, 70, 84, 88, 128 </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> --  influential_observations  --</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> Number of influential points:  10 </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> Influential observations:  3, 6, 17, 32, 36, 37, 70, 84, 88, 128 </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> Max |dfbeta| for influential observations:</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>         3         6        18        33        37        38        71        85 </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> 0.2103167 0.4334764 0.3724475 0.2236608 0.5149764 0.2628997 0.2410623 0.4614677 </span>
@@ -237,7 +269,8 @@ It dispatches to specific methods based on the model type.</p>
 <span class="r-out co"><span class="r-pr">#&gt;</span> 0.2431150 0.2057780 </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> Influential observations have |dfbeta| &gt; 0.2 for at least one coefficient. Review these cases.</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> ---- functional_form ----</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> --  functional_form  --</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> Functional form check: Review plots of martingale residuals vs predictors for nonlinearity. </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
 </code></pre></div>

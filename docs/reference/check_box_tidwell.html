@@ -66,7 +66,17 @@ logit.</p>
     <h2 id="ref-examples">Examples<a class="anchor" aria-label="anchor" href="#ref-examples"></a></h2>
     <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="va">model</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/stats/glm.html" class="external-link">glm</a></span><span class="op">(</span><span class="va">am</span> <span class="op">~</span> <span class="va">wt</span> <span class="op">+</span> <span class="va">hp</span>, data <span class="op">=</span> <span class="va">mtcars</span>, family <span class="op">=</span> <span class="va">binomial</span><span class="op">)</span></span></span>
 <span class="r-in"><span><span class="fu">check_box_tidwell</span><span class="op">(</span><span class="va">model</span><span class="op">)</span></span></span>
-<span class="r-err co"><span class="r-pr">#&gt;</span> <span class="error">Error in check_box_tidwell(model):</span> could not find function "check_box_tidwell"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>    MLE of lambda Score Statistic (t) Pr(&gt;|t|)  </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> wt     -0.088743              2.2318  0.03412 *</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> hp      3.205811              0.8980  0.37711  </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> ---</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> iterations =  13 </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> Score test for null hypothesis that all lambdas = 1:</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> F = 3.6654, df = 2 and 27, Pr(&gt;F) = 0.03905</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
 </code></pre></div>
     </div>
   </main><aside class="col-md-3"><nav id="toc" aria-label="Table of contents"><h2>On this page</h2>

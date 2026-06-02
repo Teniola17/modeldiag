@@ -3,10 +3,11 @@
 ## Authors
 
 - **Emmanuel Adewuyi**. Author, maintainer.
+  [](https://orcid.org/0000-0002-7920-6866)
 
-- **Adewale Lukman**. Author.
+- **Adewale Lukman**. Author. [](https://orcid.org/0000-0003-2881-1297)
 
-- **Abiola Owolabi**. Author.
+- **Abiola Owolabi**. Author. [](https://orcid.org/0000-0001-9843-5085)
 
 ## Citation
 
