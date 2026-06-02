@@ -112,7 +112,8 @@ test_that("summary method works", {
   model <- lm(mpg ~ wt, data = mtcars)
   diag <- diagnose_model(model)
 
-  expect_output(summary(diag), "Model Diagnostics Summary")
+  output <- capture.output(summary(diag))
+  expect_true(any(grepl("Model Diagnostics Summary", output)))
 })
 
 test_that("summary reports linearity test for lm models", {
@@ -120,18 +121,20 @@ test_that("summary reports linearity test for lm models", {
   diag <- diagnose_model(model)
 
   expect_true("linearity" %in% names(diag$tests))
-  expect_output(summary(diag), "p-value:")
-  expect_output(summary(diag), "linearity")
-  expect_output(summary(diag), "No evidence against linearity in the model|Evidence against linearity in the model")
+  output <- capture.output(summary(diag))
+  expect_true(any(grepl("p-value:", output)))
+  expect_true(any(grepl("linearity", output)))
+  expect_true(any(grepl("No evidence against linearity in the model|Evidence against linearity in the model", output)))
 })
 
 test_that("summary reports VIF values for linear models", {
   model <- lm(mpg ~ wt + hp, data = mtcars)
   diag <- diagnose_model(model)
 
-  expect_output(summary(diag), "Variance inflation factors")
-  expect_output(summary(diag), "VIF severity by predictor:")
-  expect_output(summary(diag), "Severity legend:")
+  output <- capture.output(summary(diag))
+  expect_true(any(grepl("Variance inflation factors", output)))
+  expect_true(any(grepl("VIF severity by predictor:", output)))
+  expect_true(any(grepl("Severity legend:", output)))
 })
 
 test_that("summary flags multicollinearity when VIF is high", {
@@ -144,9 +147,10 @@ test_that("summary flags multicollinearity when VIF is high", {
   model <- lm(y ~ x1 + x2, data = df)
   diag <- diagnose_model(model)
 
-  expect_output(summary(diag), "VIF severity by predictor:")
-  expect_output(summary(diag), "Severity legend:")
-  expect_output(summary(diag), "Severe")
+  output <- capture.output(summary(diag))
+  expect_true(any(grepl("VIF severity by predictor:", output)))
+  expect_true(any(grepl("Severity legend:", output)))
+  expect_true(any(grepl("Severe", output)))
   expect_true(length(diag$tests$multicollinearity$collinear_predictors) > 0)
   expect_true(any(diag$tests$multicollinearity$severities == "Severe"))
 })
