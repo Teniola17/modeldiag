@@ -1,0 +1,36 @@
+{
+  "@context": "https://raw.githubusercontent.com/codemeta/codemeta/master/codemeta.jsonld",
+  "@type": "Code",
+  "author": [
+    {
+      "@id": "http://orcid.org/0000-0002-7920-6866",
+      "@type": "Person",
+      "email": "emmanuel.adewuyi@lshtm.ac.uk",
+      "name": "Emmanuel Adewuyi",
+      "affiliation": "London School of Hygiene and Tropical Medicine, United Kingdom"
+    },
+    {
+      "@id": "http://orcid.org/0000-0003-2881-1297",
+      "@type": "Person",
+      "email": "adewale.lukman@und.edu",
+      "name": "Adewale Lukman",
+      "affiliation": "University of North Dakota, United States of America"
+    },
+    {
+      "@id": "http://orcid.org/0000-0001-9843-5085",
+      "@type": "Person",
+      "email": "abiola.owolabi@lautech.edu.ng",
+      "name": "Abiola Owolabi",
+      "affiliation": "Ladoke Akintola University of Technology, Nigeria"
+    }
+  ],
+  "codeRepository": "https://github.com/Teniola17/modeldiag",
+  "dateCreated": "2026-05-04",
+  "dateModified": "2026-06-02",
+  "datePublished": "2026-06-02",
+  "description": "Provides a unified framework for diagnosing common issues in statistical models including linear models, generalized linear models (logistic and Poisson regression), and survival models. Implements tests for multicollinearity, heteroscedasticity, autocorrelation, normality, influential observations, overdispersion, zero-inflation, and proportional hazards assumptions. Includes visualization methods for graphical diagnostics.",
+  "keywords": "R, statistics, model diagnostics, linear regression, logistic regression, Poisson regression, survival analysis, multicollinearity, heteroscedasticity, Cox model",
+  "license": "MIT",
+  "title": "modeldiag",
+  "version": "0.1.2"
+}
