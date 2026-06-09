@@ -26,85 +26,94 @@ affiliations:
     index: 2
   - name: Ladoke Akintola University of Technology, Nigeria
     index: 3
-date: 2 June 2026
+date: xx xx xx
 bibliography: paper.bib
 ---
 
 # Summary
 
-Statistical models underpin a broad range of applied research in medicine, ecology,
-economics, and the social sciences. Valid inference from these models depends on the
-satisfaction of structural assumptions—linearity, homoscedasticity, independence of errors,
-correct distributional form, and, in survival analysis, proportional hazards. When assumptions
-are violated, coefficient estimates may be biased, standard errors incorrect, and $p$-values
-misleading. The `modeldiag` R package [@rcore2024] provides a unified framework for
-diagnosing these assumption violations across four widely-used model classes: ordinary linear
-models, logistic regression, Poisson regression, and Cox proportional hazards models.
+In statistical analysis, model checking is a fundamental step. The consistency of
+statistical inference depends not only on the validity of parameter estimates but also
+requires that all essential model assumptions hold. However, existing model diagnostic
+tools in R are spread across multiple independent packages, with distinct syntax, output
+formats, and documentation. This leads to a large burden in regression diagnostic checking.
+To tackle this issue, we developed the `modeldiag` package [@rcore2024]. This package
+supports linear models, generalized linear models (logistic regression, Poisson regression),
+and Cox proportional hazards models, and provides a unified regression diagnostic framework
+to examine linearity, multicollinearity, heteroscedasticity, autocorrelation, non-normality,
+influential observations, and other related model assumptions. The package returns both
+text-based summaries and diagnostic plots, providing a practical balance between numerical
+assessment and visual interpretation.
 
-The package exposes a single generic function, `diagnose_model()`, which dispatches—via R's
-S3 class system—to the appropriate battery of diagnostic checks for the detected model type.
-It returns an object of class `"model_diagnostics"` with `print()`, `summary()`, and `plot()`
-methods that deliver structured numerical results, human-readable interpretations, and
-publication-quality graphics respectively. Sixteen individual `check_*()` functions are also
-exported for targeted, reproducible diagnostic workflows.
+# Statement of Need
 
-# Statement of need
+Model diagnosis is a key factor in model building. Currently, in mainstream statistical
+modeling using R, the available model diagnosis tools are generally disseminated across
+multiple independent third-party packages. When performing analyses, practitioners often
+need to call functions from different packages to complete various diagnostic tasks: they
+utilize the `car` package [@fox2019] for collinearity testing, the `lmtest` package
+[@zeileis2002] to evaluate model assumptions, the `ResourceSelection` package [@lele2019]
+to perform goodness-of-fit tests for logistic regression, and the `survival` package
+[@therneau2000] to implement Cox regression diagnostics. It is undisputable that all these
+existing tools are mature and reliable, but their diagnostic functions have not been
+incorporated into a unified, coherent workflow. Users must piece together the dedicated
+commands of multiple packages to complete routine diagnostic checks that should otherwise
+be standardized. The `modeldiag` package was developed to address this gap by bringing
+key regression diagnostic tools together within a single, unified framework. The package
+targets practicing statisticians, epidemiologists, biostatisticians, and data scientists
+who need to validate model assumptions efficiently within a reproducible workflow.
 
-Analysts who work across multiple model families—fitting linear models for continuous
-outcomes, logistic regression for binary outcomes, Poisson regression for counts, and Cox
-models for time-to-event data—must currently assemble bespoke diagnostic workflows from
-disparate packages. Relevant tests are spread across `car` [@fox2019], `lmtest`
-[@zeileis2002], `ResourceSelection` [@lele2019], and `survival` [@therneau2000], each with
-its own argument conventions and output format. This fragmentation creates friction in
-reproducible analysis pipelines and demands that practitioners remember class-specific APIs.
-
-`modeldiag` addresses this by offering a single, consistent interface that automatically
-selects and executes the right set of diagnostics for the fitted model class. The package
-targets practicing statisticians, epidemiologists, biostatisticians, and data scientists who
-need to validate model assumptions efficiently within a reproducible workflow.
-
-# State of the field
+# State of the Field
 
 Several R packages address portions of the model-diagnostics problem. The `performance`
 package [@ludecke2021] provides a `check_model()` function with visual output for linear,
-generalised linear, and mixed-effects models, but does not support Cox proportional hazards
-models or offer the full suite of GLM-specific diagnostics such as the Hosmer–Lemeshow
-goodness-of-fit test or zero-inflation detection. The `DHARMa` package [@hartig2022]
-provides simulation-based quantile residuals for GLMs and mixed models; these residuals are
-powerful but require additional expertise to interpret and do not extend to Cox models. The
-`car` package [@fox2019] provides generalised VIF computation and component-plus-residual
-plots but is not designed as a stand-alone, model-class-aware diagnostic workflow.
+generalised linear, and mixed-effects models, yet it diverges from `modeldiag` in terms of
+its design, output format, and dependency structure, and does not offer the full suite of
+GLM-specific diagnostics such as the Hosmer–Lemeshow goodness-of-fit test or zero-inflation
+detection. The `car` package [@fox2019] provides generalised VIF computation but is not
+designed as a stand-alone, model-class-aware diagnostic workflow. The `lmtest` package
+[@zeileis2002] covers specification tests such as linearity, non-constant variance, and
+autocorrelation for linear models, but does not extend to GLM or Cox model families.
 
-`modeldiag` was built rather than contributing to existing packages for the following
-reasons. First, no existing package provides a single `diagnose_model()` entry point that
-covers all four model classes (`lm`, `glm` with binomial and Poisson families, and `coxph`)
-with a fully consistent interface. Second, `modeldiag` couples test execution with structured
-text interpretation in its `summary()` method, making diagnostic output accessible to
-analysts who may not be familiar with the numerical output of individual test functions.
-Third, the package exposes both the high-level wrapper and the underlying `check_*()`
-functions, supporting both rapid exploratory diagnostics and granular, reproducible pipelines.
+The `modeldiag` package is not a replacement for these existing packages but provides a
+single unified framework for all these regression diagnostic tools across linear models,
+generalized linear models, and Cox regression models. No existing package provides a single
+`diagnose_model()` entry point covering all four model classes (`lm`, `glm` with binomial
+and Poisson families, and `coxph`) with a fully consistent interface. Furthermore,
+`modeldiag` couples test execution with structured text interpretation in its `summary()`
+method, making diagnostic output accessible to analysts who may not be familiar with the
+numerical output of individual test functions.
 
-# Software design
+# Software Design
 
-`modeldiag` implements an S3 dispatch system around a single generic, `diagnose_model()`,
-which branches to `diagnose_model.lm()`, `diagnose_model.glm()`, and
+`modeldiag` implements an S3 dispatch system around a single generic function,
+`diagnose_model()`, which branches to `diagnose_model.lm()`, `diagnose_model.glm()`, and
 `diagnose_model.coxph()` based on the class attribute of the fitted model. Each method
 executes the appropriate `check_*()` functions and returns a named list of class
 `"model_diagnostics"` containing the model type, the original model object, and all
 diagnostic results. The `print()`, `summary()`, and `plot()` S3 methods dispatch on this
-class to deliver formatted output and graphics.
+class to deliver formatted output and publication-quality graphics.
 
-The sixteen exported `check_*()` functions can also be called independently, enabling
-targeted diagnostics. For each model class the dispatched checks are:
+The exported `check_*()` functions can also be called independently, enabling targeted,
+reproducible diagnostic workflows. Table 1 summarizes the principal diagnostic functions
+and the model classes for which they are available.
 
-- **Linear models (`lm`):** `check_vif()`, `check_heteroskedasticity()`,
-  `check_autocorrelation()`, `check_linearity()`, `check_normality()`, `check_outliers()`
-- **Logistic regression (`glm`, `binomial`):** `check_vif()`, `check_box_tidwell()`,
-  `check_hosmer_lemeshow()`, `check_influential_glm()`, `check_separation()`
-- **Poisson regression (`glm`, `poisson`):** `check_vif()`, `check_overdispersion()`,
-  `check_zero_inflation()`, `check_influential_glm()`, `check_residual_analysis()`
-- **Cox PH models (`coxph`):** `check_vif()`, `check_proportional_hazards()`,
-  `check_influential_coxph()`, `check_functional_form_coxph()`
+**Table 1:** Core diagnostic functions in `modeldiag`.
+
+| Function | Diagnostic | Model | Method |
+|---|---|---|---|
+| `diagnose_model()` | Overall diagnosis | LM, GLM, Cox | Combined Report |
+| `check_vif()` | VIF / GVIF | LM, GLM | Fox & Monette (1992) |
+| `check_heteroscedasticity()` | Breusch–Pagan | LM | Breusch & Pagan (1979) |
+| `check_autocorrelation()` | Durbin–Watson | LM | Durbin & Watson (1950) |
+| `check_normality()` | Shapiro–Wilk | LM | Shapiro & Wilk (1965) |
+| `check_influential()` | Cook's distance | LM, GLM | Cook (1977) |
+| `check_linearity()` | Ramsey's RESET | LM | Ramsey, J.B. (1969) |
+| `check_overdispersion()` | Score test | Poisson GLM | Dean & Lawless (1989) |
+| `check_zeroinflation()` | Zero count ratio | Count GLM | — |
+| `check_goodnessoffit()` | Hosmer–Lemeshow | Logistic GLM | Hosmer & Lemeshow |
+| `check_proportionalhazards()` | Schoenfeld test | Cox (survival) | Grambsch & Therneau (1994) |
+| `plot_diagnostics()` | Visual diagnostics | LM, GLM, Cox | — |
 
 The package imports `car` [@fox2019], `lmtest` [@zeileis2002], `ResourceSelection`
 [@lele2019], and `survival` [@therneau2000] for the underlying test computations, and
@@ -114,234 +123,172 @@ depends on base R `stats` and `graphics` for all other operations.
 
 ## Linear Models
 
-The ordinary linear regression model is
+For a linear model $\mathbf{y} = \mathbf{X}\boldsymbol{\beta} + \boldsymbol{\varepsilon}$,
+where $\boldsymbol{\varepsilon} \sim \mathcal{N}(\mathbf{0}, \sigma^2 I)$, `modeldiag`
+provides the following diagnostics.
 
-$$Y = X\beta + \varepsilon, \quad \varepsilon \sim \mathcal{N}(\mathbf{0},\, \sigma^2 I),$$
+**Multicollinearity.** Multicollinearity inflates the variance of ordinary least-squares
+(OLS) estimators. The Variance Inflation Factor (VIF) for predictor $j$ quantifies this
+inflation [@fox1992]:
 
-where $Y \in \mathbb{R}^n$, $X \in \mathbb{R}^{n \times p}$, and $\beta \in \mathbb{R}^p$.
+$$\mathrm{VIF}_j = \frac{1}{1 - R^2_j},$$
 
-**Multicollinearity.** When predictors are nearly linearly dependent, the OLS estimator
-$\hat{\beta} = (X^\top X)^{-1} X^\top Y$ has inflated variance. The Variance Inflation
-Factor for predictor $X_j$ [@fox1992] is
+where $R^2_j$ is the coefficient of determination from regressing $X_j$ on all remaining
+predictors. A $\mathrm{VIF}_j > 10$ is commonly taken as evidence of problematic
+collinearity. For models with categorical predictors, `modeldiag` computes the Generalised
+VIF [@fox1992], which adjusts for the degrees of freedom associated with multi-level factors.
 
-$$\mathrm{VIF}_j = \frac{1}{1 - R_j^2},$$
+**Heteroscedasticity.** The Breusch–Pagan test [@breusch1979] assesses whether the
+residual variance is constant (homoscedastic). Squared OLS residuals $\hat{\varepsilon}_i^2$
+are regressed on the original predictors:
 
-where $R_j^2$ is the coefficient of determination from regressing $X_j$ on all other
-predictors. `modeldiag` classifies severity as negligible ($< 2$), moderate ($2$--$5$),
-high ($5$--$10$), or severe ($\geq 10$).
+$$\hat{\varepsilon}_i^2 = \gamma_0 + \gamma_1 x_{i1} + \cdots + \gamma_p x_{ip} + u_i.$$
 
-**Heteroscedasticity.** Homoscedasticity requires $\mathrm{Var}(\varepsilon_i) = \sigma^2$.
-The Breusch–Pagan test [@breusch1979] regresses squared residuals on the original predictors;
-the test statistic is asymptotically $\chi^2$ under $H_0\colon \mathrm{Var}(\varepsilon_i) = \sigma^2$.
+The test statistic is $\mathrm{BP} = nR^2_{\text{aux}}$, where $R^2_{\text{aux}}$ is from
+this auxiliary regression. Under $H_0$ (homoscedasticity),
+$\mathrm{BP} \sim \chi^2_p$ asymptotically.
 
-**Autocorrelation.** Independence of errors requires $\mathrm{Cov}(\varepsilon_i,
-\varepsilon_j) = 0$ for $i \neq j$. The Durbin–Watson statistic [@durbin1950; @durbin1951] is
+**Autocorrelation.** The Durbin–Watson test detects first-order autocorrelation in
+residuals. There is no autocorrelation when the statistic is approximately 2; values
+significantly lower or higher than 2 indicate positive or negative autocorrelation,
+respectively.
 
-$$DW = \frac{\sum_{i=2}^{n}(\hat{\varepsilon}_i - \hat{\varepsilon}_{i-1})^2}{\sum_{i=1}^{n}\hat{\varepsilon}_i^2},$$
+**Normality of errors.** The Shapiro–Wilk test evaluates whether model residuals are
+normally distributed. The error term is normally distributed when the p-value exceeds the
+chosen significance level.
 
-with values near 2 indicating no autocorrelation.
+**Influential observations.** Cook's distance [@cook1977] measures the aggregate shift in
+$\hat{\boldsymbol{\beta}}$ upon deletion of observation $i$:
 
-**Linearity.** The Ramsey RESET test [@ramsey1969] augments the model with powers of the
-fitted values $\hat{Y}^2, \hat{Y}^3, \ldots$ and tests their joint significance. Rejection
-indicates that $\mathbb{E}[Y \mid X]$ may not be correctly specified as linear in $X$.
+$$D_i = \frac{\left(\hat{\boldsymbol{\beta}} - \hat{\boldsymbol{\beta}}_{(i)}\right)^\top X^\top X \left(\hat{\boldsymbol{\beta}} - \hat{\boldsymbol{\beta}}_{(i)}\right)}{p\,\hat{\sigma}^2}.$$
 
-**Normality of errors.** The Shapiro–Wilk test [@shapiro1965] evaluates
-$\varepsilon \sim \mathcal{N}(0, \sigma^2)$ via
-
-$$W = \frac{\left(\sum_{i=1}^{n} a_i\,\hat{\varepsilon}_{(i)}\right)^2}{\sum_{i=1}^{n}(\hat{\varepsilon}_i - \bar{\varepsilon})^2},$$
-
-where $\hat{\varepsilon}_{(i)}$ are order statistics and $\mathbf{a}$ derives from the
-expected values of normal order statistics.
-
-**Influential observations.** Cook's distance [@cook1977; @cook1982] measures the aggregate
-shift in $\hat{\beta}$ upon deletion of observation $i$:
-
-\begin{equation}\label{eq:cook}
-D_i = \frac{\left(\hat{\beta} - \hat{\beta}_{(i)}\right)^\top X^\top X \left(\hat{\beta} - \hat{\beta}_{(i)}\right)}{p\,\hat{\sigma}^2}.
-\end{equation}
-
-Observations with $D_i > 4/n$ (see \autoref{eq:cook}) are flagged as potentially influential.
+Observations with relatively large Cook's distance values may warrant further investigation,
+although commonly used cutoff values are intended as practical guidelines rather than strict
+criteria.
 
 ## Logistic Regression
 
-Logistic regression models a binary outcome through
-
-$$\mathrm{logit}\!\left(P(Y=1 \mid X)\right) = \log\!\left(\frac{p}{1-p}\right) = X\beta.$$
-
-**Linearity of the logit.** The Box–Tidwell test [@box1962] augments the model with
-interaction terms $X_j \ln(X_j)$ and tests whether their coefficients are zero, evaluating
-whether each continuous predictor enters the log-odds linearly.
+For binary-response models, `modeldiag` provides the following diagnostics.
 
 **Goodness of fit.** The Hosmer–Lemeshow test [@hosmer2013] partitions observations into
-$g = \min(10,\, \lfloor n/5 \rfloor)$ groups based on estimated probabilities and computes
+groups based on estimated probabilities and computes:
 
 $$\hat{C} = \sum_{k=1}^{g} \frac{(O_k - E_k)^2}{E_k(1 - E_k/n_k)},$$
 
-where $O_k$ and $E_k$ are observed and expected event counts in group $k$. Under good fit,
-$\hat{C} \sim \chi^2_{g-2}$.
-
-**Separation.** Complete or quasi-complete separation occurs when a linear combination of
-predictors perfectly classifies the outcome, causing maximum-likelihood estimates to diverge.
-`modeldiag` detects this by inspecting coefficient values and model convergence status.
+where $O_k$ and $E_k$ are observed and expected event counts in group $k$. The resulting
+statistic is referred to an approximate $\chi^2_{g-2}$ distribution, where $g$ is the
+number of groups. This diagnostic is implemented through the `ResourceSelection` package
+[@lele2019].
 
 ## Poisson Regression
 
-Poisson regression assumes $Y \mid X \sim \mathrm{Poisson}(\lambda)$ with
-$\log(\lambda) = X\beta$ and the equidispersion property
-$\mathrm{Var}(Y) = \mathbb{E}(Y) = \lambda$.
+**Overdispersion.** The package tests whether a Poisson model meets the mean-variance
+constraint $\mathrm{Var}(Y_i) = \mu_i$. The score technique proposed by @dean1989 is
+adopted to diagnose deviations from this constraint. If a model suffers from overdispersion,
+it will produce underestimated standard errors, leading to spuriously inflated confidence in
+statistical inferences. This issue can be addressed by adopting alternative models such as
+the Quasi-Poisson or negative binomial regression model.
 
-**Overdispersion.** When $\mathrm{Var}(Y) > \mathbb{E}(Y)$, standard errors are
-underestimated. The ratio [@dean1989; @cameron2013]
+**Zero inflation.** Zero inflation is examined by comparing the observed frequency of zero
+responses with the frequency expected under the fitted model. For a Poisson mean
+$\hat{\mu}_i$, these quantities are:
 
-$$\phi = \frac{D_{\text{resid}}}{\mathrm{df}_{\text{resid}}}$$
+$$\hat{p}_0^{\mathrm{obs}} = \frac{1}{n}\sum_{i=1}^n \mathbf{1}(y_i=0), \qquad \hat{p}_0^{\mathrm{exp}} = \frac{1}{n}\sum_{i=1}^n \exp(-\hat{\mu}_i).$$
 
-provides a practical diagnostic; `modeldiag` flags $\phi > 1.5$ as evidence of overdispersion.
-
-**Zero inflation.** When the observed proportion of zeros substantially exceeds the Poisson
-expectation,
-
-$$\hat{p}_0^{\,\text{obs}} > 1.5\;\hat{p}_0^{\,\text{exp}}, \quad
-\hat{p}_0^{\,\text{exp}} = \frac{1}{n}\sum_{i=1}^{n} e^{-\hat{\lambda}_i},$$
-
-`modeldiag` flags a potential zero-inflated process, prompting consideration of ZIP or ZINB
-models.
+Large discrepancies between the two provide evidence that the fitted count model does not
+adequately account for excess zeros.
 
 ## Cox Proportional Hazards Model
 
-The Cox model [@cox1972] specifies the hazard as
-
-$$h(t \mid X_i) = h_0(t)\,\exp(X_i\beta),$$
-
-where $h_0(t)$ is an unspecified baseline hazard and $\exp(\beta_j)$ is the hazard ratio
-for a one-unit increase in $X_j$.
-
-**Proportional hazards.** The model assumes the hazard ratio is constant over time.
-Schoenfeld residuals [@schoenfeld1982] are uncorrelated with time under $H_0$; the
-@grambsch1994 test formally evaluates
-
-$$H_0\colon \frac{\partial \beta(t)}{\partial t} = 0$$
-
-via a weighted correlation between scaled Schoenfeld residuals and a monotone function of
-time, implemented through `survival::cox.zph()`.
-
-**Influential observations.** Dfbeta residuals approximate the change in $\hat{\beta}_j$
-upon deletion of observation $i$. Observations with $|\mathrm{dfbeta}_{ij}| > 0.2$ for any
-coefficient are flagged as influential.
-
-**Functional form.** Martingale residuals—the difference between the observed event
-indicator and the expected cumulative hazard—are plotted against continuous predictors to
-detect non-linear relationships not captured by $X\beta$.
+**Proportional hazards assumption.** `modeldiag` uses Schoenfeld-residual diagnostics to
+assess time variation in covariate effects [@grambsch1994]. The scaled Schoenfeld residuals
+are examined for association with time; systematic trends provide evidence against the
+proportional hazards assumption. This is implemented through `survival::cox.zph()`.
 
 # Usage
 
 ## Linear Models
 
-The full diagnostic suite for a linear model is obtained with a single call to
-`diagnose_model()`. The `summary()` method prints each result alongside a plain-language
-interpretation.
-
 ```r
 library(modeldiag)
 
-model_lm <- lm(mpg ~ wt + hp + disp, data = mtcars)
-diag_lm  <- diagnose_model(model_lm)
+fit_lm  <- lm(mpg ~ wt + hp + cyl, data = mtcars)
+diag_lm <- diagnose_model(fit_lm)
 summary(diag_lm)
 ```
 
 Individual checks are also available for targeted analysis:
 
 ```r
-check_vif(model_lm)
-check_heteroskedasticity(model_lm)
-check_autocorrelation(model_lm)
-check_linearity(model_lm)
-check_normality(model_lm)
-check_outliers(model_lm)
+check_vif(fit_lm)
+check_heteroscedasticity(fit_lm)
+check_autocorrelation(fit_lm)
+check_normality(fit_lm)
+check_influential(fit_lm)
+plot_diagnostics(fit_lm)
 ```
-
-The `plot()` method renders a grid of diagnostic panels including residuals versus fitted
-values, a normal Q-Q plot, scale-location, residuals versus leverage, and the
-autocorrelation function of residuals (\autoref{fig:lm-plot}).
-
-```r
-plot(diag_lm)
-```
-
-![Diagnostic plots for the linear model fitted to the mtcars dataset.\label{fig:lm-plot}](lm_diagnostics.png){ width=90% }
 
 ## Logistic Regression
 
 ```r
-model_glm <- glm(am ~ wt + hp, data = mtcars, family = binomial)
-diag_glm  <- diagnose_model(model_glm)
+fit_glm  <- glm(am ~ wt + hp, data = mtcars, family = binomial)
+diag_glm <- diagnose_model(fit_glm)
 summary(diag_glm)
 ```
 
 Individual logistic regression diagnostics:
 
 ```r
-check_vif(model_glm)
-check_box_tidwell(model_glm)
-check_hosmer_lemeshow(model_glm)
-check_influential_glm(model_glm)
-check_separation(model_glm)
+check_vif(fit_glm)
+check_goodnessoffit(fit_glm)
+check_influential(fit_glm)
 ```
 
 ## Poisson Regression
 
 ```r
-model_pois <- glm(carb ~ wt + hp, data = mtcars, family = poisson)
-diag_pois  <- diagnose_model(model_pois)
+fit_pois  <- glm(carb ~ wt + hp, data = mtcars, family = poisson)
+diag_pois <- diagnose_model(fit_pois)
 summary(diag_pois)
 ```
 
 Individual Poisson diagnostics:
 
 ```r
-check_vif(model_pois)
-check_overdispersion(model_pois)
-check_zero_inflation(model_pois)
-check_residual_analysis(model_pois)
+check_vif(fit_pois)
+check_overdispersion(fit_pois)
+check_zeroinflation(fit_pois)
 ```
 
 ## Cox Proportional Hazards Model
 
 ```r
 library(survival)
-data(lung)
 
-model_cox <- coxph(Surv(time, status) ~ age + sex + ph.ecog, data = lung)
-diag_cox  <- diagnose_model(model_cox)
+fit_cox  <- coxph(Surv(time, status) ~ age + sex, data = lung)
+diag_cox <- diagnose_model(fit_cox)
 summary(diag_cox)
 ```
 
 Individual Cox model diagnostics:
 
 ```r
-check_proportional_hazards(model_cox)
-check_influential_coxph(model_cox)
-check_functional_form_coxph(model_cox)
+check_proportionalhazards(fit_cox)
 ```
 
-Diagnostic plots for the Cox model (\autoref{fig:cox-plot}) display Schoenfeld residual
-trends over time, dfbeta influence plots for each coefficient, and martingale residuals
-against continuous predictors.
+# AI Usage Disclosure
 
-```r
-plot(diag_cox)
-```
+Claude Code (Anthropic) was used during software development to assist with refactoring R code, improving function documentation, identifying potential implementation issues, and suggesting code organization improvements. Claude Code was also used during manuscript preparation to improve grammar, readability, and overall presentation of the text.
 
-![Diagnostic plots for the Cox proportional hazards model fitted to the lung dataset.\label{fig:cox-plot}](cox_diagnostics.png){ width=90% }
+The underlying statistical methodology, package architecture, simulation study design, implementation decisions, analyses and interpretation of findings were developed and validated by the authors. AI-generated suggestions were treated as advisory only and were independently reviewed, tested, and verified before adoption.
 
-# AI usage disclosure
-
-No generative AI tools were used in the development of this software or the writing of
-this manuscript.
+The authors retain full responsibility for the software, manuscript, and all reported results.
 
 # Acknowledgements
 
-The authors acknowledge the developers of `car` [@fox2019], `lmtest` [@zeileis2002],
-`ResourceSelection` [@lele2019], and `survival` [@therneau2000], whose implementations
-provide the foundational test computations on which `modeldiag` builds.
+We acknowledge the developers and maintainers of the `car` [@fox2019], `lmtest`
+[@zeileis2002], `ResourceSelection` [@lele2019], and `survival` [@therneau2000] packages.
+Several diagnostic routines in `modeldiag` build on the methods and software infrastructure
+made available through these packages.
 
 # References
